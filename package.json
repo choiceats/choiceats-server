@@ -5,9 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-server": "tsc --p server/tsconfig.json",
-    "backend": "nodemon server/build/server.js",
-    "start": "nodemon src/server.js"
+    "build-server": "tsc --p tsconfig.json",
+    "start": "nodemon build/server.js"
   },
   "keywords": [],
   "author": "",

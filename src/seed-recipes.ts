@@ -1,4 +1,4 @@
-const seedRecipes = [{
+export default [{
 	"author":"six_sisters_stuff",
 	"ingredients":"1 Oreo cookie Crust\n6 oz. cool whip\n16 Grasshopper Cookies (crushed)\n14 oz. can sweetened condensed milk\n8 oz. cream cheese\ngreen food coloring",
 	"instructions":"Mix cream cheese, sweetened condensed milk and 3 drops of green coloring.\nFold in cool whip and crushed cookies. Pour into crust.\nGarnish with more crushed cookies and freeze for at least 5 hours or overnight.",
@@ -629,5 +629,3 @@ const seedRecipes = [{
 	"instructions":"1. Cook rice in water and butter for about 20 min.\n2. Mix everything but milk for 5 min. with beater until bubbly.\n3. Add milk and beat again.\n4. Pour into large microwave bowl and add rice.\n5. Cook in microwave for 10-15 min, stirring occasionally.",
 	"name":"Rice Pudding (Kevin's never the same)"
 }];
-
-module.exports = seedRecipes;

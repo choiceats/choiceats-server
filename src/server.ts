@@ -27,7 +27,7 @@ app.post('/graphql', bodyParser.json(), graphqlExpress({
 }));
 
 app.listen(4000);
-console.log('Running a GraphQL API server at localhost:4000/graphql');
+console.log('Running a GraphQL localhost:4000/graphql');
 
 // //Order matters for route matching
 // require('./home/index')(app)
