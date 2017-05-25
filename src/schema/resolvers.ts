@@ -1,10 +1,16 @@
-import seedRecipes from '../seed-recipes';
+import { query } from '../db';
 
 export const resolvers = {
   Query: {
-    recipes: () => {
-      console.log(obj, args, context);
-      return seedRecipes;
+    recipes: async () => {
+      try {
+        const results = await query('SELECT * FROM recipe', []);
+        return results.rows;
+      }
+      catch(e) {
+        console.error('Db Error:', e);
+        return e;
+      }
     },
   },
 };
