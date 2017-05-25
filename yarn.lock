@@ -9,6 +9,12 @@
     "@types/express" "*"
     "@types/node" "*"
 
+"@types/dotenv@^4.0.0":
+  version "4.0.0"
+  resolved "https://leadpages.jfrog.io/leadpages/api/npm/npm/@types/dotenv/-/dotenv-4.0.0.tgz#bd458844cb82ada047fa87a475270ad55492d2d4"
+  dependencies:
+    "@types/node" "*"
+
 "@types/express-serve-static-core@*":
   version "4.0.45"
   resolved "https://leadpages.jfrog.io/leadpages/api/npm/npm/@types/express-serve-static-core/-/express-serve-static-core-4.0.45.tgz#71bb1f87d7187482d0d8851f5b294458e1c78667"
@@ -379,6 +385,10 @@ deprecated-decorator@^0.1.6:
 destroy@~1.0.4:
   version "1.0.4"
   resolved "https://leadpages.jfrog.io/leadpages/api/npm/npm/destroy/-/destroy-1.0.4.tgz#978857442c44749e4206613e37946205826abd80"
+
+dotenv@^4.0.0:
+  version "4.0.0"
+  resolved "https://leadpages.jfrog.io/leadpages/api/npm/npm/dotenv/-/dotenv-4.0.0.tgz#864ef1379aced55ce6f95debecdce179f7a0cd1d"
 
 duplexer@~0.1.1:
   version "0.1.1"

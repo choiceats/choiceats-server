@@ -4,9 +4,11 @@ import {
 } from 'graphql-server-express';
 import * as bodyParser from 'body-parser';
 import * as express from 'express';
+import * as dotenv from 'dotenv';
+
+dotenv.config();
 
 const { schema } = require('./schema');
-
 const app = express();
 
 app.use(function(req, res, next) {
