@@ -1,9 +1,9 @@
 import * as pg from 'pg';
 import { QueryResult } from 'pg';
+import seedData from './seed-recipes';
 
 const { DB_NAME, DB_USER, DB_PASS, DB_HOST } = process.env;
 
-console.log('HMM...', DB_NAME, DB_USER, DB_PASS);
 const config = {
   user: DB_USER,
   database: DB_NAME, 
@@ -14,7 +14,6 @@ const config = {
   idleTimeoutMillis: 30000,
 };
 
-console.log('CONFIG', config);
 const pool = new pg.Pool(config);
 pool.on('error', function (err, client) {
   console.error('idle client error', err.message, err.stack);
@@ -34,3 +33,12 @@ export const query = function (text: string, values: any[]) {
 export const connect = function (callback: any) {
   return pool.connect(callback);
 };
+
+const migrateTheData = function () {
+  seedData.forEach((seed) => {
+    query(
+      'INSERT INTO recipe (name, author, ingredients, instructions) VALUES ($1, $2, $3, $4)',
+      [seed.name, seed.author, seed.ingredients, seed.instructions]
+    );
+  });
+}

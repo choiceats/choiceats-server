@@ -30,7 +30,3 @@ app.post('/graphql', bodyParser.json(), graphqlExpress({
 
 app.listen(4000);
 console.log('Running a GraphQL localhost:4000/graphql');
-
-// //Order matters for route matching
-// require('./home/index')(app)
-// require('./recipes/index')(app)
