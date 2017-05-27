@@ -1,5 +1,5 @@
-import { makeExecutableSchema } from 'graphql-tools';
-import { resolvers } from './resolvers';
+import { makeExecutableSchema } from 'graphql-tools'
+import { resolvers } from './resolvers'
 
 const typeDefs = `
   type Recipe {
@@ -12,7 +12,7 @@ const typeDefs = `
   type Query {
     recipes: [Recipe]
   }
-`;
+`
 
-const schema = makeExecutableSchema({ typeDefs, resolvers });
-export { schema };
+const schema = makeExecutableSchema({ typeDefs, resolvers })
+export { schema }

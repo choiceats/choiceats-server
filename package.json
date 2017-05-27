@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "standard": "standard",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel src --out-dir build",
     "start": "nodemon build/server.js"
@@ -25,8 +26,18 @@
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
+    "babel-eslint": "^7.2.3",
     "babel-preset-env": "^1.5.1",
     "babel-preset-flow": "^6.23.0",
-    "nodemon": "^1.11.0"
+    "eslint-plugin-flowtype": "^2.33.0",
+    "flow-bin": "^0.47.0",
+    "nodemon": "^1.11.0",
+    "standard": "^10.0.2"
+  },
+  "standard": {
+    "plugins": [
+      "flowtype"
+    ],
+    "parser": "babel-eslint"
   }
 }

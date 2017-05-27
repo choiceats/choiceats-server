@@ -1,8 +1,7 @@
-import pg from 'pg';
-import { QueryResult } from 'pg';
+import pg from 'pg'
 // import seedData from './seed-recipes';
 
-const { DB_NAME, DB_USER, DB_PASS, DB_HOST } = process.env;
+const { DB_NAME, DB_USER, DB_PASS, DB_HOST } = process.env
 
 const config = {
   user: DB_USER,
@@ -11,13 +10,13 @@ const config = {
   host: DB_HOST,
   port: 5432,
   max: 10,
-  idleTimeoutMillis: 30000,
-};
+  idleTimeoutMillis: 30000
+}
 
-const pool = new pg.Pool(config);
+const pool = new pg.Pool(config)
 pool.on('error', function (err, client) {
-  console.error('idle client error', err.message, err.stack);
-});
+  console.error('idle client error', err.message, err.stack)
+})
 
 export const query = function (text, values) {
   return new Promise((resolve, reject) => {
@@ -25,14 +24,14 @@ export const query = function (text, values) {
       if (err) {
         reject(err)
       }
-      resolve(res);
-    });
-  });
-};
+      resolve(res)
+    })
+  })
+}
 
-export const connect = function (callback: any) {
-  return pool.connect(callback);
-};
+export const connect = function (callback) {
+  return pool.connect(callback)
+}
 
 // const migrateTheData = function () {
 //   seedData.forEach((seed) => {
