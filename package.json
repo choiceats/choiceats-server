@@ -4,17 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "standard": "standard",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-server": "tsc --p tsconfig.json",
+    "build": "babel src --out-dir build",
     "start": "nodemon build/server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@types/body-parser": "^1.16.3",
-    "@types/dotenv": "^4.0.0",
-    "@types/pg": "^6.1.40",
     "body-parser": "^1.17.2",
     "compression": "^1.6.2",
     "cookie-parser": "^1.4.3",
@@ -27,7 +25,19 @@
     "pg": "^6.2.2"
   },
   "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-eslint": "^7.2.3",
+    "babel-preset-env": "^1.5.1",
+    "babel-preset-flow": "^6.23.0",
+    "eslint-plugin-flowtype": "^2.33.0",
+    "flow-bin": "^0.47.0",
     "nodemon": "^1.11.0",
-    "typescript": "^2.3.3"
+    "standard": "^10.0.2"
+  },
+  "standard": {
+    "plugins": [
+      "flowtype"
+    ],
+    "parser": "babel-eslint"
   }
 }
