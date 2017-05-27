@@ -5,16 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-server": "tsc --p tsconfig.json",
+    "build": "babel src --out-dir build",
     "start": "nodemon build/server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@types/body-parser": "^1.16.3",
-    "@types/dotenv": "^4.0.0",
-    "@types/pg": "^6.1.40",
     "body-parser": "^1.17.2",
     "compression": "^1.6.2",
     "cookie-parser": "^1.4.3",
@@ -27,7 +24,9 @@
     "pg": "^6.2.2"
   },
   "devDependencies": {
-    "nodemon": "^1.11.0",
-    "typescript": "^2.3.3"
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.5.1",
+    "babel-preset-flow": "^6.23.0",
+    "nodemon": "^1.11.0"
   }
 }

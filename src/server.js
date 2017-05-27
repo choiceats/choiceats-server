@@ -1,10 +1,10 @@
-import { 
+import {
   graphqlExpress,
   graphiqlExpress,
 } from 'graphql-server-express';
-import * as bodyParser from 'body-parser';
-import * as express from 'express';
-import * as dotenv from 'dotenv';
+import bodyParser from 'body-parser';
+import express from 'express';
+import dotenv from 'dotenv';
 
 dotenv.config();
 
