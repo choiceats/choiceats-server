@@ -6,9 +6,14 @@ import bodyParser from 'body-parser'
 import express from 'express'
 import dotenv from 'dotenv'
 
+import { schema } from './schema'
+import { updateSchema } from './db/update-schema'
+
 dotenv.config()
 
-const { schema } = require('./schema')
+// Update schema
+updateSchema()
+
 const app = express()
 
 app.use(function (req, res, next) {
