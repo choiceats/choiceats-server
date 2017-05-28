@@ -1,5 +1,5 @@
 // @flow
-import { query } from './db'
+import { query } from '../db'
 
 export const getAccessToken = async (bearerToken: string) => {
   let results

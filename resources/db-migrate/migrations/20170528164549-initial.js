@@ -19,7 +19,8 @@ exports.up = function (db) {
     id: { type: 'int', unsigned: true, primaryKey: true, autoIncrement: true },
     first_name: 'string',
     last_name: 'string',
-    email: { type: 'string', notNull: true }
+    access_token: 'string',
+    email: { type: 'string', notNull: true, unique: true }
   })
   .then(() => {
     return db.createTable('recipes', {
@@ -39,13 +40,13 @@ exports.up = function (db) {
       },
       ingredients: 'string',
       instructions: 'string'
-    });
-  });
+    })
+  })
 }
 
 exports.down = function (db) {
   return db.dropTable('recipes')
-    .then(() => db.dropTables('users'))
+    .then(() => db.dropTable('users'))
 }
 
 exports._meta = {

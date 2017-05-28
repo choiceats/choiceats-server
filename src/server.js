@@ -4,15 +4,14 @@ import {
 } from 'graphql-server-express'
 import bodyParser from 'body-parser'
 import express from 'express'
+import passport from 'passport'
 import dotenv from 'dotenv'
 
+import { passportConfig } from './auth/config-passport'
 import { schema } from './schema'
-import { updateSchema } from './db/update-schema'
 
 dotenv.config()
-
-// Update schema
-updateSchema()
+passportConfig(passport)
 
 const app = express()
 
@@ -28,9 +27,26 @@ app.use('/graphiql', graphiqlExpress({
   endpointURL: '/graphql'
 }))
 
-app.post('/graphql', bodyParser.json(), graphqlExpress({
-  schema
-}))
+app.post('/graphql',
+  passport.authenticate('bearer', { session: false }),
+  bodyParser.json(),
+  graphqlExpress({
+    schema
+  })
+)
+
+app.get('/testauth',
+  passport.authenticate('bearer', { session: false }),
+  (req, res) => {
+    res.json({success: true})
+  }
+)
+
+app.get('/testnoauth',
+  (req, res) => {
+    res.json({success: true})
+  }
+)
 
 app.listen(4000)
 console.log('Running a GraphQL localhost:4000/graphql')
