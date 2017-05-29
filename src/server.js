@@ -9,6 +9,7 @@ import dotenv from 'dotenv'
 
 import { passportConfig } from './auth/config-passport'
 import { schema } from './schema'
+import * as user from './db/user'
 
 dotenv.config()
 passportConfig(passport)
@@ -35,16 +36,34 @@ app.post('/graphql',
   })
 )
 
-app.get('/testauth',
-  passport.authenticate('bearer', { session: false }),
-  (req, res) => {
-    res.json({success: true})
+type AuthBody = {
+  body: {
+    username: string;
+    password: string;
+  }
+};
+
+// Authenticate the user
+app.post('/auth',
+  bodyParser.json(),
+  async (req: AuthBody, res) => {
+    const { username, password } = req.body
+    const isValid = await user.validateEmailAndPassword(username, password)
+    if (isValid) {
+      const token = await user.generateAccessToken(username)
+      res.json({ token })
+    } else {
+      res.status(401)
+      res.json({ error: 'Invalid creditials' })
+    }
   }
 )
 
-app.get('/testnoauth',
-  (req, res) => {
-    res.json({success: true})
+// Request a new user.
+app.post('/user',
+  bodyParser.json(),
+  async (req, res) => {
+
   }
 )
 
