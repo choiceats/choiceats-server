@@ -1,5 +1,5 @@
+// @flow
 import pg from 'pg'
-// import seedData from './seed-recipes';
 
 const { DB_NAME, DB_USER, DB_PASS, DB_HOST } = process.env
 
@@ -18,7 +18,7 @@ pool.on('error', function (err, client) {
   console.error('idle client error', err.message, err.stack)
 })
 
-export const query = function (text, values) {
+export const query = function (text: string, values: any[]) {
   return new Promise((resolve, reject) => {
     pool.query(text, values, (err, res) => {
       if (err) {
@@ -29,6 +29,6 @@ export const query = function (text, values) {
   })
 }
 
-export const connect = function (callback) {
+export const connect = function (callback: Function) {
   return pool.connect(callback)
 }
