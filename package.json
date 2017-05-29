@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "migrate:new": "db-migrate create -m resources/db-migrate/migrations --config resources/db-migrate/database.json",
+    "migrate:up": "db-migrate up -m resources/db-migrate/migrations --config resources/db-migrate/database.json",
     "standard": "standard",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel src --out-dir build",
@@ -22,6 +24,8 @@
     "graphql": "^0.9.6",
     "graphql-server-express": "^0.7.2",
     "graphql-tools": "^0.11.0",
+    "passport": "^0.3.2",
+    "passport-http-bearer": "^1.0.1",
     "pg": "^6.2.2"
   },
   "devDependencies": {
@@ -29,6 +33,8 @@
     "babel-eslint": "^7.2.3",
     "babel-preset-env": "^1.5.1",
     "babel-preset-flow": "^6.23.0",
+    "db-migrate": "^0.10.0-beta.20",
+    "db-migrate-pg": "^0.1.11",
     "eslint-plugin-flowtype": "^2.33.0",
     "flow-bin": "^0.47.0",
     "nodemon": "^1.11.0",
@@ -38,6 +44,9 @@
     "plugins": [
       "flowtype"
     ],
-    "parser": "babel-eslint"
+    "parser": "babel-eslint",
+    "ignore": [
+      "resources/db-migrate"
+    ]
   }
 }

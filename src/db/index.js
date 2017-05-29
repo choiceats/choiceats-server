@@ -32,14 +32,3 @@ export const query = function (text, values) {
 export const connect = function (callback) {
   return pool.connect(callback)
 }
-
-// const migrateTheData = function () {
-//   seedData.forEach((seed) => {
-//     query(
-//       'INSERT INTO recipe (name, author, ingredients, instructions) VALUES ($1, $2, $3, $4)',
-//       [seed.name, seed.author, seed.ingredients, seed.instructions]
-//     );
-//   });
-// }
-//
-// migrateTheData()
