@@ -3,6 +3,7 @@ import { resolvers } from './resolvers'
 
 const typeDefs = `
   type Recipe {
+    id: Int
     author: String
     ingredients: String
     instructions: String
@@ -11,6 +12,7 @@ const typeDefs = `
 
   type Query {
     recipes: [Recipe]
+    recipe(id: ID): Recipe
   }
 `
 
