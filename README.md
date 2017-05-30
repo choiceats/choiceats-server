@@ -43,7 +43,7 @@ First, compile the server code:
 yarn build-server
 ```
 
-Second, start up the client
+Second, start up the client:
 ```
 yarn start
 ```
