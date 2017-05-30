@@ -1,3 +1,4 @@
+// @flow
 import {
   graphqlExpress,
   graphiqlExpress
@@ -15,8 +16,7 @@ dotenv.config()
 passportConfig(passport)
 
 const app = express()
-
-app.use(function (req, res, next) {
+app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*')
   res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS')
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization, Access-Control-Allow-Credentials')
@@ -24,9 +24,11 @@ app.use(function (req, res, next) {
   next()
 })
 
-app.use('/graphiql', graphiqlExpress({
-  endpointURL: '/graphql'
-}))
+app.get('/graphiql',
+  graphiqlExpress({
+    endpointURL: '/graphql'
+  })
+)
 
 app.post('/graphql',
   passport.authenticate('bearer', { session: false }),
@@ -62,8 +64,8 @@ app.post('/auth',
 // Request a new user.
 app.post('/user',
   bodyParser.json(),
-  async (req, res) => {
-
+  (req, res) => {
+    res.json({})
   }
 )
 

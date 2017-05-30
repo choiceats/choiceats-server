@@ -46,14 +46,21 @@ module.exports.getClient = function * (clientId, clientSecret) {
 /**
  * Get refresh token.
  */
+type Token = {
+  access_token: string;
+}
+type TokenResponse = {
+  rowCount: number;
+  rows: Token[];
+}
 
-export const getRefreshToken = async (bearerToken: string) => {
-  let results
+export const getRefreshToken = async (bearerToken: string): Token | boolean => {
+  let results: TokenResponse
   try {
     results = await query('SELECT access_token, access_token_expires_on, client_id, refresh_token, refresh_token_expires_on, user_id FROM oauth_tokens WHERE refresh_token = $1', [bearerToken])
   } catch (e) {
     console.error('Could not get refresh token info from DB')
-    return null
+    return false
   }
 
   return results.rowCount ? results.rows[0] : false

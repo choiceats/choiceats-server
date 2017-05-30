@@ -25,14 +25,19 @@ exports.up = function (db) {
       notNull: true,
       defaultValue: ''
     })
+  }).then(() => {
+    return db.addColumn('users', 'expires', {
+      type: 'timestamp',
+      notNull: true,
+      defaultValue: 'now()'
+    })
   })
 }
 
 exports.down = function (db) {
   return db.removeColumn('users', 'password')
-    .then(() => {
-      db.removeColumn('users', 'salt')
-    })
+    .then(() => db.removeColumn('users', 'salt'))
+    .then(() => db.removeColumn('users', 'timestamp'))
 }
 
 exports._meta = {
