@@ -31,6 +31,7 @@ type ValidateQueryResponse = {
 
 export const validateEmailAndPassword = async (email: string, password: string) => {
   const results: ?ValidateQueryResponse = await query('SELECT email, password, salt FROM users WHERE email=$1', [email])
+  console.log('RESULTS', results.rows[0], email)
   if (results && results.rowCount) {
     const userPassword: string = results.rows[0].password
     const salt: string = results.rows[0].salt
@@ -61,7 +62,7 @@ export const createUser = async (email: string, password: string, firstName: str
       VALUES ($1, $2, $3, $4, $5)
       RETURNING id
     `,
-    [firstName, lastName, email, password, salt])
+    [firstName, lastName, email, token, salt])
 
   if (createResults.rowCount) {
     return createResults.rows[0].id

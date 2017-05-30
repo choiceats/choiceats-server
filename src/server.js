@@ -40,7 +40,7 @@ app.post('/graphql',
 
 type AuthBody = {
   body: {
-    username: string;
+    email: string;
     password: string;
   }
 };
@@ -49,10 +49,10 @@ type AuthBody = {
 app.post('/auth',
   bodyParser.json(),
   async (req: AuthBody, res) => {
-    const { username, password } = req.body
-    const isValid = await user.validateEmailAndPassword(username, password)
+    const { email, password } = req.body
+    const isValid = await user.validateEmailAndPassword(email, password)
     if (isValid) {
-      const token = await user.generateAccessToken(username)
+      const token = await user.generateAccessToken(email)
       res.json({ token })
     } else {
       res.status(401)
