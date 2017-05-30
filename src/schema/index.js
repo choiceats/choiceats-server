@@ -12,9 +12,9 @@ const typeDefs = `
 
   type Query {
     recipes: [Recipe]
+    recipe(id: ID): Recipe
   }
 `
-//    recipe(id: ID): Recipe
 
 const schema = makeExecutableSchema({ typeDefs, resolvers })
 export { schema }

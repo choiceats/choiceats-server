@@ -57,10 +57,23 @@ you run `yarn build` again.
 After starting your server navigate to `http://localhost:4000/graphiql` for
 an interactive query runner.
 
-example query
+example queries
 ```
 {
   recipes {
+    id
+    name
+    author
+    ingredients
+    instructions
+  }
+}
+```
+
+```
+{
+  recipe(id: 4) {
+    id
     name
     author
     ingredients
