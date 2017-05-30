@@ -58,6 +58,9 @@ After starting your server navigate to `http://localhost:4000/graphiql` for
 an interactive query runner.
 
 example queries
+
+
+get all recipes
 ```
 {
   recipes {
@@ -70,6 +73,7 @@ example queries
 }
 ```
 
+select single recipe
 ```
 {
   recipe(id: 4) {
@@ -78,6 +82,16 @@ example queries
     author
     ingredients
     instructions
+  }
+}
+```
+
+delete recipe
+```
+mutation deleteRecipe {
+  deleteRecipe(id: 4) {
+    id
+    count
   }
 }
 ```

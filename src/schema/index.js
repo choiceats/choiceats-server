@@ -14,7 +14,17 @@ const typeDefs = `
     recipes: [Recipe]
     recipe(id: ID): Recipe
   }
+
+  type DeleteRecipeResult {
+    id: ID!,
+    count: Int!
+  }
+
+  type Mutation {
+    deleteRecipe(id: ID): DeleteRecipeResult!
+  }
 `
+//    updateRecipe(payload: Recipe!): Recipe!
 
 const schema = makeExecutableSchema({ typeDefs, resolvers })
 export { schema }
