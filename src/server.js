@@ -64,8 +64,14 @@ app.post('/auth',
 // Request a new user.
 app.post('/user',
   bodyParser.json(),
-  (req, res) => {
-    res.json({})
+  async (req, res) => {
+    const { email, password, firstName, lastName } = req.body
+    const newUser = await user.createUser(email, password, firstName, lastName)
+    if (newUser) {
+      res.json({user: newUser})
+    } else {
+      res.json({error: 'something here...'})
+    }
   }
 )
 

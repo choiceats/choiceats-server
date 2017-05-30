@@ -46,3 +46,34 @@ export const generateAccessToken = async (email: string) => {
   const results = await query('UPDATE users SET access_token=$1 WHERE email=$2', [token, email])
   return token
 }
+
+export const createUser = async (email: string, password: string, firstName: string, lastName: string) => {
+  const results = await query('SELECT email FROM users WHERE email=$1', [email])
+  if (results.rowCount) {
+    return false // Email taken
+  }
+
+  const { token, salt } = await generateSecrets(password)
+  const createResults = await query(
+    `
+      INSERT INTO users
+        (first_name, last_name, email, password, salt)
+      VALUES ($1, $2, $3, $4, $5)
+      RETURNING id
+    `,
+    [firstName, lastName, email, password, salt])
+
+  if (createResults.rowCount) {
+    return createResults.rows[0].id
+  }
+  return false
+}
+
+const generateSecrets = async (password: string) => {
+  console.log('pass', password)
+  let salt = await bcrypt.genSalt(10)
+  console.log('SALT', salt)
+  let token = await bcrypt.hash(password, salt)
+
+  return { token, salt }
+}
