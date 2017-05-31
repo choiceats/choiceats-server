@@ -95,3 +95,16 @@ mutation deleteRecipe {
   }
 }
 ```
+
+insert recipe
+```
+mutation insertRecipe {
+  insertRecipe(payload: {name: "test2", instructions: "bob", author: "2", ingredients: "pineapple"}) {
+    id
+    name
+    instructions
+    author
+    ingredients
+  }
+}
+```

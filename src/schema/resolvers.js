@@ -40,5 +40,38 @@ export const resolvers = {
         return e
       }
     },
+
+    insertRecipe: async (object, args) => {
+      const {
+        name='',
+        ingredients='',
+        instructions='',
+        author=''
+      } = args.payload
+      if (!name) return null
+      
+      const inputFields = [name, ingredients, instructions, author]
+      const sqlString = `
+INSERT INTO recipes (name, ingredients, instructions, author_id)
+VALUES ($1, $2, $3, $4)
+RETURNING id, name, ingredients, instructions, author_id
+`
+
+      try {
+        const results = await query(sqlString, inputFields)
+        const newRecipe = results.rows && results.rows[0]
+        const authorInfo = await query('SELECT first_name, last_name FROM users WHERE id = $1 LIMIT 1', [newRecipe.author_id || ''])
+        const newRecipeName = authorInfo.rows && authorInfo.rows[0]
+
+        return Object.assign(
+          {},
+          results.rows[0],
+          {author: `${newRecipeName.first_name} ${newRecipeName.last_name}`}
+        )
+      } catch (e) {
+        console.error('Db Error:', e)
+        return e
+      }
+    },
   }
 }

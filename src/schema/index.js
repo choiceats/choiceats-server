@@ -20,11 +20,19 @@ const typeDefs = `
     count: Int!
   }
 
+  input RecipePayload {
+    id: ID
+    author: String
+    ingredients: String
+    instructions: String
+    name: String!
+  }
+
   type Mutation {
     deleteRecipe(id: ID): DeleteRecipeResult!
+    insertRecipe(payload: RecipePayload!): Recipe!
   }
 `
-//    updateRecipe(payload: Recipe!): Recipe!
 
 const schema = makeExecutableSchema({ typeDefs, resolvers })
 export { schema }
