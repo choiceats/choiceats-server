@@ -22,7 +22,7 @@ const typeDefs = `
 
   input RecipePayload {
     id: ID
-    author: String
+    authorId: String
     ingredients: String
     instructions: String
     name: String!
@@ -31,6 +31,7 @@ const typeDefs = `
   type Mutation {
     deleteRecipe(id: ID): DeleteRecipeResult!
     insertRecipe(payload: RecipePayload!): Recipe!
+    updateRecipe(payload: RecipePayload!): Recipe!
   }
 `
 

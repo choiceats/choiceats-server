@@ -99,7 +99,20 @@ mutation deleteRecipe {
 insert recipe
 ```
 mutation insertRecipe {
-  insertRecipe(payload: {name: "test2", instructions: "bob", author: "2", ingredients: "pineapple"}) {
+  insertRecipe(payload: {name: "test2", instructions: "bob", authorId: "2", ingredients: "pineapple"}) {
+    id
+    name
+    instructions
+    author
+    ingredients
+  }
+}
+```
+
+update recipe
+```
+mutation insertRecipe {
+  insertRecipe(payload: {id: 4, name: "test2"}) {
     id
     name
     instructions

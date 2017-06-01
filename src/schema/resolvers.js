@@ -73,5 +73,57 @@ RETURNING id, name, ingredients, instructions, author_id
         return e
       }
     },
+
+    updateRecipe: async (object, args) => {
+      const {
+        id,
+        name,
+        ingredients,
+        instructions,
+        authorId
+      } = args.payload
+      if (!name || !id) return null
+      
+      const updateFields = {
+        name,
+        ingredients,
+        instructions,
+        author_id: authorId
+      }
+      const updateKeys = Object.keys(updateFields)
+        .filter(key => updateFields[key] !== null && updateFields[key] !== undefined)
+      const inputFields = updateKeys
+        .map(key => updateFields[key])
+      const sqlUpdates = updateKeys.reduce(
+        (acc, val, i) => acc +
+          `${updateKeys[i]} = ` +
+          `$${i + 1}` +
+          ((i < updateKeys.length - 1) ? ', ': ' ')
+        , '') // of form "name = $1, ingredients = $2, instruction = $3 "
+
+
+      const sqlString = `
+UPDATE recipes 
+SET ${sqlUpdates}
+WHERE id = ${id}
+RETURNING id, name, ingredients, instructions, author_id
+`
+
+      try {
+        const results = await query(sqlString, inputFields)
+        const newRecipe = results.rows && results.rows[0]
+        const authorInfo = await query('SELECT first_name, last_name FROM users WHERE id = $1 LIMIT 1', [newRecipe.author_id || ''])
+        const newRecipeName = authorInfo.rows && authorInfo.rows[0]
+
+        return Object.assign(
+          {},
+          results.rows[0],
+          {author: `${newRecipeName.first_name} ${newRecipeName.last_name}`}
+        )
+      } catch (e) {
+        console.error('Db Error:', e)
+        return e
+      }
+    },
   }
 }
