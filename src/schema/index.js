@@ -5,6 +5,7 @@ const typeDefs = `
   type Recipe {
     id: Int
     author: String
+    authorId: String
     ingredients: String
     instructions: String
     name: String

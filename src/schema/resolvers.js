@@ -19,7 +19,7 @@ export const resolvers = {
           .map(({first_name, last_name, author_id, ...other}) => ({
             ...other,
             author: first_name + (last_name ? ` ${last_name}` : ''),
-            authorId: `${author_id}`
+            authorId: author_id
           }))
         }
         else {
