@@ -1,14 +1,30 @@
 // @flow
 import { query } from '../db'
 
+const userFields = ' first_name, last_name '
+const recipeFields = ' recipes.id, author_id, name, ingredients, instructions '
+const sqlRecipesGet = `
+SELECT ${recipeFields}, ${userFields}
+FROM recipes
+LEFT JOIN users
+ON recipes.author_id = users.id
+` 
 export const resolvers = {
   Query: {
     recipes: async () => {
       try {
-        const results = await query('SELECT * FROM recipes', [])
-        return (results)
-          ? results.rows
-          : null
+        const results = await query(sqlRecipesGet, [])
+        if (results) {
+          return results.rows
+          .map(({first_name, last_name, author_id, ...other}) => ({
+            ...other,
+            author: first_name + (last_name ? ` ${last_name}` : ''),
+            authorId: `${author_id}`
+          }))
+        }
+        else {
+          return null
+        }
           
       } catch (e) {
         console.error('Db Error:', e)
@@ -18,7 +34,7 @@ export const resolvers = {
 
     recipe: async (object, args) => {
       try {
-        const results = await query('SELECT * FROM recipes WHERE id = $1', [args.id])
+        const results = await query(`${sqlRecipesGet} WHERE recipes.id = $1`, [args.id])
         return results.rows[0]
       } catch (e) {
         console.error('Db Error:', e)
@@ -51,14 +67,14 @@ export const resolvers = {
       if (!name) return null
       
       const inputFields = [name, ingredients, instructions, author]
-      const sqlString = `
+      const sqlInsert = `
 INSERT INTO recipes (name, ingredients, instructions, author_id)
 VALUES ($1, $2, $3, $4)
 RETURNING id, name, ingredients, instructions, author_id
 `
 
       try {
-        const results = await query(sqlString, inputFields)
+        const results = await query(sqlInsert, inputFields)
         const newRecipe = results.rows && results.rows[0]
         const authorInfo = await query('SELECT first_name, last_name FROM users WHERE id = $1 LIMIT 1', [newRecipe.author_id || ''])
         const newRecipeName = authorInfo.rows && authorInfo.rows[0]
@@ -102,7 +118,7 @@ RETURNING id, name, ingredients, instructions, author_id
         , '') // of form "name = $1, ingredients = $2, instruction = $3 "
 
 
-      const sqlString = `
+      const sqlUpdate = `
 UPDATE recipes 
 SET ${sqlUpdates}
 WHERE id = ${id}
@@ -110,7 +126,7 @@ RETURNING id, name, ingredients, instructions, author_id
 `
 
       try {
-        const results = await query(sqlString, inputFields)
+        const results = await query(sqlUpdate, inputFields)
         const newRecipe = results.rows && results.rows[0]
         const authorInfo = await query('SELECT first_name, last_name FROM users WHERE id = $1 LIMIT 1', [newRecipe.author_id || ''])
         const newRecipeName = authorInfo.rows && authorInfo.rows[0]
