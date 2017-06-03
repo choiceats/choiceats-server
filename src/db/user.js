@@ -43,9 +43,17 @@ export const validateEmailAndPassword = async (email: string, password: string) 
 }
 
 export const generateAccessToken = async (email: string) => {
+  const sqlSetToken = `
+UPDATE users
+SET access_token=$1
+WHERE email=$2
+RETURNING id, first_name, last_name, email
+`;
+
   const token = rand(160, 36)
-  const results = await query('UPDATE users SET access_token=$1 WHERE email=$2', [token, email])
-  return token
+  const results = await query(sqlSetToken, [token, email])
+  console.log(results.rows)
+  return {...results.rows[0], token}
 }
 
 export const createUser = async (email: string, password: string, firstName: string, lastName: string) => {

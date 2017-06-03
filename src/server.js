@@ -52,8 +52,13 @@ app.post('/auth',
     const { email, password } = req.body
     const isValid = await user.validateEmailAndPassword(email, password)
     if (isValid) {
-      const token = await user.generateAccessToken(email)
-      res.json({ token })
+      const tokenResults = await user.generateAccessToken(email)
+      res.json({
+        email: tokenResults.email,
+        name: tokenResults.first_name + (tokenResults.last_name ? ` ${tokenResults.last_name}` : ''),
+        token: tokenResults.token,
+        userId: tokenResults.id,
+      })
     } else {
       res.status(401)
       res.json({ error: 'Invalid creditials' })
