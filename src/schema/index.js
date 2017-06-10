@@ -2,11 +2,22 @@ import { makeExecutableSchema } from 'graphql-tools'
 import { resolvers } from './resolvers'
 
 const typeDefs = `
+  type Unit {
+    name: String
+    abbr: String
+  }
+
+  type Ingredient {
+    name: String!
+    unit: Unit
+    quantity: Int!
+  }
+
   type Recipe {
-    id: Int
+    id: ID
     author: String
     authorId: String
-    ingredients: String
+    ingredients: [Ingredient]
     instructions: String
     name: String
   }
@@ -14,25 +25,6 @@ const typeDefs = `
   type Query {
     recipes: [Recipe]
     recipe(id: ID): Recipe
-  }
-
-  type DeleteRecipeResult {
-    id: ID!,
-    count: Int!
-  }
-
-  input RecipePayload {
-    id: ID
-    authorId: String
-    ingredients: String
-    instructions: String
-    name: String!
-  }
-
-  type Mutation {
-    deleteRecipe(id: ID): DeleteRecipeResult!
-    insertRecipe(payload: RecipePayload!): Recipe!
-    updateRecipe(payload: RecipePayload!): Recipe!
   }
 `
 

@@ -29,11 +29,3 @@ declare module 'passport-http-bearer/lib/index' {
 declare module 'passport-http-bearer/lib/strategy' {
   declare module.exports: any;
 }
-
-// Filename aliases
-declare module 'passport-http-bearer/lib/index.js' {
-  declare module.exports: $Exports<'passport-http-bearer/lib/index'>;
-}
-declare module 'passport-http-bearer/lib/strategy.js' {
-  declare module.exports: $Exports<'passport-http-bearer/lib/strategy'>;
-}
