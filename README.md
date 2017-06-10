@@ -121,3 +121,13 @@ mutation insertRecipe {
   }
 }
 ```
+
+### Map ports
+
+
+To fake server listening on port 80, run 
+
+```
+sudo iptables -A PREROUTING -t nat -p tcp --dport 80 -j REDIRECT --to-port 4000
+sudo iptables -A OUTPUT -t nat -p tcp --dport 80 -j REDIRECT --to-port 4000
+```
