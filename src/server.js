@@ -6,6 +6,7 @@ import {
 import bodyParser from 'body-parser'
 import express from 'express'
 import passport from 'passport'
+import path from 'path'
 import dotenv from 'dotenv'
 
 import { passportConfig } from './auth/config-passport'
@@ -15,13 +16,22 @@ import * as user from './db/user'
 dotenv.config()
 passportConfig(passport)
 
+const static_path = path.join(__dirname, '../build')
 const app = express()
+app.use(express.static(static_path))
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*')
   res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS')
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization, Access-Control-Allow-Credentials')
   res.header('Access-Control-Allow-Credentials', 'true')
   next()
+})
+
+app.get('/', (req, res) => {
+  res.sendFile('index.html', {
+    root: static_path
+  })
+  return null
 })
 
 app.get('/graphiql',

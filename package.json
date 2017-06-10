@@ -10,6 +10,7 @@
     "standard": "standard",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel src --out-dir build",
+    "build-full": "babel src --out-dir build && git clone https://github.com/choiceats/choiceats tmp-fed && cd tmp-fed && rm yarn.lock && yarn install && yarn test && yarn build && cp -R build/* ../build && cd .. && rm -rf tmp-fed",
     "start": "nodemon build/server.js"
   },
   "keywords": [],
