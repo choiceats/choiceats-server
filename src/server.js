@@ -91,5 +91,6 @@ app.post('/user',
 )
 
 const port = 4000
-app.listen(port)
+const address = '0.0.0.0'
+app.listen(port, address)
 console.log(`Running a GraphQL localhost:${port}/graphql`)
