@@ -233,286 +233,280 @@ export default [{
     ],
     'instructions': '1. Sprinkle yeast and sugar over water in mixing bowl. Let sit for 3 minutes.\n2. Add and mix the rest of the ingredients to the bowl, except for one cup of the flour.\n3. Add remaining flour 1/2 cup at a time and kneed until dough is sticky, but pulls away from hands easily. Add more flour if needed.\n4. Preheat oven to 170 deg. F., and turn off hit when 170 deg. F. is reached.\n5. Form a dough ball, cover with cloth in the bowl, and let it raise in the heated oven for at least 1 hour.\n6. Remove dough, form into an oval shape, heat oven to 350-375 deg. F., grease desired pan, place oval inside, score the top, and bake for at least 30 minutes.',
     'name': 'Vanilla Egg Bread'
+  }, {
+      'author': 'meganashby',
+      'ingredients': [
+        {packageQuantity: 1, package: 'packages', name: 'frozen corn'},
+        {unitQuantity: 1, unit: CUPS, name: 'carrots, sliced'},
+        {unitQuantity: 1, unit: CUPS, name: 'broccoli'},
+        {packageQuantity: 2, package: 'cans', name: 'cream of potato soup'},
+        {unitQuantity: 0.5, unit: CUPS, name: 'grated Parmesan cheese'},
+        {unitQuantity: 2, unit: CUPS, name: 'milk'},
+        {packageQuantity: 1, package: 'to taste', name: 'Cheddar cheese'}
+      ],
+      'instructions': '1. Cook corn, carrots, and broccoli together.\n2. Add remaining ingredients and simmer until warmed through.',
+      'name': 'Broccoli Cheese Soup'
+    }, {
+      'author': 'neallred',
+      'ingredients': [
+        {unitQuantity: 2, unit: CUPS, name: 'sugar'},
+        {unitQuantity: 1, unit: TABLESPOONS, name: 'molasses'},
+        {unitQuantity: 0.5, unit: CUPS, name: 'oil'},
+        {unitQuantity: 1, unit: CUPS, name: 'peanut butter'},
+        {unitQuantity: 1, unit: TEASPOONS, name: 'butter flavor'},
+        {unitQuantity: 1, unit: TEASPOONS, name: 'vanilla'},
+        {unitQuantity: 3, unit: UNITLESS, name: 'large eggs'},
+        {unitQuantity: 2.5, unit: CUPS, name: 'flour'},
+        {unitQuantity: 1, unit: CUPS, name: 'oatmeal'},
+        {unitQuantity: 1.5, unit: TEASPOONS, name: 'baking soda'},
+        {unitQuantity: 1, unit: TEASPOONS, name: 'baking powder'},
+        {unitQuantity: 0.5, unit: TEASPOONS, name: 'salt'},
+        {unitQuantity: 1, unit: UNITLESS, name: 'granulated sugar'}
+      ],
+      'instructions': '1. Mix together: sugar, molasses, oil, peanut butter, butter flavor, vanilla, eggs.\n2. Mix in: flour, oatmeal, baking soda, baking powder, salt.\n3. Roll into 1 1/4" balls.\n4. Roll balls in sugar and place on baking sheet. Flatten with fork or bottom of cup.\n5. Bake at 375 deg. F. for 8-9 minutes.',
+      'name': 'Peanut Butter Oatmeal Cookies'
+    }, {
+      'author': 'violet2flame',
+      'ingredients': [
+       {unitQuantity: 0.5, unit: CUPS, name: 'black beans'},
+       {unitQuantity: 1, unit: UNITLESS, name: 'cilantro, chopped'},
+       {unitQuantity: 1, unit: TEASPOONS, name: 'cayenne powder'},
+       {packageQuantity: 1, package: 'dashes', name: 'salt'},
+       {unitQuantity: 1, unit: UNITLESS, name: 'onions, chopped'},
+       {unitQuantity: 1, unit: UNITLESS, name: 'minced garlic'}
+      ],
+      'instructions': '1. Bring ingredients to boil, and let simmer 5 minutes. Serve with chips.',
+      'name': "Jenna's Black Bean Dip"
+    }, {
+      'author': 'neallred',
+      'ingredients': [
+       {unitQuantity: 3, unit: CUPS, name: 'bread flour'},
+       {unitQuantity: 1.25, unit: CUPS, name: 'boiling water'},
+       {unitQuantity: 2, unit: TABLESPOONS, name: 'vegetable oil'},
+       {packageQuantity: 1, package: 'to taste', name: 'salt'},
+       {packageQuantity: 1, package: 'to taste', name: 'pepper'},
+       {packageQuantity: 1, package: 'bunches', name: 'green onions, finely chopped'},
+       {unitQuantity: 2, unit: TEASPOONS, name: 'vegetable oil'}
+      ],
+      'instructions': '1. Use fork to mix flour and boiling water in a large bowl. Knead dough into a ball. Cover bowl with plastic wrap; let dough rest for 30-60 min.\n2. Evenly divide dough into 16 pieces. Roll each piece into a 1/4" thick circle. Brush each circle with oil, season with salt and pepper, and sprinkle with about 1 tsp. green onions. Roll up, cigar style, and pinch open ends together to form a circle. Roll each circle flat to 1/4".\n3. Heat 2 tsp. oil in a large skillet. Fry pancakes until golden brown, about 2 min. on each side. Makes 16 pancakes.',
+      'name': 'Green Onion Pancakes'
+    }, {
+      'author': 'lemuel',
+      'ingredients': [
+       {unitQuantity: 12, unit: UNITLESS, name: 'lasagna noodles'},
+       {unitQuantity: 8, unit: OUNCES, name: 'Parmesan cheese, grated or dry'},
+       {unitQuantity: 0.5, unit: POUNDS, name: 'ground beef'},
+       {unitQuantity: 0.25, unit: CUPS, name: 'olive oil'},
+       {unitQuantity: 0.5, unit: UNITLESS, name: 'onions, finely chopped'},
+       {unitQuantity: 2, unit: UNITLESS, name: 'garlic cloves, minced'},
+       {packageQuantity: 1, package: '28 oz. cans', name: 'crushed tomatoes'},
+       {unitQuantity: 8, unit: OUNCES, name: 'tomato sauce'},
+       {unitQuantity: 1, unit: TABLESPOONS, name: 'sugar'},
+       {unitQuantity: 2, unit: UNITLESS, name: 'bay leaves'},
+       {unitQuantity: 1, unit: TEASPOONS, name: 'celery seed'},
+       {unitQuantity: 1, unit: TEASPOONS, name: 'salt'},
+       {unitQuantity: 1, unit: TEASPOONS, name: 'basil'},
+       {unitQuantity: 1, unit: TEASPOONS, name: 'oregano'},
+       {unitQuantity: 0.125, unit: TEASPOONS, name: 'pepper'},
+       {packageQuantity: 1, package: 'cubes', name: 'margarine'},
+       {unitQuantity: 0.5, unit: CUPS, name: 'flour'},
+       {unitQuantity: 0.5, unit: TEASPOONS, name: 'salt'},
+       {unitQuantity: 3, unit: CUPS, name: 'milk'}
+      ],
+      'instructions': 'RED SAUCE:\n1. In 4-6 qt pot, brown hamburger, onion, and garlic in olive oil.\n2. Add all spices, tomato sauce, and crushed tomatoes.\n3. Simmer 20-30 min.\nWHITE SAUCE:\n1. In sauce pan, melt margarine.\n2. Add flour and salt to make paste.\n3. Add the milk all at once.\n4. cook and stir over medium heat until sauce is thick and bubbly\nNOODLES:\n1. Cook 1 large package of lasagna noodles according to directions (9 or 12 noodles).\n2. Drain and rinse on cool water\nLASAGNA:\n1. In 9x13 pan, assemble lasagna in following order at least three times: Noodles, red sauce, white sauce, sprinkle with parmesan cheese.\n2. Bake at 350 deg. F. for 40-45 min. Allow 10-15 min to cool.',
+      'name': 'Kennedy Center Lasagna'
+    }, {
+      'author': 'neallred',
+      'ingredients': [
+       {unitQuantity: 1, unit: TABLESPOONS, name: 'unsalted butter'},
+       {unitQuantity: 0.5, unit: UNITLESS, name: 'medium onions, finely chopped'},
+       {unitQuantity: 0.5, unit: UNITLESS, name: 'medium red bell peppers, finely chopped'},
+       {packageQuantity: 2, package: 'pinches', name: 'kosher salt'},
+       {unitQuantity: 1.5, unit: TEASPOONS, name: 'kosher salt'},
+       {unitQuantity: 2, unit: CUPS, name: 'long-grain white rice'},
+       {packageQuantity: 1, package: 'pinches', name: 'saffron'},
+       {unitQuantity: 2.5, unit: CUPS, name: 'chicken broth'},
+       {unitQuantity: 1, unit: UNITLESS, name: '1 by 2 inch strip orange zest'},
+       {unitQuantity: 2, unit: UNITLESS, name: 'bay leaves'},
+       {unitQuantity: 0.5, unit: CUPS, name: 'peas'},
+       {unitQuantity: 0.25, unit: CUPS, name: 'golden raisins'},
+       {unitQuantity: 0.25, unit: CUPS, name: 'pistachios, chopped'}
+      ],
+      'instructions': '1. Steep saffron in 1/4 c. hot but not boiling water (substitute turmeric powder if saffron is not available). 2. Preheat the oven to 350 deg. F.\n3. Melt the butter in a 3-quart saucier over medium heat.\n4. Stir in the onion, bell pepper and 2 pinches of salt.\n5. Decrease the heat to low and sweat until the onion is translucent and aromatic but not browned, 3 to 4 minutes. Increase the heat to medium and add the rice. Cook, stirring frequently, until you smell nuts, another 3 to 4 minutes.\n6. Add the saffron and its water, the broth, orange zest, bay leaves and the remaining 1 1/2 teaspoons salt. Increase the heat and bring to a boil.\n7. OK, now the weird part: Thoroughly wet a clean towel, kill the heat, scatter the peas (fresh or frozen) on top of the rice, then place the towel across the top of the saucier. Top with the lid, then fold the towel corners up over the lid.\n8. Transfer the saucier (towel and all) to the oven and bake 15 minutes.\n9. Remove and rest at room temperature for 15 more minutes without opening the lid.\n10. Fish out the orange zest and bay leaves. Turn the pilaf out onto a platter, fluff with a large fork and garnish with the raisins and pistachios.',
+      'name': 'Rice Pilaf'
+    }, {
+      'author': 'neallred',
+      'ingredients': [
+       {unitQuantity: 2, unit: CUPS, name: 'flour'},
+       {unitQuantity: 1, unit: TABLESPOONS, name: 'baking powder'},
+       {unitQuantity: 1, unit: TEASPOONS, name: 'salt'},
+       {unitQuantity: 0.25, unit: CUPS, name: 'butter'},
+       {unitQuantity: 0.667, unit: CUPS, name: 'milk'}
+      ],
+      'instructions': '1. Mix the dry ingredients.\n2. Cut/mix in butter (can substitute 3 Tbsp. oil for 1/4 c. butter)\n3.Stir in the milk.\n4. Knead the dough on a floured surface.\n5. Roll or pat it out about 3/4" thick.Cut it into biscuits.\n6. You can use an official cutter, or a tomato sauce or mushroom or green chile can works well for a cutter.\n7.Bake at 400 deg. F. for about 10 min., but watch it the first few times until you know what your oven does.',
+      'name': 'Biscuits'
+    }, {
+      'author': 'neallred',
+      'ingredients': [
+       {unitQuantity: 1, unit: CUPS, name: 'butter, softened'},
+       {unitQuantity: 0.5, unit: CUPS, name: 'sugar'},
+       {unitQuantity: 2, unit: CUPS, name: 'all-purpose flour'},
+       {unitQuantity: 4, unit: UNITLESS, name: 'eggs'},
+       {unitQuantity: 1.5, unit: CUPS, name: 'white sugar'},
+       {unitQuantity: 0.25, unit: CUPS, name: 'all-purpose flour'},
+       {unitQuantity: 2, unit: UNITLESS, name: 'lemons, juiced'}
+      ],
+      'instructions': '1. Preheat oven to 350 deg. F. (175 deg C).\n2. In a medium bowl, blend together softened butter, 2 c. flour and 1/2 c. sugar. Press into the bottom of an ungreased 9x13 inch pan.\n3. Bake for 15 to 20 min. in the preheated oven, or until firm and golden.\n4. In another bowl, whisk together the remaining 1 1/2 c. sugar and 1/4 c. flour. Whisk in the eggs and lemon juice (2 lemons = 1/2 c. lemon juice). Pour over the baked crust.\n5. Bake for an additional 20 min. in the preheated oven. The bars will firm up as they cool.\nMakes 1 9"x13" pan.',
+      'name': 'Lemon Bars'
+    }, {
+      'author': 'samashby',
+      'ingredients': [
+       {unitQuantity: 12, unit: UNITLESS, name: 'tortilla shells (corn or flour)'},
+       {unitQuantity: 2, unit: TABLESPOONS, name: 'butter'},
+       {unitQuantity: 0.5, unit: CUPS, name: 'onions, chopped'},
+       {unitQuantity: 3, unit: TABLESPOONS, name: 'flour'},
+       {unitQuantity: 4, unit: UNITLESS, name: 'garlic cloves, minced'},
+       {unitQuantity: 8, unit: OUNCES, name: 'sour cream'},
+       {unitQuantity: 2, unit: CUPS, name: 'chicken broth'},
+       {unitQuantity: 1, unit: TEASPOONS, name: 'coriander'},
+       {packageQuantity: 1, package: '4 oz. cans', name: 'diced green chilies, drained'},
+       {unitQuantity: 0.25, unit: TEASPOONS, name: 'pepper'},
+       {unitQuantity: 1, unit: CUPS, name: 'Monterey Jack cheese'},
+       {unitQuantity: 1, unit: UNITLESS, name: 'chicken bouillon cubes'},
+       {unitQuantity: 2, unit: CUPS, name: 'cooked chicken'},
+       {unitQuantity: 1, unit: UNITLESS, name: 'green onions'},
+       {unitQuantity: 1, unit: UNITLESS, name: 'olives'},
+       {unitQuantity: 1, unit: UNITLESS, name: 'tomatoes'},
+      ],
+      'instructions': 'SAUCE:\n1. In saucepan, cook onion, garlic (4 garlic cloves, minced = 1 tsp. bottled crushed garlic), coriander (optional), pepper and chicken bouillon in butter until tender.\n2. Stir flour into sour cream, and add to onion mixture.\n3. Stir in broth and chili peppers all at once. Cook and stir until thickened and bubbly. Remove from heat and add in 1/2 c. cheese.\nFILLING:\n1. Stir in 1/2 - 1 c. sauce into shredded chicken. Place about 1/4 c. filling on top of each tortilla shell that has been warmed in microwave for 10 seconds each, and roll up.\n2. Place rolls, seam side down, in a lightly greased baking dish. Top with remaining sauce (if sauce becomes too thick, add a litle broth or water).\n3. Bake at 350 deg. F for 35 min. or until heated through.\n4. Sprinkle with remaining chese. Bake 5 min. more to melt cheese. Sprinkle green onions, olives, and tomatoes on top.',
+      'name': 'Chicken Enchiladas'
+    }, {
+      'author': 'lemuel',
+      'ingredients': [
+       {unitQuantity: 8, unit: CUPS, name: 'hot water'},
+       {unitQuantity: 2, unit: TABLESPOONS, name: 'yeast'},
+       {unitQuantity: 0.5, unit: CUPS, name: 'sugar'},
+       {packageQuantity: 1, package: 'dollops', name: 'molasses'},
+       {packageQuantity: 1, package: 'dollops', name: 'oil'},
+       {unitQuantity: 10, unit: CUPS, name: 'white flour'},
+       {unitQuantity: 10, unit: CUPS, name: 'wheat flour'},
+       {unitQuantity: 4, unit: CUPS, name: 'oats'},
+       {unitQuantity: 0.125, unit: CUPS, name: 'salt'}
+      ],
+      'instructions': '1. Mix water, yeast, sugar, molasses and oil. Let sit 2 minutes.\n2. Pour in white and wheat flour, oats, and salt. Mix dry ingredients together and then knead into dough by hand. This can take half an hour but it will all knead in.\n3. Preheat oven to 170 deg. F. and turn off as soon as temperature attained. Cover bread dough bowl and put in oven to raise for 1 hour.\n4. Take out dough, scrape it onto counter, and cut in 1/8 wedges of circles. Roll each 1/8th into a loaf, place in pans, and bake at 375 deg. F. for 40 min.',
+      'name': 'Whole Wheat Bread'
+    }, {
+      'author': 'samashby',
+      'ingredients': [
+       {unitQuantity: 8, unit: OUNCES, name: 'cream cheese'},
+       {packageQuantity: 1, package: '8 oz. cans', name: 'crushed pineapple, drained'},
+       {unitQuantity: 1, unit: TEASPOONS, name: 'seasoning salt'},
+       {unitQuantity: 0.5, unit: CUPS, name: 'green peppers, finely chopped'},
+       {unitQuantity: 2, unit: TABLESPOONS, name: 'onions, finely chopped'},
+       {unitQuantity: 1, unit: CUPS, name: 'chopped nuts'}
+      ],
+      'instructions': '1. Mix all together except nuts.\n2. Make into balls and roll into nuts.\n3. Refrigerate. Serve with a variety of crackers.',
+      'name': 'Cheese Ball'
+    }, {
+      'author': 'sam_song',
+      'ingredients': [
+       {unitQuantity: 2, unit: CUPS, name: 'sugar'},
+       {unitQuantity: 4, unit: TABLESPOONS, name: 'cocoa'},
+       {unitQuantity: 0.5, unit: CUPS, name: 'butter'},
+       {unitQuantity: 0.5, unit: CUPS, name: 'milk'},
+       {unitQuantity: 1, unit: CUPS, name: 'peanut butter'},
+       {unitQuantity: 1, unit: TABLESPOONS, name: 'vanilla'},
+       {unitQuantity: 3, unit: CUPS, name: 'oatmeal'},
+      ],
+      'instructions': '1. In a heavy saucepan bring to a boil, the sugar, cocoa, butter and milk. Let boil for 1 min.\n2. Add peanut butter, vanilla and oatmeal. On a sheet of waxed paper, drop mixture by the teaspoonfuls, until cooled and hardened.',
+      'name': 'No Bake Cookies'
+    }, {
+      'author': 'neallred',
+      'ingredients': [
+       {unitQuantity: 1, unit: TABLESPOONS, name: 'active dry yeast'},
+       {unitQuantity: 1.5, unit: CUPS, name: 'water'},
+       {unitQuantity: 1, unit: TEASPOONS, name: 'sugar'},
+       {unitQuantity: 1.5, unit: CUPS, name: 'milk'},
+       {unitQuantity: 0.5, unit: CUPS, name: 'sugar'},
+       {unitQuantity: 0.334, unit: CUPS, name: 'oil'},
+       {unitQuantity: 6, unit: CUPS, name: 'white flour'},
+       {unitQuantity: 2.5, unit: TEASPOONS, name: 'salt'},
+       {unitQuantity: 1, unit: UNITLESS, name: 'butter, softened'},
+       {unitQuantity: 1, unit: UNITLESS, name: 'cinnamon sugar'},
+       {unitQuantity: 1, unit: CUPS, name: 'brown sugar'},
+       {unitQuantity: 6, unit: TABLESPOONS, name: 'butter'},
+       {unitQuantity: 0.25, unit: CUPS, name: 'corn syrup'}
+      ],
+      'instructions': "ROLLS:\n1. Mix yeast, water, milk, and 1 tsp. sugar. Let sit for 10-15 minutes.\n2. Pour in sugar and oil.\n3. Mix in 5 of 6 c. flour and salt.\n4. Knead in last cup of flour. Knead in more flour as needed. \n5. Let dough rise till double in bulk (about 40 minutes, can do less in a pinch but rolls won't be as fluffy).\n6. Prepare caramel while waiting for dough to rise. Pour caramel into pans as soon as it is ready.\n7. Cut risen dough in half. Roll one half into a rectangle, about 11\" x 16\".\n8. Spread melted soft butter over the rectangle.\n9. Sprinkle cinnamon sugar over the rectangle.\n10. Roll rectangle into a tube (hotdog style).\n11. Cut tube into 15 rolls.\n12. Place rolls into pans.\n13. Repeat steps 7-12 for the other half of dough.\n14. Heat oven to 350 and bake rolls for 20-25 minutes.\nCARAMEL:\n1. In a saucepan, mix brown sugar, butter, and corn syrup.\n2. Cook on low heat (2-3 on a 10-point burner) just until blended. Caramel should still be grainy. It will finish cooking in the oven. Over-cooking caramel in the pot will make the caramel inedibly hard after it cools from being in the oven.\n3. Pour caramel evenly between two lightly oiled 9\" x 13\" pans.",
+      'name': 'Caramel Rolls'
+    }, {
+      'author': 'renee',
+      'ingredients': [
+        {packageQuantity: 1, package: '15 oz. cans', name: 'Nalley\'s chili with no beans'},
+        {unitQuantity: 8, unit: OUNCES, name: 'cream cheese'},
+        {unitQuantity: 1, unit: UNITLESS, name: 'chips'}
+      ],
+      'instructions': '1. Melt chili and cheese together. Serve with chips.',
+      'name': "Renee's Bean Dip"
+    }, {
+      'author': 'violet2flame',
+      'ingredients': [
+       {unitQuantity: 2, unit: CUPS, name: 'flour'},
+       {unitQuantity: 2, unit: TABLESPOONS, name: 'sugar'},
+       {unitQuantity: 2, unit: TABLESPOONS, name: 'baking powder'},
+       {unitQuantity: 1, unit: TEASPOONS, name: 'baking soda'},
+       {unitQuantity: 0.5, unit: TEASPOONS, name: 'salt'},
+       {unitQuantity: 2, unit: CUPS, name: 'buttermilk'},
+       {unitQuantity: 2, unit: UNITLESS, name: 'eggs'},
+       {unitQuantity: 2, unit: TABLESPOONS, name: 'oil'},
+       {unitQuantity: 1, unit: TEASPOONS, name: 'vanilla'}
+      ],
+      'instructions': '1. Mix dry ingredients in bowl.\n2. Mix wet ingredients into dry ingredients.\n3. Batter should be fluffy.\n4. Heat griddle to 350.\n5. Pour batter onto griddle.\n6. When bubbles in the batter pop and stay popped and when the edges of the pancake look dry, flip them over.\n7. Cook other side for about 40 seconds.',
+      'name': 'Buttermilk Pancakes'
+    }, {
+      'author': 'samashby',
+      'ingredients': [
+       {unitQuantity: 1, unit: POUNDS, name: 'hamburger'},
+       {unitQuantity: 2, unit: UNITLESS, name: 'onions'},
+       {packageQuantity: 1, package: 'cans', name: 'cream of chicken soup'},
+       {packageQuantity: 1, package: 'cans', name: 'cream of mushroom soup'},
+       {unitQuantity: 0.5, unit: CUPS, name: 'rice, uncooked'},
+       {unitQuantity: 1.5, unit: CUPS, name: 'water'},
+       {unitQuantity: 1, unit: TABLESPOONS, name: 'soy sauce'},
+       {unitQuantity: 0.25, unit: TEASPOONS, name: 'black pepper'}
+      ],
+      'instructions': '1. Mix all ingredients.\n2. Bake at 350 for 30 min. covered, and an additional 30 min. uncovered.\n3. Sprinkle dried chow-mein noodles on top and serve.',
+      'name': 'Hamburger Chow Mein'
+    }, {
+    'author': 'polleeashby',
+    'ingredients': [
+     {unitQuantity: 1.5, unit: CUPS, name: 'brown sugar'},
+     {unitQuantity: 0.75, unit: CUPS, name: 'barbecue sauce'},
+     {unitQuantity: 0.75, unit: CUPS, name: 'vinegar'},
+     {unitQuantity: 3, unit: TEASPOONS, name: 'Worcestershire sauce'},
+     {unitQuantity: 3, unit: TEASPOONS, name: 'prepared mustard'}
+    ],
+    'instructions': 'Blend thoroughly. Heat and pour over meat. For meatballs bake 30 min. for 350 deg. F. For chicken, bake 1 hour.',
+    'name': 'Sweet and Sour Sauce'
+  }, {
+    'author': 'violet2flame',
+    'ingredients': [
+     {unitQuantity: 0.25, unit: CUPS, name: 'bacon, cooked and chopped'},
+     {unitQuantity: 1, unit: POUNDS, name: 'Italian sausage, spicy'},
+     {unitQuantity: 2, unit: TABLESPOONS, name: 'garlic'},
+     {packageQuantity: 0.5, package: 'bunches', name: 'kale'},
+     {unitQuantity: 1, unit: UNITLESS, name: 'onions'},
+     {unitQuantity: 4, unit: UNITLESS, name: 'Russet potatoes'},
+     {unitQuantity: 32, unit: OUNCES, name: 'chicken broth'},
+     {unitQuantity: 1, unit: TEASPOONS, name: 'cayenne pepper'},
+     {unitQuantity: 2, unit: TABLESPOONS, name: 'flour'},
+     {unitQuantity: 1, unit: TEASPOONS, name: 'salt'},
+     {unitQuantity: 1, unit: TEASPOONS, name: 'pepper'},
+     {unitQuantity: 1, unit: CUPS, name: 'heavy whipping cream'}
+    ],
+    'instructions': '1. Brown sausage with garlic and onion.\n2. Mix in potatoes and broth. If necessary, add water until potatoes and meat are just barely covered.\n3. Simmer for 3-4 hours until potatoes are soft.\n4. 30 minutes before serving, mix flour into cream, removing lumps.\n5. Add cream and kale to crockpot and stir.\n6. Cook on high for 30 min. or until broth thickens slightly.\n7. Add salt, cayenne, and pepper to taste.\n8. Top with bacon immediately before serving.',
+    'name': "Zupa's Toscana (Sausage Potato) Soup"
   }, //{
-  //    'author': 'meganashby',
-  //    'ingredients': [
-  //      '1 small pkg frozen corn',
-  //      '1 c. sliced carrots',
-  //      '1 c. broccoli',
-  //      '2 cans cream of potato soup',
-  //      '1/2 c. grated Parmesan cheese',
-  //      '2 c. milk',
-  //      'cheddar cheese to taste'
-  //    ],
-  //    'instructions': '1. Cook corn, carrots, and broccoli together.\n2. Add remaining ingredients and simmer until warmed through.',
-  //    'name': 'Broccoli Cheese Soup'
-  //  }, {
-  //    'author': 'neallred',
-  //    'ingredients': [
-  //      '2 c. sugar',
-  //      '1 Tbsp. molasses',
-  //      '1/2 c. oil',
-  //      '1 c. peanut butter',
-  //      '1 tsp. butter flavor',
-  //      '1 tsp. vanilla',
-  //      '3 large eggs',
-  //      '2 1/2 c. flour',
-  //      '1 c. oatmeal',
-  //      '1 1/2 tsp. baking soda',
-  //      '1 tsp. baking powder',
-  //      '1/2 tsp. salt',
-  //      'granulated sugar'
-  //    ],
-  //    'instructions': '1. Mix together: sugar, molasses, oil, peanut butter, butter flavor, vanilla, eggs.\n2. Mix in: flour, oatmeal, baking soda, baking powder, salt.\n3. Roll into 1 1/4" balls.\n4. Roll balls in sugar and place on baking sheet. Flatten with fork or bottom of cup.\n5. Bake at 375 deg. F. for 8-9 minutes.',
-  //    'name': 'Peanut Butter Oatmeal Cookies'
-  //  }, {
-  //    'author': 'violet2flame',
-  //    'ingredients': [
-  //      'Black beans',
-  //      'Chopped cilantro',
-  //      '1 tsp. cayenne powder',
-  //      'dash of salt',
-  //      'chopped onion',
-  //      'minced garlic'
-  //    ],
-  //    'instructions': '1. Bring ingredients to boil, and let simmer 5 minutes. Serve with chips.',
-  //    'name': "Jenna's Black Bean Dip"
-  //  }, {
-  //    'author': 'neallred',
-  //    'ingredients': [
-  //      '3 c. bread flour',
-  //      '1 1/4 c. boiling water',
-  //      '2 Tbsp. vegetable oil',
-  //      'salt and pepper to taste',
-  //      '1 bunch green onions, finely chopped',
-  //      '2 tsp. vegetable oil'
-  //    ],
-  //    'instructions': '1. Use fork to mix flour and boiling water in a large bowl. Knead dough into a ball. Cover bowl with plastic wrap; let dough rest for 30-60 min.\n2. Evenly divide dough into 16 pieces. Roll each piece into a 1/4" thick circle. Brush each circle with oil, season with salt and pepper, and sprinkle with about 1 tsp. green onions. Roll up, cigar style, and pinch open ends together to form a circle. Roll each circle flat to 1/4".\n3. Heat 2 tsp. oil in a large skillet. Fry pancakes until golden brown, about 2 min. on each side. Makes 16 pancakes.',
-  //    'name': 'Green Onion Pancakes'
-  //  }, {
-  //    'author': 'lemuel',
-  //    'ingredients': [
-  //      'LASAGNA:',
-  //      '9-12 Lasagna noodles',
-  //      '8 oz. Parmesan cheese, grated or dry',
-  //      'RED SAUCE:',
-  //      '1/2 lb. ground beef',
-  //      '1/4 c. olive oil',
-  //      '1/2 onion; finely chopped',
-  //      '2 garlic cloves; minced',
-  //      '1 28 oz. can crushed tomatoes',
-  //      '1 8 oz. can tomato sauce',
-  //      '1 Tbsp. sugar',
-  //      '2 bay leaves',
-  //      '1 tsp. celery seed',
-  //      '1 tsp. salt',
-  //      '1 tsp. basil',
-  //      '1 tsp. oregano',
-  //      '1/8 tsp. pepper',
-  //      'WHITE SAUCE:',
-  //      '1 cube margarine',
-  //      '1/2 c. flour',
-  //      '1/2 tsp. salt',
-  //      '3 c. milk'
-  //    ],
-  //    'instructions': 'RED SAUCE:\n1. In 4-6 qt pot, brown hamburger, onion, and garlic in olive oil.\n2. Add all spices, tomato sauce, and crushed tomatoes.\n3. Simmer 20-30 min.\nWHITE SAUCE:\n1. In sauce pan, melt margarine.\n2. Add flour and salt to make paste.\n3. Add the milk all at once.\n4. cook and stir over medium heat until sauce is thick and bubbly\nNOODLES:\n1. Cook 1 large package of lasagna noodles according to directions (9 or 12 noodles).\n2. Drain and rinse on cool water\nLASAGNA:\n1. In 9x13 pan, assemble lasagna in following order at least three times: Noodles, red sauce, white sauce, sprinkle with parmesan cheese.\n2. Bake at 350 deg. F. for 40-45 min. Allow 10-15 min to cool.',
-  //    'name': 'Kennedy Center Lasagna'
-  //  }, {
-  //    'author': 'neallred',
-  //    'ingredients': [
-  //      '1 Tbsp. unsalted butter',
-  //      '1/2 medium onion, finely chopped',
-  //      '1/2 medium red bell pepper, finely chopped',
-  //      '1 1/2 tsp. kosher salt plus 2 pinches',
-  //      '2 c. long-grain white rice',
-  //      '1 pinch saffron, steeped in 1/4 c. hot but not boiling water (substitute turmeric powder if saffron not available)',
-  //      '2 1/2 c. chicken broth',
-  //      '1 1"-by-2" strip orange zest',
-  //      '2 bay leaves',
-  //      '1/2 c. peas, fresh or frozen',
-  //      '1/4 c. golden raisins',
-  //      '1/4 c. pistachios, chopped'
-  //    ],
-  //    'instructions': '1. Preheat the oven to 350 deg. F.\n2. Melt the butter in a 3-quart saucier over medium heat.\n3. Stir in the onion, bell pepper and 2 pinches of salt.\n4. Decrease the heat to low and sweat until the onion is translucent and aromatic but not browned, 3 to 4 minutes. Increase the heat to medium and add the rice. Cook, stirring frequently, until you smell nuts, another 3 to 4 minutes.\n5. Add the saffron and its water, the broth, orange zest, bay leaves and the remaining 1 1/2 teaspoons salt. Increase the heat and bring to a boil.\n6. OK, now the weird part: Thoroughly wet a clean towel, kill the heat, scatter the peas on top of the rice, then place the towel across the top of the saucier. Top with the lid, then fold the towel corners up over the lid.\n7. Transfer the saucier (towel and all) to the oven and bake 15 minutes.\n8. Remove and rest at room temperature for 15 more minutes without opening the lid.\n9. Fish out the orange zest and bay leaves. Turn the pilaf out onto a platter, fluff with a large fork and garnish with the raisins and pistachios.',
-  //    'name': 'Rice Pilaf'
-  //  }, {
-  //    'author': 'neallred',
-  //    'ingredients': [
-  //      '2 c. flour',
-  //      '1 Tbsp. baking powder',
-  //      '1 tsp. (or less) salt',
-  //      '1/4 c. margarine or butter, or 3 Tbsp. oil',
-  //      '2/3 c. milk'
-  //    ],
-  //    'instructions': '1. Mix the dry ingredients.\n2. Cut/mix in butter or oil.\n3.Stir in the milk.\n4. Knead the dough on a floured surface.\n5. Roll or pat it out about 3/4" thick.Cut it into biscuits.\n6. You can use an official cutter, or a tomato sauce or mushroom or green chile can works well for a cutter.\n7.Bake at 400 deg. F. for about 10 min., but watch it the first few times until you know what your oven does.',
-  //    'name': 'Biscuits'
-  //  }, {
-  //    'author': 'neallred',
-  //    'ingredients': [
-  //      'CRUST:',
-  //      '1 c. butter, softened',
-  //      '1/2 c. sugar',
-  //      '2 c. all-purpose flour',
-  //      'CUSTARD:',
-  //      '4 eggs',
-  //      '1 1/2 c. white sugar',
-  //      '1/4 c. all-purpose flour',
-  //      '2 lemons, juiced (or 1/2 c. lemon juice)'
-  //    ],
-  //    'instructions': '1. Preheat oven to 350 deg. F. (175 deg C).\n2. In a medium bowl, blend together softened butter, 2 c. flour and 1/2 c. sugar. Press into the bottom of an ungreased 9x13 inch pan.\n3. Bake for 15 to 20 min. in the preheated oven, or until firm and golden.\n4. In another bowl, whisk together the remaining 1 1/2 c. sugar and 1/4 c. flour. Whisk in the eggs and lemon juice. Pour over the baked crust.\n5. Bake for an additional 20 min. in the preheated oven. The bars will firm up as they cool.\nMakes 1 9"x13" pan.',
-  //    'name': 'Lemon Bars'
-  //  }, {
-  //    'author': 'samashby',
-  //    'ingredients': [
-  //      '12 tortilla shells (corn or flour)',
-  //      '2 Tbsp. butter',
-  //      '1/2 c. chopped onions',
-  //      '3 Tbsp. flour',
-  //      '4 cloves garlic minced (or 1 tsp. bottled crushed garlic)',
-  //      '8 oz. sour cream',
-  //      '2 c. chicken broth',
-  //      '1 tsp. coriander (optional)',
-  //      '4 oz. can diced green chilies, drained',
-  //      '1/4 tsp. pepper',
-  //      '1 c. Monterey Jack cheese',
-  //      '1 chicken bouillon cube',
-  //      '2 c. cooked chicken',
-  //      'green onions, olives, tomatoes for garnish'
-  //    ],
-  //    'instructions': 'SAUCE:\n1. In saucepan, cook onion, garlic, coriander, pepper and chicken bouillon in butter until tender.\n2. Stir flour into sour cream, and add to onion mixture.\n3. Stir in broth and chili peppers all at once. Cook and stir until thickened and bubbly. Remove from heat and add in 1/2 c. cheese.\nFILLING:\n1. Stir in 1/2 - 1 c. sauce into shredded chicken. Place about 1/4 c. filling on top of each tortilla shell that has been warmed in microwave for 10 seconds each, and roll up.\n2. Place rolls, seam side down, in a lightly greased baking dish. Top with remaining sauce (if sauce becomes too thick, add a litle broth or water).\n3. Bake at 350 deg. F for 35 min. or until heated through.\n4. Sprinkle with remaining chese. Bake 5 min. more to melt cheese. Sprinkle green onions, olives, and tomatoes on top.',
-  //    'name': 'Chicken Enchiladas'
-  //  }, {
-  //    'author': 'lemuel',
-  //    'ingredients': [
-  //      'WET INGREDIENTS:',
-  //      '8c. hot water',
-  //      '2 Tbsp. yeast',
-  //      '1/2 c. sugar',
-  //      'dollop of molasses',
-  //      'dollop of oil',
-  //      'DRY INGREDIENTS:',
-  //      '10 c. white flour',
-  //      '10 c. wheat flour',
-  //      '4c. oats',
-  //      '1/8 c. salt'
-  //    ],
-  //    'instructions': '1. Mix water, yeast, sugar, molasses and oil. Let sit 2 minutes.\n2. Pour in white and wheat flour, oats, and salt. Mix dry ingredients together and then knead into dough by hand. This can take half an hour but it will all knead in.\n3. Preheat oven to 170 deg. F. and turn off as soon as temperature attained. Cover bread dough bowl and put in oven to raise for 1 hour.\n4. Take out dough, scrape it onto counter, and cut in 1/8 wedges of circles. Roll each 1/8th into a loaf, place in pans, and bake at 375 deg. F. for 40 min.',
-  //    'name': 'Whole Wheat Bread'
-  //  }, {
-  //    'author': 'samashby',
-  //    'ingredients': [
-  //      '1 pkg. 8oz. cream cheese',
-  //      '1 small can crushed pineapple, drained',
-  //      '1 tsp. seasoning salt',
-  //      '1/2 c. green pepper, finely chopped',
-  //      '2. Tbsp. onions, chopped finly',
-  //      '1 c. chopped nuts'
-  //    ],
-  //    'instructions': '1. Mix all together except nuts.\n2. Make into balls and roll into nuts.\n3. Refrigerate. Serve with a variety of crackers.',
-  //    'name': 'Cheese Ball'
-  //  }, {
-  //    'author': 'sam_song',
-  //    'ingredients': [
-  //      'WET INGREDIENTS:',
-  //      '2 c. sugar',
-  //      '4 Tbsp. cocoa',
-  //      '1/2 c. butter',
-  //      '1/2 c. milk',
-  //      'DRY INGREDIENTS:',
-  //      '1 c. peanut butter',
-  //      '1 Tbsp. vanilla',
-  //      '3 c. oatmeal',
-  //      'Waxed paper'
-  //    ],
-  //    'instructions': '1. In a heavy saucepan bring to a boil, the sugar, cocoa, butter and milk. Let boil for 1 min.\n2. Add peanut butter, vanilla and oatmeal. On a sheet of waxed paper, drop mixture by the teaspoonfuls, until cooled and hardened.',
-  //    'name': 'No Bake Cookies'
-  //  }, {
-  //    'author': 'neallred',
-  //    'ingredients': [
-  //      'ROLLS:',
-  //      '1 Tbsp. active dry yeast (or one envelope or small packet)',
-  //      '1 1/2 c. water',
-  //      '1 tsp. sugar',
-  //      '1 1/2 c. milk',
-  //      '1/2 c. sugar',
-  //      '1/4-1/3 c. oil.',
-  //      '6 c. white flour',
-  //      '2 1/2 tsp. salt',
-  //      'soft butter (to smear on dough)',
-  //      'cinnamon-sugar',
-  //      'CARAMEL:',
-  //      '1 c. brown sugar',
-  //      '3/8 c. butter (6 tablespoons)',
-  //      '1/4 c. corn syrup'
-  //    ],
-  //    'instructions': "ROLLS:\n1. Mix yeast, water, milk, and 1 tsp. sugar. Let sit for 10-15 minutes.\n2. Pour in sugar and oil.\n3. Mix in 5 of 6 c. flour and salt.\n4. Knead in last cup of flour. Knead in more flour as needed. \n5. Let dough rise till double in bulk (about 40 minutes, can do less in a pinch but rolls won't be as fluffy).\n6. Prepare caramel while waiting for dough to rise. Pour caramel into pans as soon as it is ready.\n7. Cut risen dough in half. Roll one half into a rectangle, about 11\" x 16\".\n8. Spread melted soft butter over the rectangle.\n9. Sprinkle cinnamon-sugar over the rectangle.\n10. Roll rectangle into a tube (hotdog style).\n11. Cut tube into 15 rolls.\n12. Place rolls into pans.\n13. Repeat steps 7-12 for the other half of dough.\n14. Heat oven to 350 and bake rolls for 20-25 minutes.\nCARAMEL:\n1. In a saucepan, mix brown sugar, butter, and corn syrup.\n2. Cook on low heat (2-3 on a 10-point burner) just until blended. Caramel should still be grainy. It will finish cooking in the oven. Over-cooking caramel in the pot will make the caramel inedibly hard after it cools from being in the oven.\n3. Pour caramel evenly between two lightly oiled 9\" x 13\" pans.",
-  //    'name': 'Caramel Rolls'
-  //  }, {
-  //    'author': 'renee',
-  //    'ingredients': [
-  //      "1 15 oz. can Nalley's chili with no beans', '1 8oz. cream cheese', 'chips",
-  //    ],
-  //    'instructions': '1. Melt chili and cheese together. Serve with chips.',
-  //    'name': "Renee's Bean Dip"
-  //  }, {
-  //    'author': 'violet2flame',
-  //    'ingredients': [
-  //      '2 c. flour',
-  //      '2 Tbsp. sugar',
-  //      '2 tsp. baking powder',
-  //      '1 tsp. baking soda',
-  //      '1/2 tsp. salt',
-  //      '2 c. buttermilk',
-  //      '2 eggs',
-  //      '2 Tbsp. oil',
-  //      '1 tsp. vanilla'
-  //    ],
-  //    'instructions': '1. Mix dry ingredients in bowl.\n2. Mix wet ingredients into dry ingredients.\n3. Batter should be fluffy.\n4. Heat griddle to 350.\n5. Pour batter onto griddle.\n6. When bubbles in the batter pop and stay popped and when the edges of the pancake look dry, flip them over.\n7. Cook other side for about 40 seconds.',
-  //    'name': 'Buttermilk Pancakes'
-  //  }, {
-  //    'author': 'samashby',
-  //    'ingredients': [
-  //      '1 lb. hamburger',
-  //      '2 onions',
-  //      '1 can cream of chicken',
-  //      '1 can cream of mushroom',
-  //      '1/2 c. rice (uncooked)',
-  //      '1 1/2 c. water',
-  //      '1 Tbsp. soy sauce',
-  //      '1/4 tsp. black pepper'
-  //    ],
-  //    'instructions': '1. Mix all ingredients.\n2. Bake at 350 for 30 min. covered, and an additional 30 min. uncovered.\n3. Sprinkle dried chow-mein noodles on top and serve.',
-  //    'name': 'Hamburger Chow Mein'
-  //  }, {
-  //  'author': 'polleeashby',
-  //  'ingredients': [
-  //    '1 1/2 c. brown sugar',
-  //    '3/4 c. BBQ sauce',
-  //    '3/4 c. vinegar',
-  //    '3 tsp. Worcestershire sauce',
-  //    '3 tsp. prepared mustard'
-  //  ],
-  //  'instructions': 'Blend thoroughly. Heat and pour over meat. For meatballs bake 30 min. for 350 deg. F. For chicken, bake 1 hour.',
-  //  'name': 'Sweet and Sour Sauce'
-  //}, {
-  //  'author': 'violet2flame',
-  //  'ingredients': [
-  //    '1/4 c. bacon, cooked and chopped',
-  //    '1 lb. italian sausage, spicy',
-  //    '2 Tbsp. garlic',
-  //    '1/2 bunch kale',
-  //    '1 onion',
-  //    '4 russet potatoes',
-  //    '32 oz. chicken broth',
-  //    '1 tsp. cayenne pepper',
-  //    '2 Tbsp. flour',
-  //    '1 tsp. salt',
-  //    '1 tsp. pepper',
-  //    '1 c. heavy whipping cream'
-  //  ],
-  //  'instructions': '1. Brown sausage with garlic and onion.\n2. Mix in potatoes and broth. If necessary, add water until potatoes and meat are just barely covered.\n3. Simmer for 3-4 hours until potatoes are soft.\n4. 30 minutes before serving, mix flour into cream, removing lumps.\n5. Add cream and kale to crockpot and stir.\n6. Cook on high for 30 min. or until broth thickens slightly.\n7. Add salt, cayenne, and pepper to taste.\n8. Top with bacon immediately before serving.',
-  //  'name': "Zupa's Toscana (Sausage Potato) Soup"
-  //}, {
   //  'author': 'samashby',
   //  'ingredients': [
   //    '2 c. sugar',
@@ -602,7 +596,7 @@ export default [{
   //    '1/2 tsp. garlic salt',
   //    '2 cans tomato sauce',
   //    '1 c. chopped olives',
-  //    '2 c. cheddar or Monterey jack cheese, grated',
+  //    '2 c. Cheddar or Monterey jack cheese, grated',
   //    '1 c. sour cream',
   //    '1 c. cottage cheese or 1 can cream of mushroom soup',
   //    '1 can (4oz) green chilies, diced',
@@ -729,7 +723,7 @@ export default [{
   //    '1 can (16oz.) refried beans',
   //    '1 can diced green chilies',
   //    '1 tsp. cumin',
-  //    '1 c. cheddar cheese, grated',
+  //    '1 c. Cheddar cheese, grated',
   //    '1 pkg. tortilla chips',
   //    'sliced black olives',
   //    'sour cream',
@@ -784,7 +778,7 @@ export default [{
   //    '1 Tbsp. instant minced onion or 1/4 c. chopped onion',
   //    '1-2 Tbsp. brown sugar',
   //    '1 10 oz. can Hungry Jack Biscuits',
-  //    '1/2 c. shredded cheddar cheese'
+  //    '1/2 c. shredded Cheddar cheese'
   //  ],
   //  'instructions': '1. Heat oven to 400 deg. F. Grease 10 muffin cups.\n2. Brown ground beef in large skillet, drain.\n3. Stir in barbecue sauce, onion and brown sugar. Cook 1 minute to blend flavors, stirring constantly.\n4. Separate dough into 10 biscuits. Place 1 biscuit in each greased muffin cup, firmly press in bottom and up sides, forming 1/4 inch rim. Spoon about 1/4 c. meat mixture into each biscuit-lined cup. Sprinkle with cheese.\n5. Bake for 10-12 min. or until edges of biscuits are golden brown.',
   //  'name': 'Hungry Jack Biscuit Barbecups'
@@ -1124,12 +1118,12 @@ export default [{
   //    '1/2 pkg. taco seasoning(or to taste)',
   //    '1/2 c. mayonnaise',
   //    'OTHER LAYERS:',
-  //    '8 oz. grated cheddar cheese',
+  //    '8 oz. grated Cheddar cheese',
   //    '3 tomatoes, diced & drained',
   //    '1/2 bunch choppd green onions',
   //    'sliced olives.'
   //  ],
-  //  'instructions': 'FIRST LAYER:\n1. Mix refried beans with salt, pepper, garlic, and/or Mexican seasoning. Pour in 9X13 pan.\nSECOND LAYER:\n1. Blend advocadoes, lemon juice, salt, and pepper, and put on beans\nTHIRD LAYER:\n1. Mix sour cream, taco seasoning, and mayo and put on advocado layer\nFOURTH LAYER:\n1. Layer on grated cheddar cheese.\nFIFTH LAYER:\n1. Layer on diced, drained tomatoes\nSIXTH LAYER:\n1. Layer on bunch chopped gren onions.\nSEVENTH LAYER:\n1. Layer on sliced olives.',
+  //  'instructions': 'FIRST LAYER:\n1. Mix refried beans with salt, pepper, garlic, and/or Mexican seasoning. Pour in 9X13 pan.\nSECOND LAYER:\n1. Blend advocadoes, lemon juice, salt, and pepper, and put on beans\nTHIRD LAYER:\n1. Mix sour cream, taco seasoning, and mayo and put on advocado layer\nFOURTH LAYER:\n1. Layer on grated Cheddar cheese.\nFIFTH LAYER:\n1. Layer on diced, drained tomatoes\nSIXTH LAYER:\n1. Layer on bunch chopped gren onions.\nSEVENTH LAYER:\n1. Layer on sliced olives.',
   //  'name': 'Seven Layer Dip (with guacamole)'
   //}, {
   //  'author': 'breananorton',
@@ -1422,7 +1416,7 @@ export default [{
   //}, {
   //  'author': 'samashby',
   //  'ingredients': [
-  //    '2 tsp. chicken base (or 2 chicken bullion cubes)',
+  //    '2 tsp. chicken base (or 2 chicken bouillon cubes)',
   //    '3 c. chicken stock',
   //    '2 c. chopped carrots',
   //    '2 c. chopped celery',
@@ -1749,10 +1743,10 @@ export default [{
   //    '1/4 cup grated parmesan cheese',
   //    '1 teaspoon salt',
   //    '1/2 teaspoon ground pepper',
-  //    '2 cups sharp cheddar cheese, shredded and firmly packed, divided ',
+  //    '2 cups sharp Cheddar cheese, shredded and firmly packed, divided ',
   //    '1 1/2 cup crushed cornflake cereal or panko bread crumbs'
   //  ],
-  //  'instructions': '1. Preheat oven to 350 degrees. In a medium sized skillet, add 2 tablespoons butter and saute until the onions are translucent. Add the garlic and cook until fragrant. Remove from heat and set aside. \n2. In a large bowl, mix together the cooked onions, garlic, hashbrowns, condensed soup, sour cream, parmesan cheese, salt, pepper, and 1 1/2 cups cheddar cheese.\n3. Spread into a greased 9x13 inch baking pan. Top with remaining 1/2 cup cheddar cheese.\n4. Melt the remaining 4 tablespoons of butter and mi with the crushed cornflake crumbs. Sprinkle evenly over the top of the casserole.\n5. Bake for 50-60 minutes or until cooked throughout and bubbly.',
+  //  'instructions': '1. Preheat oven to 350 degrees. In a medium sized skillet, add 2 tablespoons butter and saute until the onions are translucent. Add the garlic and cook until fragrant. Remove from heat and set aside. \n2. In a large bowl, mix together the cooked onions, garlic, hashbrowns, condensed soup, sour cream, parmesan cheese, salt, pepper, and 1 1/2 cups Cheddar cheese.\n3. Spread into a greased 9x13 inch baking pan. Top with remaining 1/2 cup Cheddar cheese.\n4. Melt the remaining 4 tablespoons of butter and mi with the crushed cornflake crumbs. Sprinkle evenly over the top of the casserole.\n5. Bake for 50-60 minutes or until cooked throughout and bubbly.',
   //  'name': 'Funeral Potatoes'
   //}, {
   //  'author': 'anikaashby',

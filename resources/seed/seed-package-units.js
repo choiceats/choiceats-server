@@ -11,6 +11,7 @@ export default [
   {name: '12 oz. cans', quantity: 12, unit_id: 5},
   {name: '14 oz. cans', quantity: 14, unit_id: 5},
   {name: '14 1/2 oz. cans', quantity: 14.5, unit_id: 5},
+  {name: '15 oz. cans', quantity: 15, unit_id: 5},
   {name: '16 oz. cans', quantity: 16, unit_id: 5},
   {name: '20 oz. cans', quantity: 20, unit_id: 5},
   {name: '28 oz. cans', quantity: 28, unit_id: 5},
@@ -50,12 +51,13 @@ export default [
   {name: 'bags', quantity: null, unit_id: 23}, //UNITLESS
 
   {name: 'sticks', quantity: 8, unit_id: 17}, //i.e. butter
+  {name: 'cubes', quantity: 8, unit_id: 17}, //i.e. butter
 
   {name: 'loaves', quantity: null, unit_id: 23}, //UNITLESS
   {name: 'pinches', quantity: null, unit_id: 23}, //UNITLESS
   {name: 'glugs', quantity: null, unit_id: 23}, //UNITLESS
   {name: 'dollops', quantity: null, unit_id: 23}, //UNITLESS
-  {name: 'deashes', quantity: null, unit_id: 23}, //UNITLESS
+  {name: 'dashes', quantity: null, unit_id: 23}, //UNITLESS
   {name: 'bunches', quantity: null, unit_id: 23}, //UNITLESS
   {name: 'slabs', quantity: null, unit_id: 23}, //UNITLESS
   {name: 'trays', quantity: null, unit_id: 23}, //UNITLESS
