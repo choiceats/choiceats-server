@@ -13,9 +13,13 @@ export default [
   {name: '14 1/2 oz. cans', quantity: 14.5, unit_id: 5},
   {name: '15 oz. cans', quantity: 15, unit_id: 5},
   {name: '16 oz. cans', quantity: 16, unit_id: 5},
+  {name: '19 oz. cans', quantity: 19, unit_id: 5},
   {name: '20 oz. cans', quantity: 20, unit_id: 5},
+  {name: '26 oz. cans', quantity: 26, unit_id: 5},
   {name: '28 oz. cans', quantity: 28, unit_id: 5},
   {name: 'cans', quantity: null, unit_id: 23}, //UNITLESS
+  {name: 'tall cans', quantity: null, unit_id: 23}, //UNITLESS
+  {name: 'large cans', quantity: null, unit_id: 23}, //UNITLESS
 
   //from textbook //http://higheredbcs.wiley.com/legacy/college/gisslen/1118636600/appendices/Appendix_Metric_Conversions.pdf
   {name: 'no. 1 picnic cans', quantity: 10.5, unit_id: 5},
@@ -30,6 +34,7 @@ export default [
 
   //package sizes (for things like noodles, yeast, candies, pepperoni, vegetables)
   {name: '1/4 oz. packages', quantity: 0.25, unit_id: 17},
+  {name: '3 oz. packages', quantity: 3, unit_id: 17},
   {name: '8 oz. packages', quantity: 8, unit_id: 17},
   {name: '10 oz. packages', quantity: 10, unit_id: 17},
   {name: '14 oz. packages', quantity: 14, unit_id: 17},
@@ -37,6 +42,8 @@ export default [
   {name: '20 oz. packages', quantity: 20, unit_id: 17},
   {name: '26 oz. packages', quantity: 26, unit_id: 17},
   {name: 'packages', quantity: null, unit_id: 23}, //UNITLESS
+  {name: 'small packages', quantity: null, unit_id: 23}, //UNITLESS
+  {name: 'large packages', quantity: null, unit_id: 23}, //UNITLESS
 
   //made up
   {name: '12 oz. jars', quantity: 12, unit_id: 5},
@@ -56,6 +63,7 @@ export default [
   {name: 'loaves', quantity: null, unit_id: 23}, //UNITLESS
   {name: 'pinches', quantity: null, unit_id: 23}, //UNITLESS
   {name: 'glugs', quantity: null, unit_id: 23}, //UNITLESS
+  {name: 'drops', quantity: null, unit_id: 23}, //UNITLESS
   {name: 'dollops', quantity: null, unit_id: 23}, //UNITLESS
   {name: 'dashes', quantity: null, unit_id: 23}, //UNITLESS
   {name: 'bunches', quantity: null, unit_id: 23}, //UNITLESS
