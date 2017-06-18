@@ -3,6 +3,9 @@ import seedRecipes from './seed-recipes'
 import seedIngredients from './seed-ingredients'
 import seedUnits from './seed-units'
 import seedPackageUnits from './seed-package-units'
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 const getAllUsers = () => {
   return new Promise((resolve) => {
@@ -30,10 +33,10 @@ const migrateTheData = () => {
     .then(getAllUsers)
     .then(migrateRecipes)
 
-  //getAllUsers().then(migrateRecipes)
+  // getAllUsers().then(migrateRecipes)
 }
 
-//const migrateRecipes = async (users) => {
+// const migrateRecipes = async (users) => {
 //  for (let i = 0; i < seedRecipes.length; i++) {
 //    const seed = seedRecipes[i]
 //    const user = await insertUserIfNeeded(seed.author, users)
@@ -42,7 +45,7 @@ const migrateTheData = () => {
 //      [seed.name, user.id, seed.ingredients, seed.instructions]
 //    )
 //  }
-//}
+// }
 
 const migrateRecipes = async (users) => {
   const ingredientsQuery = await query('SELECT * FROM ingredients')
@@ -59,7 +62,7 @@ const migrateRecipes = async (users) => {
       'INSERT INTO recipes (name, author_id, instructions) VALUES ($1, $2, $3) RETURNING id',
       [seed.name, user.id, seed.instructions]
       //, seed.ingredients
-      //ingredients, 
+      // ingredients,
     )
     const recipeId = insertRecipeResult.rows[0].id
     console.log('looping through ingredients')
@@ -67,7 +70,7 @@ const migrateRecipes = async (users) => {
       const ingredient = seed.ingredients[j]
       console.log('current ingredient:', ingredient)
       if (ingredient.unitQuantity && ingredient.unit) {
-      console.log('attempting to insert', ingredient)
+        console.log('attempting to insert', ingredient)
         const unitId = units.find(unit => unit.name === ingredient.unit).id
         const ingredientId = ingredients.find(item => item.name === ingredient.name).id
         await query(
@@ -82,8 +85,7 @@ const migrateRecipes = async (users) => {
   }
 }
 //  name: 'Grasshopper Cookies (crushed)' }
-//(node:12875) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 1): TypeError: Cannot read property 'id' of undefined
-
+// (node:12875) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 1): TypeError: Cannot read property 'id' of undefined
 
 const migrateIngredients = async () => {
   for (let i = 0; i < seedIngredients.length; i++) {
