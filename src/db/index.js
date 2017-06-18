@@ -1,6 +1,8 @@
 // @flow
 import pg from 'pg'
 
+let connectionPool: ?pg.Pool
+
 const getConfig = () => {
   const { DB_NAME, DB_USER, DB_PASS, DB_HOST } = process.env
   return {
@@ -14,20 +16,23 @@ const getConfig = () => {
   }
 }
 
-
 const getPool = () => {
-  const pool = new pg.Pool(getConfig())
-  pool.on('error', function (err, client) {
+  if (connectionPool) {
+    return connectionPool
+  }
+
+  connectionPool = new pg.Pool(getConfig())
+  connectionPool.on('error', function (err, client) {
     console.error('idle client error', err.message, err.stack)
   })
 
-  return pool
+  return connectionPool
 }
 
 export const query = function (text: string, values: any[]) {
-  const pool = getPool();
+  const connectionPool = getPool()
   return new Promise((resolve, reject) => {
-    pool.query(text, values, (err, res) => {
+    connectionPool.query(text, values, (err, res) => {
       if (err) {
         reject(err)
       }
@@ -37,5 +42,6 @@ export const query = function (text: string, values: any[]) {
 }
 
 export const connect = function (callback: Function) {
-  return pool.connect(callback)
+  const connectionPool = getPool()
+  return connectionPool.connect(callback)
 }
