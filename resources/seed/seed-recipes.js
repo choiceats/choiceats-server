@@ -699,7 +699,7 @@ export default [{
   }, {
     'author': 'mabelpickupashby',
     'ingredients': [
-     {unitQuantity: 1, unit: CUPS, name: 'melted shortening'},
+     {unitQuantity: 1, unit: CUPS, name: 'shortening, melted'},
      {unitQuantity: 1, unit: CUPS, name: 'melted honey'},
      {unitQuantity: 1, unit: CUPS, name: 'boiling water'},
      {unitQuantity: 1, unit: CUPS, name: 'sugar'},
@@ -1503,414 +1503,407 @@ export default [{
     ],
     'instructions': '1. Sift together dry ingredients; add milk, oil, and vanilla; mix till smooth.\n2. Stir in nuts.\n3. Pour into greased 9x13 pan.\n4. Combine brown sugar and cocoa. Sprinkle over batter.\n5. Slowly pour hot water over top.\n6. Bake at 350 deg. F. about 45 min.\nNote: Double recipe if cooking in 14 inch Dutch Oven',
     'name': 'Brownie Pudding'
-  }, //{
-  //  'author': 'peggywhitehead',
-  //  'ingredients': [
-  //   {unitQuantity: 1, unit: CUPS, name: '1 large bag frozen hash browns'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 can cream of mushroom soup'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 can cream of chicken soup'},
-  //   {unitQuantity: 1, unit: CUPS, name: 'diced onion (optional)'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 c. sour cream'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 c. shredded cheese'},
-  //   {unitQuantity: 1, unit: CUPS, name: 'garlic salt to taste'},
-  //   {unitQuantity: 1, unit: CUPS, name: 'onion salt to taste'}
-  //  ],
-  //  'instructions': '1. Mix soups, sour cream, shredded cheese, and seasonings.\n2. Fold in the hash browns.\n3. Spray 9x13 pan with cooking spray. Put potatoes in pan. Top with cheese, crushed potato chips, or crushed corn flakes with melted butter.\n4. Bake at 350 deg. F. for 1 hour.',
-  //  'name': 'Cheesy Hot Potatoes'
-  //}, {
-  //  'author': 'samashby',
-  //  'ingredients': [
-  //   {unitQuantity: 1, unit: CUPS, name: 'DRY INGREDIENTS:'},
-  //   {unitQuantity: 1, unit: CUPS, name: '2 3/4 c. flour'},
-  //   {unitQuantity: 1, unit: CUPS, name: '2 c. sugar'},
-  //   {unitQuantity: 1, unit: CUPS, name: '2 tsp. baking soda'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1/2 c. cocoa'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 tsp. salt'},
-  //   {unitQuantity: 1, unit: CUPS, name: 'LIQUID INGREDIENTS:'},
-  //   {unitQuantity: 1, unit: CUPS, name: '2 eggs'},
-  //   {unitQuantity: 1, unit: CUPS, name: '3/4 c. oil'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 c. sour cream'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 Tbsp. vanilla'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 c. boiling water'}
-  //  ],
-  //  'instructions': '1. Mix dry ingredients\n2. Add all liquid ingredients, except boiling water. Boil 1 c. water, add immediately, and mix all ingredients immediately.\n3. Bake at 350 deg. F. for 35-40 min. (or 20-25 min. for cupcakes).',
-  //  'name': 'Favorite Chocolate Cake'
-  //}, {
-  //  'author': 'lesliewoodward',
-  //  'ingredients': [
-  //   {unitQuantity: 1, unit: CUPS, name: '2 bags hash browns'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 lb. bacon'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 large onion, chopped'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 dozen eggs'},
-  //   {unitQuantity: 1, unit: CUPS, name: 'grated cheese'},
-  //   {unitQuantity: 1, unit: CUPS, name: 'seasonings to taste'}
-  //  ],
-  //  'instructions': '1. Cook bacon and onion in Dutch oven.\n2. Break up bacon pieces and add hash browns. Stir in and season.\n3. Add eggs and cook until done.\n4. Top with grated cheese and cook unitl cheese is melted.',
-  //  'name': 'Cheesy Dutch Oven Potatoes'
-  //}, {
-  //  'author': 'samashby',
-  //  'ingredients': [
-  //   {unitQuantity: 1, unit: CUPS, name: '1 c. applesauce'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 tsp. baking soda'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 c. sugar'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1/2 c. shortening'},
-  //   {unitQuantity: 1, unit: CUPS, name: '2 eggs'},
-  //   {unitQuantity: 1, unit: CUPS, name: '2 c. flour'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 c. oatmeal'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1/2 tsp. cinnamon'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1/2 tsp. cloves'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1/2 tsp. nutmeg'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1/2 tsp. salt'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 c. nuts'},
-  //   {unitQuantity: 1, unit: CUPS, name: '6 oz. chocolate chips'}
-  //  ],
-  //  'instructions': '1. Mix applesauce and baking soda.\n2. Mix sugar, shortening and eggs. Add to applesauce mixture.\n3. Add flour and spices that have been sifted.\n4. Add nuts and chocolate chips.\n5. Drop by spoonful on greased cookie sheet and bake at 400 deg. F. for 9-12 min.',
-  //  'name': 'Applesauce Cookies'
-  //}, {
-  //  'author': 'samashby',
-  //  'ingredients': [
-  //   {unitQuantity: 1, unit: CUPS, name: 'LIQUID INGREDIENTS:'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 c. butter or shortening'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 c. sugar'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 tsp. vanilla'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 c. cooked pumpkin'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 egg'},
-  //   {unitQuantity: 1, unit: CUPS, name: 'DRY INGREDIENTS:'},
-  //   {unitQuantity: 1, unit: CUPS, name: '2 c. flour'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 tsp. baking powder'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1/2 tsp. baking soda'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1/2 tsp. salt'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 tsp. cinnamon'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1/2 tsp. allspice'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 1/4 c. chocolate chips'}
-  //  ],
-  //  'instructions': '1. Mix all ingredients. Bake at 375 deg. F. for about 13 min.',
-  //  'name': 'Pumpkin Chocolate Chip Cookies'
-  //}, {
-  //  'author': 'samashby',
-  //  'ingredients': [
-  //   {unitQuantity: 1, unit: CUPS, name: 'ribs'},
-  //   {unitQuantity: 1, unit: CUPS, name: 'barbecue sauce'}
-  //  ],
-  //  'instructions': '1. Place ribs in crock pot - frozen or thawed. Cook on high for 4-5 hours or on low about 8 hours.\n2. One hour before serving, drain and pour barbecue sauce over meat.\nVariation: Use boneless chicken breasts',
-  //  'name': 'Boneless Barbecue Ribs'
-  //}, {
-  //  'author': 'pauladeen',
-  //  'ingredients': [
-  //   {unitQuantity: 1, unit: CUPS, name: '6 (1 oz.) bittersweet chocolate squares'},
-  //   {unitQuantity: 1, unit: CUPS, name: '2 (1 oz.) semi-sweet chocolate baking squares'},
-  //   {unitQuantity: 1, unit: CUPS, name: '10 Tbsp. butter'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1/2 c. flour'},
-  //   {unitQuantity: 1, unit: CUPS, name: '2 Tbsp. orange juice and 1/2 tsp. orange extract'},
-  //   {unitQuantity: 1, unit: CUPS, name: '3 large eggs'},
-  //   {unitQuantity: 1, unit: CUPS, name: '3 large yolks'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 Tbsp. vanilla'},
-  //   {unitQuantity: 1, unit: CUPS, name: '2 Tbsp. Grand Marnier (or 1 1/2 c. powdered sugar)'}
-  //  ],
-  //  'instructions': '1. Preheat oven to 425 deg. F.\n2. Grease 6 (6 oz.) custard cups.\n3. Melt chocolates and butter in the microwave or in a double boiler.\n4. Add flour and sugar to chocolate mixture.\n5. Stir in eggs until smooth.\n6. Stir in vanilla and Grand Marnier.\n7. Divide batter evenly among custard cups.\n8. Bake for 14 min. Edges should be firm but the center will be runny.\n9. Run a knife around the edge to loosen and invert into dessert plate. Top with vanillla ice cream or raspberry sauce (optional).',
-  //  'name': 'Molten Lava Cake'
-  //}, {
-  //  'author': 'spencerashby',
-  //  'ingredients': [
-  //   {unitQuantity: 1, unit: CUPS, name: 'Chicken'},
-  //   {unitQuantity: 1, unit: CUPS, name: 'Mayonnaise'},
-  //   {unitQuantity: 1, unit: CUPS, name: 'Ketchup'},
-  //   {unitQuantity: 1, unit: CUPS, name: 'Salami'},
-  //   {unitQuantity: 1, unit: CUPS, name: 'Broccoli'},
-  //   {unitQuantity: 1, unit: CUPS, name: 'Dark Bread'}
-  //  ],
-  //  'instructions': '1. Put chicken in bread.\n2. Put mayonnaise on chicken.\n3. Put ketchup on mayonnaise.\n4. Put four pieces of broccoli on.\n5. Put on salami.\n6. Put dark bread on top.',
-  //  'name': "Spencer's Chicken Sandwich"
-  //}, {
-  //  'author': 'samashby',
-  //  'ingredients': [
-  //   {unitQuantity: 1, unit: CUPS, name: 'COOKIES:'},
-  //   {unitQuantity: 1, unit: CUPS, name: '2 Devil food cake mixes (can also substitute lemon cake mixes)'},
-  //   {unitQuantity: 1, unit: CUPS, name: '4 eggs'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 1/2 c. shortening (melted)'},
-  //   {unitQuantity: 1, unit: CUPS, name: 'FILLING:'},
-  //   {unitQuantity: 1, unit: CUPS, name: '8 oz. cream cheese (softened)'},
-  //   {unitQuantity: 1, unit: CUPS, name: '4 c. powdered sugar'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 cube margarine, softened'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 tsp. vanilla'}
-  //  ],
-  //  'instructions': 'COOKIES:\n1. Mix cookie ingredients until consistency of cookie dough.\n2. Roll dough into 25-cent sized balls, and space them on cookie sheets; they spread. Bake at 375 deg. F. for 7-10 min. Cool.\nFILLING:\nMix all filling ingredients thoroughly. Frost equal size.',
-  //  'name': 'Chocolate Sandwich Cookies'
-  //}, {
-  //  'author': 'faytruman',
-  //  'ingredients': [
-  //   {unitQuantity: 1, unit: CUPS, name: '1 c. butter, melted'},
-  //   {unitQuantity: 1, unit: CUPS, name: '2 c. onion, chopped'},
-  //   {unitQuantity: 1, unit: CUPS, name: '2 c. celery, chopped'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 carrot, shredded'},
-  //   {unitQuantity: 1, unit: CUPS, name: '8 oz. can mushrooms'},
-  //   {unitQuantity: 1, unit: CUPS, name: '8 oz. can water chestnuts'},
-  //   {unitQuantity: 1, unit: CUPS, name: '2 c. broth'},
-  //   {unitQuantity: 1, unit: CUPS, name: '2 eggs, well beaten'},
-  //   {unitQuantity: 1, unit: CUPS, name: '12-13 c. dry bread crumbs'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1/2 tsp. marjoram'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 tsp. poultry seasoning'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 1/2 tsp. salt'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 1/2 tsp. sage'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 tsp. thyme'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1/2 tsp pepper'}
-  //  ],
-  //  'instructions': 'Mix all ingredients and put in slow cooker on low for 6-8 hours',
-  //  'name': 'Slow Cooker Dressing'
-  //}, {
-  //  'author': 'samashby',
-  //  'ingredients': [
-  //   {unitQuantity: 1, unit: CUPS, name: '1 lb. Ricotta cheese'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1/4 lb. Mozzarella cheese (1 c. shredded)'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 egg'},
-  //   {unitQuantity: 1, unit: CUPS, name: '18 jumbo pasta shells'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 Tbsp. chopped parsley'},
-  //   {unitQuantity: 1, unit: CUPS, name: 'salt and pepper to taste'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1/3 c. Parmesan cheese'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 jar spaghetti sauce'}
-  //  ],
-  //  'instructions': '1. Mix Ricotta, Mozzarrella, egg, Parmesan, parsley, and salt and pepper.\n2. Cook jumbo pasta shells according to directions. Drain and cool.\n3. Fill shells with cheese mixture.\n3. Put 2/3 spaghetti sauce in pan, put filled shells in and cover with remaining sauce.\n4. Bake at 350 deg. F. for 25 min, covered.\n5. Sprinkle extra Mozzarella cheese on top and bake an additional 5 min.',
-  //  'name': 'Manicotti'
-  //}, {
-  //  'author': 'samashby',
-  //  'ingredients': [
-  //   {unitQuantity: 1, unit: CUPS, name: '4 eggs'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 c. flour'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1/2 c. milk'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1/2 c. water'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1/2 tsp. salt'},
-  //   {unitQuantity: 1, unit: CUPS, name: '2 Tbsp. melted margarine or butter'},
-  //   {unitQuantity: 1, unit: CUPS, name: '2 tsp. sugar'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 tsp. vanilla'}
-  //  ],
-  //  'instructions': '1. Blend well and let sit for 30 min.\n2. Pour batter in pie pan and cook with crepe maker. Fill with choice of dessert filling.',
-  //  'name': 'Basic Dessert Crepes'
-  //}, {
-  //  'author': 'jaceeashby',
-  //  'ingredients': [
-  //   {unitQuantity: 1, unit: CUPS, name: '1 can cream of celery soup'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 can cream of mushroom soup'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 chicken, cut up'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1/4-1/2 can water'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 package dry onion soup mix'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 c. uncooked rice'}
-  //  ],
-  //  'instructions': '1. Put half of soup mixture in casserole. Sprinkle with half of rice, put chicken in layer over rice, then add rest of rice.\n2. Pour rest of soup mixture over top.\n3. Bake covered in 350 deg. F. oven about 1 hour until done.',
-  //  'name': 'Chicken Rice Casserole'
-  //}, {
-  //  'author': 'samashby',
-  //  'ingredients': [
-  //   {unitQuantity: 1, unit: CUPS, name: '1 1/2 lb. hamburger\n1 pint IMO sour cream'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 package dry onion soup mix'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 egg'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1/2 c. soft bread crumbs'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 c. water'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 c. flour'}
-  //  ],
-  //  'instructions': '1. Mix California dip:IMO sour cream and onion soup mix.\n2. Beat egg and mix with bread crumbs, meat and 1/2 of the California dip.\n3. Roll into 1 inch balls. Roll in flour, brown in 2 Tbsp. Butter.\n4. Mix other half of dip with water and let it warm up while browning meatballs.\n5. Pour over meatballs and simmer till serving. Can serve over noodles or rice.',
-  //  'name': 'Swedish Meatballs'
-  //}, {
-  //  'author': 'samashby',
-  //  'ingredients': [
-  //   {unitQuantity: 1, unit: CUPS, name: 'LIQUID INGREDIENTS:'},
-  //   {unitQuantity: 1, unit: CUPS, name: '3/4 c. oil'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 c. sugar'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 egg'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1/4 c. molasses'},
-  //   {unitQuantity: 1, unit: CUPS, name: 'DRY INGREDIENTS:'},
-  //   {unitQuantity: 1, unit: CUPS, name: '2 c. flour'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1/2 tsp. salt'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 tsp. cinnamon'},
-  //   {unitQuantity: 1, unit: CUPS, name: '2 tsp. baking soda'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 tsp. ginger'}
-  //  ],
-  //  'instructions': '1. Beat liquid ingredients together.\n2. Mix dry ingredients together.\n3. Roll in balls and roll in sugar.\n4. Bake at 350 deg. F. for 8 min.',
-  //  'name': 'Soft Gingersnaps'
-  //}, {
-  //  'author': 'samashby',
-  //  'ingredients': [
-  //   {unitQuantity: 1, unit: CUPS, name: '2 c. sugar'},
-  //   {unitQuantity: 1, unit: CUPS, name: '3/4 c. vegetable oil'},
-  //   {unitQuantity: 1, unit: CUPS, name: '3/4 c. cocoa'},
-  //   {unitQuantity: 1, unit: CUPS, name: '4 eggs'},
-  //   {unitQuantity: 1, unit: CUPS, name: 'powdered sugar'},
-  //   {unitQuantity: 1, unit: CUPS, name: '2 tsp. vanilla'},
-  //   {unitQuantity: 1, unit: CUPS, name: '2 1/3 c. flour'},
-  //   {unitQuantity: 1, unit: CUPS, name: '2 tsp. baking powder'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1/2 tsp. salt'}
-  //  ],
-  //  'instructions': '1. Combine sugar and vegetable oil in large mixing bowl. Add cocoa; blend well.\n2. Beat in eggs and vanilla.\n3. Combine flour, baking powder and salt; add to cocoa mixture, blending well.\n4. Cover, chill for several hours or overnight. Shape dough into 2-inch balls. Roll in powdered sugar.\n5. Place about 3 inches apart on greased cookie sheet.\n6. Bake at 350 deg. F. for 16-18 min. or until almost no indentation remains when touched.',
-  //  'name': 'Chocolate Crinkle Cookies'
-  //}, {
-  //  'author': 'violet2flame',
-  //  'ingredients': [
-  //   {unitQuantity: 1, unit: CUPS, name: '6 tablespoons butter, divided'},
-  //   {unitQuantity: 1, unit: CUPS, name: '3/4 cup onion, diced'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 (30 ounce) bag of frozen, shredded hashbrown potatoes, thawed or 12 small potatoes parboiled and shredded'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 (10.5 ounce) can condensed cream of chicken soup'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 cup sour cream, plain greek yogurt'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1/4 cup grated Parmesan cheese'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 teaspoon salt'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1/2 teaspoon ground pepper'},
-  //   {unitQuantity: 1, unit: CUPS, name: '2 cups sharp Cheddar cheese, shredded and firmly packed, divided '},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 1/2 cup crushed cornflake cereal or panko bread crumbs'}
-  //  ],
-  //  'instructions': '1. Preheat oven to 350 degrees. In a medium sized skillet, add 2 tablespoons butter and saute until the onions are translucent. Add the garlic and cook until fragrant. Remove from heat and set aside. \n2. In a large bowl, mix together the cooked onions, garlic, hashbrowns, condensed soup, sour cream, Parmesan cheese, salt, pepper, and 1 1/2 cups Cheddar cheese.\n3. Spread into a greased 9x13 inch baking pan. Top with remaining 1/2 cup Cheddar cheese.\n4. Melt the remaining 4 tablespoons of butter and mi with the crushed cornflake crumbs. Sprinkle evenly over the top of the casserole.\n5. Bake for 50-60 minutes or until cooked throughout and bubbly.',
-  //  'name': 'Funeral Potatoes'
-  //}, {
-  //  'author': 'anikaashby',
-  //  'ingredients': [
-  //   {unitQuantity: 1, unit: CUPS, name: '1 c. flour'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1/2 c. shortening'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1/2 restaurant-sized spoon salt'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1/4 c. cold water'}
-  //  ],
-  //  'instructions': '1. Mix flour, shortening and salt with pastry mixer.\n2. Add water and mix with fork.\n3. Roll into circle and put in pie pan. Makes one pie crust.',
-  //  'name': "Anika's Famous Pie Crust"
-  //}, {
-  //  'author': 'samashby',
-  //  'ingredients': [
-  //   {unitQuantity: 1, unit: CUPS, name: '2 c. grated zucchini'},
-  //   {unitQuantity: 1, unit: CUPS, name: '2 c. flour'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 1/4 c. sugar'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1/2 c. nuts, chopped'},
-  //   {unitQuantity: 1, unit: CUPS, name: '2 tsp. vanilla'},
-  //   {unitQuantity: 1, unit: CUPS, name: '3/4 tsp. salt'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 1/2 tsp. baking soda'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1/2 c. cocoa'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1/2 c. oil'},
-  //   {unitQuantity: 1, unit: CUPS, name: '2 beaten eggs.'}
-  //  ],
-  //  'instructions': '1. Mix well. Spread in 11x15 greased jelly roll pan.\n2. Bake 18-20 min. at 350 deg. F.',
-  //  'name': 'Zucchini Brownies'
-  //}, {
-  //  'author': 'kyleashby',
-  //  'ingredients': [
-  //   {unitQuantity: 1, unit: CUPS, name: '1/2 c. granulated sugar'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1/2 c. brown sugar'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1/4 c. margarine or butter'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1/4 c. shortening'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1/2 tsp. baking soda'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1/2 tsp. cinnamon'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1/2 tsp. vanilla'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1/4 tsp. baking powder'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1/4 tsp. salt'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 egg'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 1/2 c. quick oats'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 c. flour'}
-  //  ],
-  //  'instructions': '1. Heat oven to 375 deg. F.\n2. Mix all ingredients except oats, flour and raisins or chocolate chips, etc.\n3. Stir oats, flour, raisins etc.\n4. Drop by rounded teaspoon 2 inches apart on ungreased cookie sheet.\n5. Bake about 10 min.',
-  //  'name': 'Oatmeal Cookies'
-  //}, {
-  //  'author': 'violet2flame',
-  //  'ingredients': [
-  //   {unitQuantity: 1, unit: CUPS, name: '20 ounce bag shredded hash browns'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 tablespoon olive oil'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 teaspoon salt'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1/2 teaspoon black pepper'},
-  //   {unitQuantity: 1, unit: CUPS, name: '2 cups fiesta blend cheese, divided'},
-  //   {unitQuantity: 1, unit: CUPS, name: '12 ounce package bacon, cooked and crumbled into bite-sized pieces'},
-  //   {unitQuantity: 1, unit: CUPS, name: '9 extra large eggs, divided'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1/2 cup red bell pepper diced'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1/2 cup orange bell pepper diced'},
-  //   {unitQuantity: 1, unit: CUPS, name: 'parsley'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1/2 cup 2% milk or cream'}
-  //  ],
-  //  'instructions': '1. Preheat oven to 400 degrees.\n2. Spray 24 muffin tins with cooking spray.\n3. Combine one egg with hashbrowns, olive oil, 1 cup cheese and half each of the salt and pepper.\n4. Divide mixture evenly between 24 muffin tins and press down.\n5. Sprinkle each with parsley. \n6. Bake at 400 degrees for about 10-15 minutes or until potatoes are crispy.\n7. Meanwhile, whisk remaining 8 eggs in a large mixing bowl. \n8. Add remaining 1 cup cheese, remaining salt and pepper, cooked bacon, red and orange bell peppers and milk. \n9. Stir to combine.\n10. Pour mixture evenly over each potato muffin crust. \n11. Sprinkle with additional salt, pepper and parsley if desired. \n12. Bake an additional 10-15 minutes or until eggs are cooked through.',
-  //  'name': 'Breakfast Muffins'
-  //}, {
-  //  'author': 'samashby',
-  //  'ingredients': [
-  //   {unitQuantity: 1, unit: CUPS, name: '1 1/2 c. butter'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 1/2 c. brown sugar'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 1/2 c. sugar'},
-  //   {unitQuantity: 1, unit: CUPS, name: '4 eggs'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 1/2 c. peanut butter'},
-  //   {unitQuantity: 1, unit: CUPS, name: '3 c. flour'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 tsp. baking powder'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 tsp. baking soda'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1/4 tsp. salt'},
-  //   {unitQuantity: 1, unit: CUPS, name: '3 c. rolled oats'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 tsp. vanilla'}
-  //  ],
-  //  'instructions': '1. Mix butter, sugar, eggs, and peanut butter. Mix well.\n2. Stir in flour, baking soda, baking powder, salt, rolled oats and vanilla. Spread on buttered sheet.\n3. Bake at 350 deg. F. for 10 min. only.\n4. Remove from oven, cool slightly. Frost with chocolate frosting.',
-  //  'name': 'Chocolate Peanut Butter Fingers'
-  //}, {
-  //  'author': 'samashby',
-  //  'ingredients': [
-  //   {unitQuantity: 1, unit: CUPS, name: '4 eggs'},
-  //   {unitQuantity: 1, unit: CUPS, name: '2 1/2 c. sugar'},
-  //   {unitQuantity: 1, unit: CUPS, name: '7 c. milk'},
-  //   {unitQuantity: 1, unit: CUPS, name: '3 c. whipping cream'},
-  //   {unitQuantity: 1, unit: CUPS, name: '2 1/2 Tbsp. vanilla'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1/2 tsp. salt'}
-  //  ],
-  //  'instructions': '1. Beat eggs till light.\n2. Add sugar gradually, beating till thick.\n3. Add remaining ingredients; mix well.\n4. Freeze in a 5-quart ice cream freezer. Makes 1 gal.',
-  //  'name': 'Vanilla Ice Cream'
-  //}, {
-  //  'author': 'samashby',
-  //  'ingredients': [
-  //   {unitQuantity: 1, unit: CUPS, name: '2 c. sliced rhubarb in 1 inch pieces'},
-  //   {unitQuantity: 1, unit: CUPS, name: '2 Tbsp. water'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 c. sugar'},
-  //   {unitQuantity: 1, unit: CUPS, name: '2 Tbsp. butter'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1/3 c. flour'},
-  //   {unitQuantity: 1, unit: CUPS, name: '2 pints whole strawberries'}
-  //  ],
-  //  'instructions': '1. Combine rhubarb, sugar, water, flour, and butter together and cook until rhubarb is soft.\n2. Cool about 5 min. and then add strawberries.\n3. Pour into baked pie shell and serve with whipped cream on top.',
-  //  'name': 'Strawberry-Rhubarb Pie'
-  //}, {
-  //  'author': 'samashby',
-  //  'ingredients': [
-  //   {unitQuantity: 1, unit: CUPS, name: '1 4-serving size package of orange gelatin'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 c. boiling water'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 pint soft vanilla ice cream'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 prepared chocolate crumb crust'},
-  //   {unitQuantity: 1, unit: CUPS, name: 'whipped topping'},
-  //   {unitQuantity: 1, unit: CUPS, name: 'candy corn or black licorice'}
-  //  ],
-  //  'instructions': '1. Dissolve gelatin mix into boiling water, and stir in ice cream. Chill until slightly thickened, about 10 min.\n2. Pour mixture into crust and chill firm, about 2 hours.\n3. Garnish with whipped topping, and use candy corn or black licorice to make a face on top.',
-  //  'name': "Jack-o'-Lantern Pie"
-  //}, {
-  //  'author': 'violet2flame',
-  //  'ingredients': [
-  //   {unitQuantity: 1, unit: CUPS, name: '1 1/2 cups all-purpose flour'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 teaspoon baking powder'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1/4 teaspoon baking soda'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1/2 teaspoon salt'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1/4 cup melted butter'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1/4 cup olive oil'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1/2 cup sugar'},
-  //   {unitQuantity: 1, unit: CUPS, name: '2/3 cup greek yogurt (lemon yogurt for lemon flavored muffins or vanilla yogurt for almond flavored muffins)'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 lemon, zested and juiced or 2 teaspoons almond extract'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 egg'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 teaspoon vanilla extract'},
-  //   {unitQuantity: 1, unit: CUPS, name: '2 tablespoons chia seeds'}
-  //  ],
-  //  'instructions': '1. Preheat oven to 400 degrees. Grease or line 12 muffin cups.\n2. In a medium bowl, whisk together flour, baking powder, baking soda, and salt. Set aside.\n3. In a large bowl, mix together olive oil, sugar, yogurt, and lemon juice and zest (or almond extract) until fully combined. Add egg and vanilla, and mix thoroughly. \n4. Add dry ingredients to wet ingredients in two additions, stirring until just combined. Fold in chia seeds. \n5. Pour batter into muffin liners, filling 3/4 of the way full. Bake for 13 to 15 minutes, until muffins are golden on top and a toothpick inserted in the center comes out clean.',
-  //  'name': 'Chia Seed Muffins'
-  //}, {
-  //  'author': 'kevinashby',
-  //  'ingredients': [
-  //   {unitQuantity: 1, unit: CUPS, name: 'RICE:'},
-  //   {unitQuantity: 1, unit: CUPS, name: '2 "blue" cups rice'},
-  //   {unitQuantity: 1, unit: CUPS, name: '4 "blue" cups water'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 good slab of butter'},
-  //   {unitQuantity: 1, unit: CUPS, name: 'PUDDING:'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 dozen eggs'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 can sweetened condensed milk'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1 can evaporated milk'},
-  //   {unitQuantity: 1, unit: CUPS, name: '1/2 c. brown sugar'},
-  //   {unitQuantity: 1, unit: CUPS, name: 'about 6 c. milk'},
-  //   {unitQuantity: 1, unit: CUPS, name: 'cinnamon'},
-  //   {unitQuantity: 1, unit: CUPS, name: 'nutmeg'},
-  //   {unitQuantity: 1, unit: CUPS, name: 'pumpkin spice'},
-  //   {unitQuantity: 1, unit: CUPS, name: 'vanilla'},
-  //   {unitQuantity: 1, unit: CUPS, name: 'ginger'},
-  //   {unitQuantity: 1, unit: CUPS, name: 'yogurt'},
-  //   {unitQuantity: 1, unit: CUPS, name: 'raisins (optional)'}
-  //  ],
-  //  'instructions': '1. Cook rice in water and butter for about 20 min.\n2. Mix everything but milk for 5 min. with beater until bubbly.\n3. Add milk and beat again.\n4. Pour into large microwave bowl and add rice.\n5. Cook in microwave for 10-15 min, stirring occasionally.',
-  //  'name': "Rice Pudding (Kevin's never the same)"
-  //}
+  }, {
+    'author': 'peggywhitehead',
+    'ingredients': [
+     {packageQuantity: 1, package: 'large bags', name: 'frozen hash browns'},
+     {packageQuantity: 1, package: 'cans', name: 'cream of mushroom soup'},
+     {packageQuantity: 1, package: 'cans', name: 'cream of chicken soup'},
+     {unitQuantity: 1, unit: UNITLESS, name: 'onions, diced'},
+     {unitQuantity: 1, unit: CUPS, name: 'sour cream'},
+     {unitQuantity: 1, unit: CUPS, name: 'cheese, shredded'},
+     {packageQuantity: 1, package: 'to taste', name: 'garlic salt'},
+     {packageQuantity: 1, package: 'to taste', name: 'onion salt'}
+    ],
+    'instructions': '1. Mix soups, sour cream, shredded cheese, and seasonings.\n2. Fold in the hash browns.\n3. Spray 9x13 pan with cooking spray. Put potatoes in pan. Top with cheese, crushed potato chips, or crushed corn flakes with melted butter.\n4. Bake at 350 deg. F. for 1 hour.',
+    'name': 'Cheesy Hot Potatoes'
+  }, {
+    'author': 'samashby',
+    'ingredients': [
+     {unitQuantity: 2.75, unit: CUPS, name: 'flour'},
+     {unitQuantity: 2, unit: CUPS, name: 'sugar'},
+     {unitQuantity: 2, unit: TEASPOONS, name: 'baking soda'},
+     {unitQuantity: 0.5, unit: CUPS, name: 'cocoa'},
+     {unitQuantity: 1, unit: TEASPOONS, name: 'salt'},
+     {unitQuantity: 2, unit: UNITLESS, name: 'eggs'},
+     {unitQuantity: 0.75, unit: CUPS, name: 'oil'},
+     {unitQuantity: 1, unit: CUPS, name: 'sour cream'},
+     {unitQuantity: 1, unit: TABLESPOONS, name: 'vanilla'},
+     {unitQuantity: 1, unit: CUPS, name: 'boiling water'}
+    ],
+    'instructions': '1. Mix dry ingredients\n2. Add all liquid ingredients, except boiling water. Boil 1 c. water, add immediately, and mix all ingredients immediately.\n3. Bake at 350 deg. F. for 35-40 min. (or 20-25 min. for cupcakes).',
+    'name': 'Favorite Chocolate Cake'
+  }, {
+    'author': 'lesliewoodward',
+    'ingredients': [
+     {packageQuantity: 2, package: 'bags', name: 'hash browns'},
+     {unitQuantity: 1, unit: POUNDS, name: 'bacon'},
+     {unitQuantity: 1, unit: UNITLESS, name: 'large onions, chopped'},
+     {unitQuantity: 12, unit: UNITLESS, name: 'eggs'},
+     {unitQuantity: 1, unit: UNITLESS, name: 'cheese, grated'},
+     {packageQuantity: 1, package: 'to taste', name: 'seasonings'}
+    ],
+    'instructions': '1. Cook bacon and onion in Dutch oven.\n2. Break up bacon pieces and add hash browns. Stir in and season.\n3. Add eggs and cook until done.\n4. Top with grated cheese and cook unitl cheese is melted.',
+    'name': 'Cheesy Dutch Oven Potatoes'
+  }, {
+    'author': 'samashby',
+    'ingredients': [
+     {unitQuantity: 1, unit: CUPS, name: 'applesauce'},
+     {unitQuantity: 1, unit: TEASPOONS, name: 'baking soda'},
+     {unitQuantity: 1, unit: CUPS, name: 'sugar'},
+     {unitQuantity: 0.5, unit: CUPS, name: 'shortening'},
+     {unitQuantity: 2, unit: UNITLESS, name: 'eggs'},
+     {unitQuantity: 2, unit: CUPS, name: 'flour'},
+     {unitQuantity: 1, unit: CUPS, name: 'oatmeal'},
+     {unitQuantity: 0.5, unit: TEASPOONS, name: 'cinnamon'},
+     {unitQuantity: 0.5, unit: TEASPOONS, name: 'cloves'},
+     {unitQuantity: 0.5, unit: TEASPOONS, name: 'nutmeg'},
+     {unitQuantity: 0.5, unit: TEASPOONS, name: 'salt'},
+     {unitQuantity: 1, unit: CUPS, name: 'nuts'},
+     {unitQuantity: 6, unit: OUNCES, name: 'chocolate chips'}
+    ],
+    'instructions': '1. Mix applesauce and baking soda.\n2. Mix sugar, shortening and eggs. Add to applesauce mixture.\n3. Add flour and spices that have been sifted.\n4. Add nuts and chocolate chips.\n5. Drop by spoonful on greased cookie sheet and bake at 400 deg. F. for 9-12 min.',
+    'name': 'Applesauce Cookies'
+  }, {
+    'author': 'samashby',
+    'ingredients': [
+     {unitQuantity: 1, unit: CUPS, name: 'butter'},
+     {unitQuantity: 1, unit: CUPS, name: 'sugar'},
+     {unitQuantity: 1, unit: TEASPOONS, name: 'vanilla'},
+     {unitQuantity: 1, unit: CUPS, name: 'cooked pumpkin'},
+     {unitQuantity: 1, unit: UNITLESS, name: 'eggs'},
+     {unitQuantity: 2, unit: CUPS, name: 'flour'},
+     {unitQuantity: 1, unit: TEASPOONS, name: 'baking powder'},
+     {unitQuantity: 0.5, unit: TEASPOONS, name: 'baking soda'},
+     {unitQuantity: 0.5, unit: TEASPOONS, name: 'salt'},
+     {unitQuantity: 1, unit: TEASPOONS, name: 'cinnamon'},
+     {unitQuantity: 0.5, unit: TEASPOONS, name: 'allspice'},
+     {unitQuantity: 1.25, unit: CUPS, name: 'chocolate chips'}
+    ],
+    'instructions': '1. Mix all ingredients. Bake at 375 deg. F. for about 13 min.',
+    'name': 'Pumpkin Chocolate Chip Cookies'
+  }, {
+    'author': 'samashby',
+    'ingredients': [
+     {unitQuantity: 1, unit: UNITLESS, name: 'ribs'},
+     {unitQuantity: 1, unit: UNITLESS, name: 'barbecue sauce'}
+    ],
+    'instructions': '1. Place ribs in crock pot - frozen or thawed. Cook on high for 4-5 hours or on low about 8 hours.\n2. One hour before serving, drain and pour barbecue sauce over meat.\nVariation: Use boneless chicken breasts',
+    'name': 'Boneless Barbecue Ribs'
+  }, {
+    'author': 'pauladeen',
+    'ingredients': [
+     {unitQuantity: 6, unit: OUNCES, name: 'bittersweet chocolate squares'},
+     {unitQuantity: 2, unit: OUNCES, name: 'semisweet chocolate baking squares'},
+     {unitQuantity: 10, unit: TABLESPOONS, name: 'butter'},
+     {unitQuantity: 0.5, unit: CUPS, name: 'flour'},
+     {unitQuantity: 2, unit: TABLESPOONS, name: 'orange juice'},
+     {unitQuantity: 0.5, unit: TEASPOONS, name: 'orange extract'},
+     {unitQuantity: 3, unit: UNITLESS, name: 'large eggs'},
+     {unitQuantity: 3, unit: UNITLESS, name: 'large egg yolks'},
+     {unitQuantity: 1, unit: TABLESPOONS, name: 'vanilla'},
+     {unitQuantity: 2, unit: TABLESPOONS, name: 'Grand Marnier'}
+    ],
+    'instructions': '1. Preheat oven to 425 deg. F.\n2. Grease 6 (6 oz.) custard cups.\n3. Melt chocolates and butter in the microwave or in a double boiler.\n4. Add flour and sugar to chocolate mixture.\n5. Stir in eggs until smooth.\n6. Stir in vanilla and Grand Marnier (can substitute 1 1/2 c. powdered sugar for 2 Tbsp Grand Marnier).\n7. Divide batter evenly among custard cups.\n8. Bake for 14 min. Edges should be firm but the center will be runny.\n9. Run a knife around the edge to loosen and invert into dessert plate. Top with vanillla ice cream or raspberry sauce (optional).',
+    'name': 'Molten Lava Cake'
+  }, {
+    'author': 'spencerashby',
+    'ingredients': [
+     {unitQuantity: 1, unit: UNITLESS, name: 'chicken'},
+     {unitQuantity: 1, unit: UNITLESS, name: 'mayonnaise'},
+     {unitQuantity: 1, unit: UNITLESS, name: 'ketchup'},
+     {unitQuantity: 1, unit: UNITLESS, name: 'salami'},
+     {unitQuantity: 1, unit: UNITLESS, name: 'broccoli'},
+     {unitQuantity: 1, unit: UNITLESS, name: 'dark bread'}
+    ],
+    'instructions': '1. Put chicken in bread.\n2. Put mayonnaise on chicken.\n3. Put ketchup on mayonnaise.\n4. Put four pieces of broccoli on.\n5. Put on salami.\n6. Put dark bread on top.',
+    'name': "Spencer's Chicken Sandwich"
+  }, {
+    'author': 'samashby',
+    'ingredients': [
+     {unitQuantity: 2, unit: UNITLESS, name: 'devil food cake mixes'},
+     {unitQuantity: 4, unit: UNITLESS, name: 'eggs'},
+     {unitQuantity: 1.5, unit: CUPS, name: 'shortening, melted'},
+     {unitQuantity: 8, unit: OUNCES, name: 'cream cheese, softened'},
+     {unitQuantity: 4, unit: CUPS, name: 'powdered sugar'},
+     {packageQuantity: 1, package: 'cubes', name: 'margarine, softened'},
+     {unitQuantity: 1, unit: TEASPOONS, name: 'vanilla'}
+    ],
+    'instructions': 'COOKIES:\n1. Mix cookie ingredients (mixes, eggs, shortening) until consistency of cookie dough.\n2. Roll dough into 25-cent sized balls, and space them on cookie sheets; they spread. Bake at 375 deg. F. for 7-10 min. Cool.\nFILLING:\nMix all filling ingredients thoroughly (po. Frost equal size.\nNote: Can substitute lemon cake mixes for devil food cake mixes.',
+    'name': 'Chocolate Sandwich Cookies'
+  }, {
+    'author': 'faytruman',
+    'ingredients': [
+     {unitQuantity: 1, unit: CUPS, name: 'butter, melted'},
+     {unitQuantity: 2, unit: CUPS, name: 'onions, chopped'},
+     {unitQuantity: 2, unit: CUPS, name: 'celery, chopped'},
+     {unitQuantity: 1, unit: UNITLESS, name: 'carrots, shredded'},
+     {packageQuantity: 1, package: '8 oz. cans', name: 'mushrooms'},
+     {packageQuantity: 1, package: '8 oz. cans', name: 'water chestnuts'},
+     {unitQuantity: 2, unit: CUPS, name: 'broth'},
+     {unitQuantity: 2, unit: UNITLESS, name: 'eggs, beaten'},
+     {unitQuantity: 13, unit: CUPS, name: 'dry bread crumbs'},
+     {unitQuantity: 0.5, unit: TEASPOONS, name: 'marjoram'},
+     {unitQuantity: 1, unit: TEASPOONS, name: 'poultry seasoning'},
+     {unitQuantity: 1.5, unit: TEASPOONS, name: 'salt'},
+     {unitQuantity: 1.5, unit: TEASPOONS, name: 'sage'},
+     {unitQuantity: 1, unit: TEASPOONS, name: 'thyme'},
+     {unitQuantity: 0.5, unit: TEASPOONS, name: 'pepper'}
+    ],
+    'instructions': 'Mix all ingredients and put in slow cooker on low for 6-8 hours',
+    'name': 'Slow Cooker Dressing'
+  }, {
+    'author': 'samashby',
+    'ingredients': [
+     {unitQuantity: 1, unit: POUNDS, name: 'Ricotta cheese'},
+     {unitQuantity: 0.25, unit: POUNDS, name: 'Mozzarella cheese'},
+     {unitQuantity: 1, unit: UNITLESS, name: 'eggs'},
+     {unitQuantity: 18, unit: UNITLESS, name: 'jumbo pasta shells'},
+     {unitQuantity: 1, unit: TABLESPOONS, name: 'parsley, chopped'},
+     {packageQuantity: 1, package: 'to taste', name: 'salt'},
+     {packageQuantity: 1, package: 'to taste', name: 'pepper'},
+     {unitQuantity: 0.334, unit: CUPS, name: 'Parmesan cheese'},
+     {packageQuantity: 1, package: 'jars', name: 'spaghetti sauce'}
+    ],
+    'instructions': '1. Mix Ricotta, Mozzarrella, egg, Parmesan, parsley, and salt and pepper.\n2. Cook jumbo pasta shells according to directions. Drain and cool.\n3. Fill shells with cheese mixture.\n3. Put 2/3 spaghetti sauce in pan, put filled shells in and cover with remaining sauce.\n4. Bake at 350 deg. F. for 25 min, covered.\n5. Sprinkle extra Mozzarella cheese on top and bake an additional 5 min.\nNote: 1/4 lb. Mozzarella is about 1 c. Mozzarella shredded',
+    'name': 'Manicotti'
+  }, {
+    'author': 'samashby',
+    'ingredients': [
+     {unitQuantity: 4, unit: UNITLESS, name: 'eggs'},
+     {unitQuantity: 1, unit: CUPS, name: 'flour'},
+     {unitQuantity: 0.5, unit: CUPS, name: 'milk'},
+     {unitQuantity: 0.5, unit: CUPS, name: 'water'},
+     {unitQuantity: 0.5, unit: TEASPOONS, name: 'salt'},
+     {unitQuantity: 2, unit: TABLESPOONS, name: 'butter, melted'},
+     {unitQuantity: 2, unit: TEASPOONS, name: 'sugar'},
+     {unitQuantity: 1, unit: TEASPOONS, name: 'vanilla'}
+    ],
+    'instructions': '1. Blend well and let sit for 30 min.\n2. Pour batter in pie pan and cook with crepe maker. Fill with choice of dessert filling.',
+    'name': 'Basic Dessert Crepes'
+  }, {
+    'author': 'jaceeashby',
+    'ingredients': [
+     {packageQuantity: 1, package: 'cans', name: 'cream of celery soup'},
+     {packageQuantity: 1, package: 'cans', name: 'cream of mushroom soup'},
+     {unitQuantity: 1, unit: UNITLESS, name: 'chicken, cut up'},
+     {packageQuantity: 0.5, package: 'cans', name: 'water'},
+     {packageQuantity: 1, package: 'packages', name: 'dry onion soup mix'},
+     {unitQuantity: 1, unit: CUPS, name: 'uncooked rice'}
+    ],
+    'instructions': '1. Put half of soup mixture in casserole. Sprinkle with half of rice, put chicken in layer over rice, then add rest of rice.\n2. Pour rest of soup mixture over top.\n3. Bake covered in 350 deg. F. oven about 1 hour until done.',
+    'name': 'Chicken Rice Casserole'
+  }, {
+    'author': 'samashby',
+    'ingredients': [
+     {unitQuantity: 1.5, unit: POUNDS, name: 'hamburger'},
+     {unitQuantity: 1, unit: PINTS, name: 'IMO sour cream'},
+     {packageQuantity: 1, package: 'packages', name: 'dry onion soup mix'},
+     {unitQuantity: 1, unit: UNITLESS, name: 'eggs'},
+     {unitQuantity: 0.5, unit: CUPS, name: 'soft bread crumbs'},
+     {unitQuantity: 1, unit: CUPS, name: 'water'},
+     {unitQuantity: 1, unit: CUPS, name: 'flour'}
+    ],
+    'instructions': '1. Mix California dip:IMO sour cream and onion soup mix.\n2. Beat egg and mix with bread crumbs, meat and 1/2 of the California dip.\n3. Roll into 1 inch balls. Roll in flour, brown in 2 Tbsp. Butter.\n4. Mix other half of dip with water and let it warm up while browning meatballs.\n5. Pour over meatballs and simmer till serving. Can serve over noodles or rice.',
+    'name': 'Swedish Meatballs'
+  }, {
+    'author': 'samashby',
+    'ingredients': [
+     {unitQuantity: 0.75, unit: CUPS, name: 'oil'},
+     {unitQuantity: 1, unit: CUPS, name: 'sugar'},
+     {unitQuantity: 1, unit: UNITLESS, name: 'eggs'},
+     {unitQuantity: 0.25, unit: CUPS, name: 'molasses'},
+     {unitQuantity: 2, unit: CUPS, name: 'flour'},
+     {unitQuantity: 0.5, unit: TEASPOONS, name: 'salt'},
+     {unitQuantity: 1, unit: TEASPOONS, name: 'cinnamon'},
+     {unitQuantity: 2, unit: TEASPOONS, name: 'baking soda'},
+     {unitQuantity: 1, unit: TEASPOONS, name: 'ginger'}
+    ],
+    'instructions': '1. Beat liquid ingredients together.\n2. Mix dry ingredients together.\n3. Roll in balls and roll in sugar.\n4. Bake at 350 deg. F. for 8 min.',
+    'name': 'Soft Gingersnaps'
+  }, {
+    'author': 'samashby',
+    'ingredients': [
+     {unitQuantity: 2, unit: CUPS, name: 'sugar'},
+     {unitQuantity: 0.75, unit: CUPS, name: 'vegetable oil'},
+     {unitQuantity: 0.75, unit: CUPS, name: 'cocoa'},
+     {unitQuantity: 4, unit: UNITLESS, name: 'eggs'},
+     {unitQuantity: 1, unit: UNITLESS, name: 'powdered sugar'},
+     {unitQuantity: 2, unit: TEASPOONS, name: 'vanilla'},
+     {unitQuantity: 2.334, unit: CUPS, name: 'flour'},
+     {unitQuantity: 2, unit: TEASPOONS, name: 'baking powder'},
+     {unitQuantity: 0.5, unit: TEASPOONS, name: 'salt'}
+    ],
+    'instructions': '1. Combine sugar and vegetable oil in large mixing bowl. Add cocoa; blend well.\n2. Beat in eggs and vanilla.\n3. Combine flour, baking powder and salt; add to cocoa mixture, blending well.\n4. Cover, chill for several hours or overnight. Shape dough into 2-inch balls. Roll in powdered sugar.\n5. Place about 3 inches apart on greased cookie sheet.\n6. Bake at 350 deg. F. for 16-18 min. or until almost no indentation remains when touched.',
+    'name': 'Chocolate Crinkle Cookies'
+  }, {
+    'author': 'violet2flame',
+    'ingredients': [
+     {unitQuantity: 6, unit: TABLESPOONS, name: 'butter'},
+     {unitQuantity: 0.75, unit: CUPS, name: 'onions, diced'},
+     {packageQuantity: 1, package: '30 oz. bags', name: 'frozen, shredded hashbrown potatoes'},
+     {packageQuantity: 1, package: '10.5 oz. cans', name: 'condensed cream of chicken soup'},
+     {unitQuantity: 1, unit: CUPS, name: 'sour cream'},
+     {unitQuantity: 0.25, unit: CUPS, name: 'Parmesan cheese, grated'},
+     {unitQuantity: 1, unit: TEASPOONS, name: 'salt'},
+     {unitQuantity: 0.5, unit: TEASPOONS, name: 'pepper'},
+     {unitQuantity: 2, unit: CUPS, name: 'sharp Cheddar cheese, shredded and firmly packed'},
+     {unitQuantity: 1.5, unit: CUPS, name: 'crushed cornflake cereal'}
+    ],
+    'instructions': '1. Preheat oven to 350 degrees. In a medium sized skillet, add 2 tablespoons butter and saute until the onions are translucent. Add the garlic and cook until fragrant. Remove from heat and set aside. \n2. In a large bowl, mix together the cooked onions, garlic, hashbrowns, condensed soup, sour cream, Parmesan cheese, salt, pepper, and 1 1/2 cups Cheddar cheese.\n3. Spread into a greased 9x13 inch baking pan. Top with remaining 1/2 cup Cheddar cheese.\n4. Melt the remaining 4 tablespoons of butter and mi with the crushed cornflake crumbs. Sprinkle evenly over the top of the casserole.\n5. Bake for 50-60 minutes or until cooked throughout and bubbly.\nNote: Hashbrowns should be thawed. \nNote: 12 small potatoes parboiled and shredded can be substituted for a 30 oz. bag of frozen, shredded hashbrown potatoes.\nNote: Plain greek yogurt can be substituted for sour cream.\nNote: Panko bread crumbs can be used in place of crushed cornflake cereal.',
+    'name': 'Funeral Potatoes'
+  }, {
+    'author': 'anikaashby',
+    'ingredients': [
+     {unitQuantity: 1, unit: CUPS, name: 'flour'},
+     {unitQuantity: 0.5, unit: CUPS, name: 'shortening'},
+     {unitQuantity: 0.5, unit: TEASPOONS, name: 'salt'},
+     {unitQuantity: 0.25, unit: CUPS, name: 'cold water'}
+    ],
+    'instructions': '1. Mix flour, shortening and salt with pastry mixer.\n2. Add water and mix with fork.\n3. Roll into circle and put in pie pan. Makes one pie crust.',
+    'name': "Anika's Famous Pie Crust"
+  }, {
+    'author': 'samashby',
+    'ingredients': [
+     {unitQuantity: 2, unit: CUPS, name: 'zucchini, grated'},
+     {unitQuantity: 2, unit: CUPS, name: 'flour'},
+     {unitQuantity: 1.25, unit: CUPS, name: 'sugar'},
+     {unitQuantity: 0.5, unit: CUPS, name: 'nuts, chopped'},
+     {unitQuantity: 2, unit: TEASPOONS, name: 'vanilla'},
+     {unitQuantity: 0.75, unit: TEASPOONS, name: 'salt'},
+     {unitQuantity: 1.5, unit: TEASPOONS, name: 'baking soda'},
+     {unitQuantity: 0.5, unit: CUPS, name: 'cocoa'},
+     {unitQuantity: 0.5, unit: CUPS, name: 'oil'},
+     {unitQuantity: 2, unit: UNITLESS, name: 'eggs, beaten'}
+    ],
+    'instructions': '1. Mix well. Spread in 11x15 greased jelly roll pan.\n2. Bake 18-20 min. at 350 deg. F.',
+    'name': 'Zucchini Brownies'
+  }, {
+    'author': 'kyleashby',
+    'ingredients': [
+     {unitQuantity: 0.5, unit: CUPS, name: 'granulated sugar'},
+     {unitQuantity: 0.5, unit: CUPS, name: 'brown sugar'},
+     {unitQuantity: 0.25, unit: CUPS, name: 'butter'},
+     {unitQuantity: 0.25, unit: CUPS, name: 'shortening'},
+     {unitQuantity: 0.5, unit: TEASPOONS, name: 'baking soda'},
+     {unitQuantity: 0.5, unit: TEASPOONS, name: 'cinnamon'},
+     {unitQuantity: 0.5, unit: TEASPOONS, name: 'vanilla'},
+     {unitQuantity: 0.25, unit: TEASPOONS, name: 'baking powder'},
+     {unitQuantity: 0.25, unit: TEASPOONS, name: 'salt'},
+     {unitQuantity: 1, unit: UNITLESS, name: 'eggs'},
+     {unitQuantity: 1.5, unit: CUPS, name: 'quick oats'},
+     {unitQuantity: 1, unit: CUPS, name: 'flour'}
+    ],
+    'instructions': '1. Heat oven to 375 deg. F.\n2. Mix all ingredients except oats, flour and raisins or chocolate chips, etc.\n3. Stir oats, flour, raisins etc.\n4. Drop by rounded teaspoon 2 inches apart on ungreased cookie sheet.\n5. Bake about 10 min.',
+    'name': 'Oatmeal Cookies'
+  }, {
+    'author': 'violet2flame',
+    'ingredients': [
+     {packageQuantity: 1, package: '20 oz. bags', name: 'shredded hash browns'},
+     {unitQuantity: 1, unit: TABLESPOONS, name: 'olive oil'},
+     {unitQuantity: 1, unit: TEASPOONS, name: 'salt'},
+     {unitQuantity: 0.5, unit: TEASPOONS, name: 'black pepper'},
+     {unitQuantity: 2, unit: CUPS, name: 'fiesta blend cheese'},
+     {unitQuantity: 12, unit: OUNCES, name: 'bacon, cooked and chopped'},
+     {unitQuantity: 9, unit: UNITLESS, name: 'extra large eggs'},
+     {unitQuantity: 0.5, unit: CUPS, name: 'red bell peppers, diced'},
+     {unitQuantity: 0.5, unit: CUPS, name: 'orange bell peppers, diced'},
+     {unitQuantity: 1, unit: UNITLESS, name: 'parsley'},
+     {unitQuantity: 0.5, unit: CUPS, name: 'two percent milk'}
+    ],
+    'instructions': '1. Preheat oven to 400 degrees.\n2. Spray 24 muffin tins with cooking spray.\n3. Combine one egg with hashbrowns, olive oil, 1 cup cheese and half each of the salt and pepper.\n4. Divide mixture evenly between 24 muffin tins and press down.\n5. Sprinkle each with parsley. \n6. Bake at 400 degrees for about 10-15 minutes or until potatoes are crispy.\n7. Meanwhile, whisk remaining 8 eggs in a large mixing bowl. \n8. Add remaining 1 cup cheese, remaining salt and pepper, cooked bacon, red and orange bell peppers and milk. \n9. Stir to combine.\n10. Pour mixture evenly over each potato muffin crust. \n11. Sprinkle with additional salt, pepper and parsley if desired. \n12. Bake an additional 10-15 minutes or until eggs are cooked through.\nNote: Cream can be substituted for milk.',
+    'name': 'Breakfast Muffins'
+  }, {
+    'author': 'samashby',
+    'ingredients': [
+     {unitQuantity: 1.5, unit: CUPS, name: 'butter'},
+     {unitQuantity: 1.5, unit: CUPS, name: 'brown sugar'},
+     {unitQuantity: 1.5, unit: CUPS, name: 'sugar'},
+     {unitQuantity: 4, unit: UNITLESS, name: 'eggs'},
+     {unitQuantity: 1.5, unit: CUPS, name: 'peanut butter'},
+     {unitQuantity: 3, unit: CUPS, name: 'flour'},
+     {unitQuantity: 1, unit: TEASPOONS, name: 'baking powder'},
+     {unitQuantity: 1, unit: TEASPOONS, name: 'baking soda'},
+     {unitQuantity: 0.25, unit: TEASPOONS, name: 'salt'},
+     {unitQuantity: 3, unit: CUPS, name: 'rolled oats'},
+     {unitQuantity: 1, unit: TEASPOONS, name: 'vanilla'}
+    ],
+    'instructions': '1. Mix butter, sugar, eggs, and peanut butter. Mix well.\n2. Stir in flour, baking soda, baking powder, salt, rolled oats and vanilla. Spread on buttered sheet.\n3. Bake at 350 deg. F. for 10 min. only.\n4. Remove from oven, cool slightly. Frost with chocolate frosting.',
+    'name': 'Chocolate Peanut Butter Fingers'
+  }, {
+    'author': 'samashby',
+    'ingredients': [
+     {unitQuantity: 4, unit: UNITLESS, name: 'eggs'},
+     {unitQuantity: 2.5, unit: CUPS, name: 'sugar'},
+     {unitQuantity: 7, unit: CUPS, name: 'milk'},
+     {unitQuantity: 3, unit: CUPS, name: 'whipping cream'},
+     {unitQuantity: 2.5, unit: TABLESPOONS, name: 'vanilla'},
+     {unitQuantity: 0.5, unit: TEASPOONS, name: 'salt'}
+    ],
+    'instructions': '1. Beat eggs till light.\n2. Add sugar gradually, beating till thick.\n3. Add remaining ingredients; mix well.\n4. Freeze in a 5-quart ice cream freezer. Makes 1 gal.',
+    'name': 'Vanilla Ice Cream'
+  }, {
+    'author': 'samashby',
+    'ingredients': [
+     {unitQuantity: 2, unit: CUPS, name: 'sliced rhubarb in 1 inch pieces'},
+     {unitQuantity: 2, unit: TABLESPOONS, name: 'water'},
+     {unitQuantity: 1, unit: CUPS, name: 'sugar'},
+     {unitQuantity: 2, unit: TABLESPOONS, name: 'butter'},
+     {unitQuantity: 0.334, unit: CUPS, name: 'flour'},
+     {unitQuantity: 2, unit: PINTS, name: 'whole strawberries'}
+    ],
+    'instructions': '1. Combine rhubarb, sugar, water, flour, and butter together and cook until rhubarb is soft.\n2. Cool about 5 min. and then add strawberries.\n3. Pour into baked pie shell and serve with whipped cream on top.',
+    'name': 'Strawberry-Rhubarb Pie'
+  }, {
+    'author': 'samashby',
+    'ingredients': [
+     {packageQuantity: 1, package: '4-serving size packages', name: 'orange gelatin'},
+     {unitQuantity: 1, unit: CUPS, name: 'boiling water'},
+     {unitQuantity: 1, unit: PINTS, name: 'soft vanilla ice cream'},
+     {unitQuantity: 1, unit: UNITLESS, name: 'chocolate crumb crust'},
+     {unitQuantity: 1, unit: UNITLESS, name: 'whipped topping'},
+     {unitQuantity: 1, unit: UNITLESS, name: 'candy corn'}
+    ],
+    'instructions': '1. Dissolve gelatin mix into boiling water, and stir in ice cream. Chill until slightly thickened, about 10 min.\n2. Pour mixture into crust and chill firm, about 2 hours.\n3. Garnish with whipped topping, and use candy corn (can substitute black licorice) to make a face on top.',
+    'name': "Jack-o'-Lantern Pie"
+  }, {
+    'author': 'violet2flame',
+    'ingredients': [
+     {unitQuantity: 1.5, unit: CUPS, name: 'all-purpose flour'},
+     {unitQuantity: 1, unit: TEASPOONS, name: 'baking powder'},
+     {unitQuantity: 0.25, unit: TEASPOONS, name: 'baking soda'},
+     {unitQuantity: 0.5, unit: TEASPOONS, name: 'salt'},
+     {unitQuantity: 0.25, unit: CUPS, name: 'butter, melted'},
+     {unitQuantity: 0.25, unit: CUPS, name: 'olive oil'},
+     {unitQuantity: 0.5, unit: CUPS, name: 'sugar'},
+     {unitQuantity: 0.667, unit: CUPS, name: 'greek yogurt'},
+     {unitQuantity: 1, unit: UNITLESS, name: 'lemon, zested and juiced'},
+     {unitQuantity: 1, unit: UNITLESS, name: 'eggs'},
+     {unitQuantity: 1, unit: TEASPOONS, name: 'vanilla extract'},
+     {unitQuantity: 2, unit: TABLESPOONS, name: 'chia seeds'}
+    ],
+    'instructions': '1. Preheat oven to 400 degrees. Grease or line 12 muffin cups.\n2. In a medium bowl, whisk together flour, baking powder, baking soda, and salt. Set aside.\n3. In a large bowl, mix together olive oil, sugar, yogurt, and lemon juice and zest (or almond extract) until fully combined. Add egg and vanilla, and mix thoroughly. \n4. Add dry ingredients to wet ingredients in two additions, stirring until just combined. Fold in chia seeds. \n5. Pour batter into muffin liners, filling 3/4 of the way full. Bake for 13 to 15 minutes, until muffins are golden on top and a toothpick inserted in the center comes out clean.\nNote: Use lemon yogurt for lemon flavored muffins or vanilla yogurt for almond flavored muffins. Accordingly, substitute 1 lemon, zested and juiced for 2 tsp. almond extract.',
+    'name': 'Chia Seed Muffins'
+  }, {
+    'author': 'kevinashby',
+    'ingredients': [
+     {packageQuantity: 2, package: 'Kevin blue cups', name: 'rice'},
+     {packageQuantity: 4, package: 'Kevin blue cups', name: 'water'},
+     {unitQuantity: 1.5, unit: TABLESPOONS, name: 'butter'},
+     {unitQuantity: 12, unit: UNITLESS, name: 'eggs'},
+     {packageQuantity: 1, package: 'cans', name: 'sweetened condensed milk'},
+     {packageQuantity: 1, package: 'cans', name: 'evaporated milk'},
+     {unitQuantity: 0.5, unit: CUPS, name: 'brown sugar'},
+     {unitQuantity: 6, unit: CUPS, name: 'milk'},
+     {unitQuantity: 1, unit: UNITLESS, name: 'cinnamon'},
+     {unitQuantity: 1, unit: UNITLESS, name: 'nutmeg'},
+     {unitQuantity: 1, unit: UNITLESS, name: 'pumpkin spice'},
+     {unitQuantity: 1, unit: UNITLESS, name: 'vanilla'},
+     {unitQuantity: 1, unit: UNITLESS, name: 'ginger'},
+     {unitQuantity: 1, unit: UNITLESS, name: 'yogurt'},
+     {unitQuantity: 1, unit: UNITLESS, name: 'raisins'}
+    ],
+    'instructions': '1. Cook rice in water and butter for about 20 min.\n2. Mix everything but milk for 5 min. with beater until bubbly.\n3. Add milk and beat again.\n4. Pour into large microwave bowl and add rice.\n5. Cook in microwave for 10-15 min, stirring occasionally.',
+    'name': "Rice Pudding (Kevin's never the same)"
+  }
 ]

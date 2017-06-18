@@ -44,6 +44,7 @@ export default [
   {name: 'packages', quantity: null, unit_id: 23}, //UNITLESS
   {name: 'small packages', quantity: null, unit_id: 23}, //UNITLESS
   {name: 'large packages', quantity: null, unit_id: 23}, //UNITLESS
+  {name: '4-serving size packages', quantity: null, unit_id: 23}, //UNITLESS
 
   //made up
   {name: '12 oz. jars', quantity: 12, unit_id: 5},
@@ -56,6 +57,7 @@ export default [
   {name: '30 oz. bags', quantity: 30, unit_id: 17},
   {name: '32 oz. bags', quantity: 32, unit_id: 17},
   {name: 'bags', quantity: null, unit_id: 23}, //UNITLESS
+  {name: 'large bags', quantity: null, unit_id: 23}, //UNITLESS
 
   {name: 'sticks', quantity: 8, unit_id: 17}, //i.e. butter
   {name: 'cubes', quantity: 8, unit_id: 17}, //i.e. butter
@@ -70,6 +72,8 @@ export default [
   {name: 'slabs', quantity: null, unit_id: 23}, //UNITLESS
   {name: 'trays', quantity: null, unit_id: 23}, //UNITLESS
   {name: 'to taste', quantity: null, unit_id: 23}, //UNITLESS
+
+  {name: 'Kevin blue cups', quantity: null, unit_id: 23}, //UNITLESS
 ]
 
 const units = [
