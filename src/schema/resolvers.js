@@ -10,6 +10,8 @@ SELECT
   users.last_name,
 
   R.id as recipe_id,
+  R.description,
+  R.image_url,
   R.name,
   R.author_id,
   R.instructions,
@@ -31,13 +33,16 @@ FROM recipe_ingredients AS RI
 `
 
 const buildRecipeFromRow = (recipeRow) => {
+  console.log(recipeRow.name, recipeRow.description)
   return {
     id: recipeRow.recipe_id,
     name: recipeRow.name,
     author: `${recipeRow.first_name}  ${recipeRow.last_name ? recipeRow.last_name : ''}`,
     authorId: recipeRow.id,
     instructions: recipeRow.instructions,
-    ingredients: []
+    ingredients: [],
+    description: recipeRow.description || '',
+    imageUrl: recipeRow.image_url || '',
   }
 }
 
@@ -75,7 +80,7 @@ export const resolvers = {
             return recipes
           }, [])
 
-          console.log(allRecipes)
+          //console.log(allRecipes)
           return allRecipes
         } else {
           return null

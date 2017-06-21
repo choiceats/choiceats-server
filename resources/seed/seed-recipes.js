@@ -34,7 +34,9 @@ export default [{
     {unitQuantity: 1, unit: UNITLESS, name: 'green food coloring'},
   ],
   'instructions': 'Mix cream cheese, sweetened condensed milk and 3 drops of green coloring.\nFold in cool whip and crushed cookies. Pour into crust.\nGarnish with more crushed cookies and freeze for at least 5 hours or overnight.',
-  'name': 'Cookie Grasshopper Pie'
+  'name': 'Cookie Grasshopper Pie',
+  'description': 'Delicious mint and chocolate recipe.',
+  'image_url': 'https://upload.wikimedia.org/wikipedia/en/e/e2/Zorak_Space_Ghost.png',
 }, {
   'author': 'neallred',
   'ingredients': [

@@ -10,13 +10,15 @@ const typeDefs = `
   type Ingredient {
     name: String!
     unit: Unit
-    quantity: Int!
+    quantity: Float!
   }
 
   type Recipe {
     id: ID
     author: String
     authorId: String
+    description: String
+    imageUrl: String
     ingredients: [Ingredient]
     instructions: String
     name: String

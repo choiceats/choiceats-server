@@ -15,7 +15,6 @@ const getAllUsers = () => {
 
 const insertUserIfNeeded = async (authorName, allUsers) => {
   const userEmail = `${authorName}@somewhere.peeps`
-  console.log('check users...', allUsers)
   const user = allUsers.find(user => user.email === userEmail)
   if (!user) {
     console.log('adding user', userEmail)
@@ -47,6 +46,14 @@ const migrateTheData = () => {
 //  }
 // }
 
+function setExpectedArguments(numberArguments) {
+  let expectedArguments = ''
+  for (let i = 1; i <= numberArguments; i = i + 1) {
+    expectedArguments = expectedArguments + `$${i}` + ((i === numberArguments) ? '' : ', ' )
+  }
+  return expectedArguments
+}
+
 const migrateRecipes = async (users) => {
   const ingredientsQuery = await query('SELECT * FROM ingredients')
   const ingredients = ingredientsQuery.rows
@@ -58,19 +65,28 @@ const migrateRecipes = async (users) => {
   for (let i = 0; i < seedRecipes.length; i++) {
     const seed = seedRecipes[i]
     const user = await insertUserIfNeeded(seed.author, users)
+    const insertArgs = [seed.name, user.id, seed.instructions]
+    const columnNames = ['name', 'author_id', 'instructions']
+    if (seed.description !== null && seed.description !== undefined) {
+      insertArgs.push(seed.description)
+      columnNames.push('description')
+    }
+    if (seed.image_url !== null && seed.image_url !== undefined) {
+      insertArgs.push(seed.image_url)
+      columnNames.push('image_url')
+    }
+    const expectedArguments = setExpectedArguments(insertArgs.length)
+
     const insertRecipeResult = await query(
-      'INSERT INTO recipes (name, author_id, instructions) VALUES ($1, $2, $3) RETURNING id',
-      [seed.name, user.id, seed.instructions]
+      `INSERT INTO recipes (${columnNames.join(', ')}) VALUES (${expectedArguments}) RETURNING id`,
+      insertArgs
       //, seed.ingredients
       // ingredients,
     )
     const recipeId = insertRecipeResult.rows[0].id
-    console.log('looping through ingredients')
     for (let j = 0; j < seed.ingredients.length; j++) {
       const ingredient = seed.ingredients[j]
-      console.log('current ingredient:', ingredient)
       if (ingredient.unitQuantity && ingredient.unit) {
-        console.log('attempting to insert', ingredient)
         const unitId = units.find(unit => unit.name === ingredient.unit).id
         const ingredientId = ingredients.find(item => item.name === ingredient.name).id
         await query(
