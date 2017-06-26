@@ -23,13 +23,16 @@ SELECT
   I.id as ingredient_id,
   I.name as ingredient,
 
+  RL.user_id as likes,
+
   RI.quantity
 
 FROM recipe_ingredients AS RI
-  FULL OUTER JOIN  recipes AS R on R.id = RI.recipe_id
+  FULL OUTER JOIN recipes AS R on R.id = RI.recipe_id
   LEFT JOIN units AS U on U.id = RI.unit_id
   LEFT JOIN ingredients AS I ON I.id = RI.ingredient_id
   LEFT JOIN users ON users.id = R.author_id
+  INNER JOIN user_recipe_likes AS RL ON RL.recipe_id = R.id
 `
 
 const sqlRecipeGetLike = `
@@ -65,7 +68,6 @@ AND
 `
 
 const buildRecipeFromRow = (recipeRow) => {
-  console.log(recipeRow.name, recipeRow.description)
   return {
     id: recipeRow.recipe_id,
     name: recipeRow.name,
@@ -75,10 +77,11 @@ const buildRecipeFromRow = (recipeRow) => {
     ingredients: [],
     description: recipeRow.description || '',
     imageUrl: recipeRow.image_url || '',
+    likes: []
   }
 }
 
-const buildIngredentFromRow = (row) => {
+const buildIngredientFromRow = (row) => {
   return {
     name: row.ingredient,
     quantity: row.quantity,
@@ -89,10 +92,17 @@ const buildIngredentFromRow = (row) => {
   }
 }
 
-const addIngredentToRecipe = (recipe, recipeRow) => {
-  const ingredient = buildIngredentFromRow(recipeRow)
+const addIngredientToRecipe = (recipe, recipeRow) => {
+  const ingredient = buildIngredientFromRow(recipeRow)
   recipe.ingredients.push(ingredient)
   return recipe
+}
+
+const addLikeToRecipe = (recipe, row) => {
+  if (!recipe.likes.find(like => like === row.likes)) {
+    recipe.likes.push(row.likes)
+  }
+  return null
 }
 
 export const resolvers = {
@@ -101,6 +111,7 @@ export const resolvers = {
       try {
         const results = await query(sqlRecipesGet, [])
         if (results) {
+          console.log('Total recipe records returned:', results.rows.length)
           const allRecipes = results.rows.reduce((recipes = [], row, index) => {
             let recipe = recipes.find((recipe) => recipe.id === row.recipe_id)
             if (!recipe) {
@@ -108,12 +119,12 @@ export const resolvers = {
               recipes.push(recipe)
             }
             
-            addIngredentToRecipe(recipe, row)
+            addIngredientToRecipe(recipe, row)
+            addLikeToRecipe(recipe, row)
             return recipes
           }, [])
 
-          //console.log(allRecipes)
-          return allRecipes
+          return allRecipes.map(recipe => ({...recipe, likes: recipe.likes.length}))
         } else {
           return null
         }
