@@ -26,7 +26,7 @@ const typeDefs = `
 
   type Query {
     recipes: [Recipe]
-    recipe(id: ID): Recipe
+    recipe(recipeId: Int!): Recipe
   }
 `
 

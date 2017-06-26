@@ -1,39 +1,54 @@
 // @flow
 import { query } from '../db'
 
-const userFields = ' first_name, last_name '
-const recipeFields = ' recipes.id, author_id, name, ingredients, instructions '
+const SQL_RECIPE_SELECT = `
+  SELECT
+    users.first_name,
+    users.last_name,
 
-const sqlRecipesGet = `
-SELECT
-  users.first_name,
-  users.last_name,
+    R.id as recipe_id,
+    R.description,
+    R.image_url,
+    R.name,
+    R.author_id,
+    R.instructions,
 
-  R.id as recipe_id,
-  R.description,
-  R.image_url,
-  R.name,
-  R.author_id,
-  R.instructions,
+    U.id as unit_id,
+    U.name as unit,
+    U.abbr as unit_abbr,
 
-  U.id as unit_id,
-  U.name as unit,
-  U.abbr as unit_abbr,
+    I.id as ingredient_id,
+    I.name as ingredient,
 
-  I.id as ingredient_id,
-  I.name as ingredient,
-
-  RI.quantity
-
-FROM recipe_ingredients AS RI
-  FULL OUTER JOIN  recipes AS R on R.id = RI.recipe_id
-  LEFT JOIN units AS U on U.id = RI.unit_id
-  LEFT JOIN ingredients AS I ON I.id = RI.ingredient_id
-  LEFT JOIN users ON users.id = R.author_id
+    RI.quantity
 `
 
+const SQL_RECIPE_FROM = `
+  FROM recipe_ingredients AS RI
+    FULL OUTER JOIN  recipes AS R on R.id = RI.recipe_id
+    LEFT JOIN units AS U on U.id = RI.unit_id
+    LEFT JOIN ingredients AS I ON I.id = RI.ingredient_id
+    LEFT JOIN users ON users.id = R.author_id
+`
+
+const sqlRecipesGet
+: (?number) => string =
+  (id) => {
+    if (id) {
+      return `
+        ${SQL_RECIPE_SELECT}
+        ${SQL_RECIPE_FROM}
+        WHERE R.id = '${id}'
+      `
+    }
+
+    return `
+      ${SQL_RECIPE_SELECT}
+      ${SQL_RECIPE_FROM}
+    `
+  }
+
 const buildRecipeFromRow = (recipeRow) => {
-  console.log(recipeRow.name, recipeRow.description)
   return {
     id: recipeRow.recipe_id,
     name: recipeRow.name,
@@ -42,7 +57,7 @@ const buildRecipeFromRow = (recipeRow) => {
     instructions: recipeRow.instructions,
     ingredients: [],
     description: recipeRow.description || '',
-    imageUrl: recipeRow.image_url || '',
+    imageUrl: recipeRow.image_url || ''
   }
 }
 
@@ -67,7 +82,7 @@ export const resolvers = {
   Query: {
     recipes: async () => {
       try {
-        const results = await query(sqlRecipesGet, [])
+        const results = await query(sqlRecipesGet(), [])
         if (results) {
           const allRecipes = results.rows.reduce((recipes = [], row, index) => {
             let recipe = recipes.find((recipe) => recipe.id === row.recipe_id)
@@ -75,13 +90,40 @@ export const resolvers = {
               recipe = buildRecipeFromRow(row)
               recipes.push(recipe)
             }
-            
+
             addIngredentToRecipe(recipe, row)
             return recipes
           }, [])
 
-          //console.log(allRecipes)
+          // console.log(allRecipes)
           return allRecipes
+        } else {
+          return null
+        }
+      } catch (e) {
+        console.error('Db Error:', e)
+        return e
+      }
+    },
+
+    recipe: async (obj, { recipeId }: { recipeId: number }) => {
+      try {
+        console.log('GETTING SPECIFIC RECIPE: ', recipeId, sqlRecipesGet(recipeId))
+        const results = await query(sqlRecipesGet(recipeId), [])
+        if (results) {
+          const allRecipes = results.rows.reduce((recipes = [], row, index) => {
+            let recipe = recipes.find((recipe) => recipe.id === row.recipe_id)
+            if (!recipe) {
+              recipe = buildRecipeFromRow(row)
+              recipes.push(recipe)
+            }
+
+            addIngredentToRecipe(recipe, row)
+            return recipes
+          }, [])
+
+          // console.log(allRecipes)
+          return allRecipes[0]
         } else {
           return null
         }
@@ -122,7 +164,7 @@ export const resolvers = {
 //         author=''
 //       } = args.payload
 //       if (!name) return null
-      
+
 //       const inputFields = [name, ingredients, instructions, author]
 //       const sqlInsert = `
 // INSERT INTO recipes (name, ingredients, instructions, author_id)
@@ -156,7 +198,7 @@ export const resolvers = {
 //         authorId
 //       } = args.payload
 //       if (!name || !id) return null
-      
+
 //       const updateFields = {
 //         name,
 //         ingredients,
@@ -174,9 +216,8 @@ export const resolvers = {
 //           ((i < updateKeys.length - 1) ? ', ': ' ')
 //         , '') // of form "name = $1, ingredients = $2, instruction = $3 "
 
-
 //       const sqlUpdate = `
-// UPDATE recipes 
+// UPDATE recipes
 // SET ${sqlUpdates}
 // WHERE id = ${id}
 // RETURNING id, name, ingredients, instructions, author_id
