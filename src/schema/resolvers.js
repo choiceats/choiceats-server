@@ -63,7 +63,7 @@ const SQL_RECIPE_FROM = `
     LEFT JOIN units AS U on U.id = RI.unit_id
     LEFT JOIN ingredients AS I ON I.id = RI.ingredient_id
     LEFT JOIN users ON users.id = R.author_id
-    INNER JOIN user_recipe_likes AS RL ON RL.recipe_id = R.id
+    LEFT JOIN user_recipe_likes AS RL ON RL.recipe_id = R.id
 `
 
 const sqlRecipesGet
