@@ -20,6 +20,8 @@ const SQL_RECIPE_SELECT = `
     I.id as ingredient_id,
     I.name as ingredient,
 
+    RL.user_id as likes,
+
     RI.quantity
 `
 
@@ -61,6 +63,7 @@ const SQL_RECIPE_FROM = `
     LEFT JOIN units AS U on U.id = RI.unit_id
     LEFT JOIN ingredients AS I ON I.id = RI.ingredient_id
     LEFT JOIN users ON users.id = R.author_id
+    LEFT JOIN user_recipe_likes AS RL ON RL.recipe_id = R.id
 `
 
 const sqlRecipesGet
@@ -173,11 +176,13 @@ export const resolvers = {
             }
 
             addIngredientToRecipe(recipe, row)
+            addLikeToRecipe(recipe, row)
             return recipes
           }, [])
 
           // console.log(allRecipes)
-          return allRecipes[0]
+          //return allRecipes[0]
+          return {...allRecipes[0], likes: allRecipes[0].likes.length}
         } else {
           return null
         }
