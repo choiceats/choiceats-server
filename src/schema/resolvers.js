@@ -107,9 +107,11 @@ const buildRecipeFromRow = (recipeRow: DbRecipe) => {
 
 const buildIngredientFromRow = (row) => {
   return {
+    id: row.ingredient_id,
     name: row.ingredient,
     quantity: row.quantity,
     unit: {
+      id: row.unit_id,
       name: row.unit,
       abbr: row.unit_abbr
     }
@@ -181,6 +183,32 @@ export const resolvers = {
         }
       } catch (e) {
         console.error('Db Error:', e)
+        return e
+      }
+    },
+
+    units: async () => {
+      try {
+        const results = await query('SELECT * FROM units', [])
+        if (results) {
+          return results.rows
+        }
+        return null
+      } catch (e) {
+        console.error('DB Error:', e)
+        return e
+      }
+    },
+
+    ingredients: async () => {
+      try {
+        const results = await query('SELECT * FROM ingredients', [])
+        if (results) {
+          return results.rows
+        }
+        return null
+      } catch (e) {
+        console.error('DB Error:', e)
         return e
       }
     }

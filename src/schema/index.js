@@ -3,11 +3,18 @@ import { resolvers } from './resolvers'
 
 const typeDefs = `
   type Unit {
+    id: ID
     name: String
     abbr: String
   }
 
   type Ingredient {
+    id: ID
+    name: String!
+  }
+
+  type RecipeIngredient {
+    id: ID
     name: String!
     unit: Unit
     quantity: Float!
@@ -19,7 +26,7 @@ const typeDefs = `
     authorId: String
     description: String
     imageUrl: String
-    ingredients: [Ingredient]
+    ingredients: [RecipeIngredient]
     instructions: String
     name: String
     youLike: Boolean
@@ -29,6 +36,8 @@ const typeDefs = `
   type Query {
     recipes: [Recipe]
     recipe(recipeId: Int!): Recipe
+    units: [Unit]
+    ingredients: [Ingredient]
   }
 
   type Mutation {
@@ -45,11 +54,9 @@ const typeDefs = `
 //    name: String!
 //  }
 
-
 //    deleteRecipe(id: ID): DeleteRecipeResult!
 //    insertRecipe(payload: RecipePayload!): Recipe!
 //    updateRecipe(payload: RecipePayload!): Recipe!
-
 
 const schema = makeExecutableSchema({ typeDefs, resolvers })
 export { schema }
