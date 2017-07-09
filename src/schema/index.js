@@ -33,6 +33,32 @@ const typeDefs = `
     likes: Int
   }
 
+  input UnitInput {
+    id: ID
+    name: String
+    abbr: String
+  }
+
+  input RecipeIngredientInput {
+    id: ID
+    name: String!
+    unit: UnitInput
+    quantity: Float!
+  }
+
+  input RecipeInput {
+    id: ID
+    author: String
+    authorId: String
+    description: String
+    imageUrl: String
+    ingredients: [RecipeIngredientInput]
+    instructions: String
+    name: String
+    youLike: Boolean
+    likes: Int
+  }
+
   type Query {
     recipes: [Recipe]
     recipe(recipeId: Int!): Recipe
@@ -42,6 +68,7 @@ const typeDefs = `
 
   type Mutation {
     likeRecipe(userId: ID!, recipeId: ID!): Recipe
+    saveRecipe(recipe: RecipeInput): Recipe
   }
 `
 //

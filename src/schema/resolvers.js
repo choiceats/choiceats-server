@@ -165,7 +165,6 @@ export const resolvers = {
 
     recipe: async (obj: void, { recipeId }: { recipeId: number }) => {
       try {
-        console.log('GETTING SPECIFIC RECIPE: ', recipeId, sqlRecipesGet(recipeId))
         const results = await query(sqlRecipesGet(recipeId), [])
         if (results) {
           const allRecipes = results.rows.reduce((recipes = [], row, index) => {
@@ -181,7 +180,7 @@ export const resolvers = {
           }, [])
 
           // console.log(allRecipes)
-          //return allRecipes[0]
+          // return allRecipes[0]
           return {...allRecipes[0], likes: allRecipes[0].likes.length}
         } else {
           return null
@@ -246,6 +245,33 @@ export const resolvers = {
         console.error('Db Error:', e)
         return e
       }
+    },
+
+    saveRecipe: async (object: any, args: any) => {
+      const recipe = args.recipe
+      await query('DELETE FROM recipe_ingredients WHERE recipe_id=$1', [recipe.id])
+      await query(`
+        UPDATE recipes 
+        SET 
+          name=$1,
+          instructions=$2,
+          description=$3
+        WHERE
+          id=$4
+        `,
+        [recipe.name, recipe.instructions, recipe.description, recipe.id]
+      )
+
+      console.log('recipe ing', recipe)
+      const recipeIngredientQueries = recipe.ingredients.forEach(i => {
+        return query(
+          `INSERT INTO recipe_ingredients
+            (recipe_id, ingredient_id, unit_id, quantity)
+          VALUES ($1, $2, $3, $4)`,
+          [recipe.id, i.id, i.unit.id, i.quantity]
+        )
+      })
+      // await Promise.all(recipeIngredientQueries)
     }
     //     deleteRecipe: async (object, args) => {
     //       try {
