@@ -122,8 +122,10 @@ const buildIngredientFromRow = (row) => {
 }
 
 const addIngredientToRecipe = (recipe, recipeRow) => {
-  const ingredient = buildIngredientFromRow(recipeRow)
-  recipe.ingredients.push(ingredient)
+  if (recipeRow.ingredient_id) {
+    const ingredient = buildIngredientFromRow(recipeRow)
+    recipe.ingredients.push(ingredient)
+  }
   return recipe
 }
 
@@ -264,13 +266,12 @@ export const resolvers = {
         [recipe.name, recipe.instructions, recipe.description, recipe.id]
       )
 
-      console.log('recipe ing', recipe)
       const recipeIngredientQueries = recipe.ingredients.forEach(i => {
         return query(
           `INSERT INTO recipe_ingredients
             (recipe_id, ingredient_id, unit_id, quantity)
           VALUES ($1, $2, $3, $4)`,
-          [recipe.id, i.id, i.unit.id, i.quantity]
+          [recipe.id, i.id, i.unit ? i.unit.id : null, i.quantity]
         )
       })
       // await Promise.all(recipeIngredientQueries)
