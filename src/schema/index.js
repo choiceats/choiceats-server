@@ -66,13 +66,17 @@ const typeDefs = `
     ingredients: [Ingredient]
   }
 
+  type DeleteRecipeResult {
+    recipeId: ID!
+    deleted: Boolean
+  }
+
   type Mutation {
     likeRecipe(userId: ID!, recipeId: ID!): Recipe
     saveRecipe(recipe: RecipeInput): Recipe
+    deleteRecipe(recipeId: ID): DeleteRecipeResult!
   }
 `
-//
-
 //  input RecipePayload {
 //    id: ID
 //    authorId: String
@@ -81,9 +85,7 @@ const typeDefs = `
 //    name: String!
 //  }
 
-//    deleteRecipe(id: ID): DeleteRecipeResult!
 //    insertRecipe(payload: RecipePayload!): Recipe!
-//    updateRecipe(payload: RecipePayload!): Recipe!
 
 const schema = makeExecutableSchema({ typeDefs, resolvers })
 export { schema }
