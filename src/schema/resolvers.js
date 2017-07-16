@@ -165,7 +165,9 @@ export const resolvers = {
       }
     },
 
-    recipe: async (obj: void, { recipeId }: { recipeId: number }) => {
+    recipe: async (obj: void, { recipeId }: { recipeId: number }, context: {user: Object}) => {
+      console.log('user data passed into resolver:')
+      console.log(context.user)
       try {
         const results = await query(sqlRecipesGet(recipeId), [])
         if (results) {
@@ -221,10 +223,9 @@ export const resolvers = {
   },
 
   Mutation: {
-    likeRecipe: async (object: any, args: any) => {
+    likeRecipe: async (object: any, args: any, context: {user: Object}) => {
+      console.log(context)
       try {
-        console.log(object)
-        console.log(args)
         const {
           recipeId = '',
           userId = ''
@@ -266,14 +267,14 @@ export const resolvers = {
         [recipe.name, recipe.instructions, recipe.description, recipe.id]
       )
 
-      const recipeIngredientQueries = recipe.ingredients.forEach(i => {
-        return query(
-          `INSERT INTO recipe_ingredients
-            (recipe_id, ingredient_id, unit_id, quantity)
-          VALUES ($1, $2, $3, $4)`,
-          [recipe.id, i.id, i.unit ? i.unit.id : null, i.quantity]
-        )
-      })
+      // const recipeIngredientQueries = recipe.ingredients.forEach(i => {
+      //   return query(
+      //     `INSERT INTO recipe_ingredients
+      //       (recipe_id, ingredient_id, unit_id, quantity)
+      //     VALUES ($1, $2, $3, $4)`,
+      //     [recipe.id, i.id, i.unit ? i.unit.id : null, i.quantity]
+      //   )
+      // })
       // await Promise.all(recipeIngredientQueries)
     },
 
@@ -283,13 +284,13 @@ export const resolvers = {
         console.log(args.recipeId, results.rowCount)
         return {
           recipeId: args.recipeId,
-          deleted: !!results.rowCount,
+          deleted: !!results.rowCount
         }
       } catch (e) {
         console.error('Db Error:', e)
         return e
       }
-    },
+    }
 
     //     insertRecipe: async (object, args) => {
     //       const {
