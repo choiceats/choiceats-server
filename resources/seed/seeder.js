@@ -46,10 +46,10 @@ const migrateTheData = () => {
 //  }
 // }
 
-function setExpectedArguments(numberArguments) {
+function setExpectedArguments (numberArguments) {
   let expectedArguments = ''
   for (let i = 1; i <= numberArguments; i = i + 1) {
-    expectedArguments = expectedArguments + `$${i}` + ((i === numberArguments) ? '' : ', ' )
+    expectedArguments = expectedArguments + `$${i}` + ((i === numberArguments) ? '' : ', ')
   }
   return expectedArguments
 }
@@ -59,8 +59,8 @@ const migrateRecipes = async (users) => {
   const ingredients = ingredientsQuery.rows
   const unitsQuery = await query('SELECT * FROM units')
   const units = unitsQuery.rows
-  const packageUnitsQuery = await query('SELECT * FROM package_units')
-  const packageUnits = packageUnitsQuery.rows
+  // const packageUnitsQuery = await query('SELECT * FROM package_units')
+  // const packageUnits = packageUnitsQuery.rows
 
   for (let i = 0; i < seedRecipes.length; i++) {
     const seed = seedRecipes[i]

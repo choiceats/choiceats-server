@@ -18,9 +18,9 @@ type DbRecipe = {
   unit_id: number;
 }
 
-type RecipeResults = {
-  rows: ?DbRecipe[]
-}
+// type RecipeResults = {
+//   rows: ?DbRecipe[]
+// }
 
 const SQL_RECIPE_SELECT = `
   SELECT

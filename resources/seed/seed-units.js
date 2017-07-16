@@ -22,5 +22,5 @@ export default [
   {name: 'TABLESPOONS', abbr: 'tbsp.'},
   {name: 'TEASPOONS', abbr: 'tsp.'},
   {name: 'UNITLESS', abbr: ''},
-  {name: 'YARDS', abbr: 'yds.'},
+  {name: 'YARDS', abbr: 'yds.'}
 ]
