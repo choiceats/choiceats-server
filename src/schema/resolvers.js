@@ -251,27 +251,10 @@ export const resolvers = {
 
     saveRecipe: async (object: any, args: any) => {
       const recipe = args.recipe
-      await query('DELETE FROM recipe_ingredients WHERE recipe_id=$1', [recipe.id])
-      await query(`
-        UPDATE recipes 
-        SET 
-          name=$1,
-          instructions=$2,
-          description=$3
-        WHERE
-          id=$4
-        `,
-        [recipe.name, recipe.instructions, recipe.description, recipe.id]
-      )
+      recipe.id === null
+        ? insertRecipe(recipe)
+        : updateRecipe(recipe)
 
-      const recipeIngredientQueries = recipe.ingredients.forEach(i => {
-        return query(
-          `INSERT INTO recipe_ingredients
-            (recipe_id, ingredient_id, unit_id, quantity)
-          VALUES ($1, $2, $3, $4)`,
-          [recipe.id, i.id, i.unit ? i.unit.id : null, i.quantity]
-        )
-      })
       // await Promise.all(recipeIngredientQueries)
     }
     //     deleteRecipe: async (object, args) => {
@@ -371,4 +354,50 @@ export const resolvers = {
     //       }
     //     },
   }
+}
+
+async function insertRecipe (recipe) {
+  try {
+    await query(`
+      INSERT INTO recipes
+        (name, instructions, description, author_id)
+      VALUES  
+        ($1, $2, $3, $4)
+      `,
+      [recipe.name, recipe.instructions, recipe.description, 1]
+    )
+    await insertRecipeIngredients(recipe)
+  } catch (e) {
+    console.warn('COULD NOT INSERT RECIPE', e)
+  }
+}
+
+async function updateRecipe (recipe) {
+  await query('DELETE FROM recipe_ingredients WHERE recipe_id=$1', [recipe.id])
+  await query(`
+    UPDATE recipes 
+    SET 
+      name=$1,
+      instructions=$2,
+      description=$3
+    WHERE
+      id=$4
+    `,
+    [recipe.name, recipe.instructions, recipe.description, recipe.id]
+  )
+
+  await insertRecipeIngredients(recipe)
+}
+
+function insertRecipeIngredients (recipe) {
+  const insertPromises = recipe.ingredients.map(i => {
+    return query(
+          `INSERT INTO recipe_ingredients
+            (recipe_id, ingredient_id, unit_id, quantity)
+          VALUES ($1, $2, $3, $4)`,
+          [recipe.id, i.id, i.unit ? i.unit.id : null, i.quantity]
+        )
+  })
+
+  return Promise.all(insertPromises)
 }
