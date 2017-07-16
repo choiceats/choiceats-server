@@ -16,9 +16,9 @@ import * as user from './db/user'
 dotenv.config()
 passportConfig(passport)
 
-const static_path = path.join(__dirname, '../build')
+const staticPath = path.join(__dirname, '../build')
 const app = express()
-app.use(express.static(static_path))
+app.use(express.static(staticPath))
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*')
   res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS')
@@ -29,7 +29,7 @@ app.use((req, res, next) => {
 
 app.get('/', (req, res) => {
   res.sendFile('index.html', {
-    root: static_path
+    root: staticPath
   })
   return null
 })
@@ -43,9 +43,12 @@ app.get('/graphiql',
 app.post('/graphql',
   passport.authenticate('bearer', { session: false }),
   bodyParser.json(),
-  graphqlExpress({
-    schema
-  })
+  graphqlExpress((req) => ({
+    schema,
+    context: {
+      user: req.user
+    }
+  }))
 )
 
 type AuthBody = {
@@ -67,7 +70,7 @@ app.post('/auth',
         email: tokenResults.email,
         name: tokenResults.first_name + (tokenResults.last_name ? ` ${tokenResults.last_name}` : ''),
         token: tokenResults.token,
-        userId: tokenResults.id,
+        userId: tokenResults.id
       })
     } else {
       res.status(401)

@@ -99,7 +99,7 @@ const buildRecipeFromRow = (recipeRow: DbRecipe) => {
     id: recipeRow.recipe_id,
     name: recipeRow.name,
     author: `${recipeRow.first_name}  ${recipeRow.last_name ? recipeRow.last_name : ''}`,
-    authorId: recipeRow.id,
+    authorId: recipeRow.author_id,
     instructions: recipeRow.instructions,
     ingredients: [],
     description: recipeRow.description || '',
@@ -165,7 +165,9 @@ export const resolvers = {
       }
     },
 
-    recipe: async (obj: void, { recipeId }: { recipeId: number }) => {
+    recipe: async (obj: void, { recipeId }: { recipeId: number }, context: {user: Object}) => {
+      console.log('user data passed into resolver:')
+      console.log(context.user)
       try {
         const results = await query(sqlRecipesGet(recipeId), [])
         if (results) {
@@ -221,7 +223,8 @@ export const resolvers = {
   },
 
   Mutation: {
-    likeRecipe: async (object: any, args: any) => {
+    likeRecipe: async (object: any, args: any, context: {user: Object}) => {
+      console.log(context)
       try {
         const {
           recipeId = '',
@@ -252,23 +255,23 @@ export const resolvers = {
     saveRecipe: async (object: any, args: any) => {
       const recipe = args.recipe
       recipe.id === null
-        ? insertRecipe(recipe)
-        : updateRecipe(recipe)
+        ? await insertRecipe(recipe)
+        : await updateRecipe(recipe)
+    },
 
-      // await Promise.all(recipeIngredientQueries)
+    deleteRecipe: async (object, args) => {
+      try {
+        const results = await query('DELETE FROM recipes WHERE id = $1', [args.recipeId])
+        console.log(args.recipeId, results.rowCount)
+        return {
+          recipeId: args.recipeId,
+          deleted: !!results.rowCount
+        }
+      } catch (e) {
+        console.error('Db Error:', e)
+        return e
+      }
     }
-    //     deleteRecipe: async (object, args) => {
-    //       try {
-    //         const results = await query('DELETE FROM recipes WHERE id = $1', [args.id])
-    //         return {
-    //           id: args.id,
-    //           count: results.rowCount,
-    //         }
-    //       } catch (e) {
-    //         console.error('Db Error:', e)
-    //         return e
-    //       }
-    //     },
 
     //     insertRecipe: async (object, args) => {
     //       const {
@@ -288,57 +291,6 @@ export const resolvers = {
 
     //       try {
     //         const results = await query(sqlInsert, inputFields)
-    //         const newRecipe = results.rows && results.rows[0]
-    //         const authorInfo = await query('SELECT first_name, last_name FROM users WHERE id = $1 LIMIT 1', [newRecipe.author_id || ''])
-    //         const newRecipeName = authorInfo.rows && authorInfo.rows[0]
-
-    //         return Object.assign(
-    //           {},
-    //           results.rows[0],
-    //           {author: `${newRecipeName.first_name} ${newRecipeName.last_name}`}
-    //         )
-    //       } catch (e) {
-    //         console.error('Db Error:', e)
-    //         return e
-    //       }
-    //     },
-
-    //     updateRecipe: async (object, args) => {
-    //       const {
-    //         id,
-    //         name,
-    //         ingredients,
-    //         instructions,
-    //         authorId
-    //       } = args.payload
-    //       if (!name || !id) return null
-
-    //       const updateFields = {
-    //         name,
-    //         ingredients,
-    //         instructions,
-    //         author_id: authorId
-    //       }
-    //       const updateKeys = Object.keys(updateFields)
-    //         .filter(key => updateFields[key] !== null && updateFields[key] !== undefined)
-    //       const inputFields = updateKeys
-    //         .map(key => updateFields[key])
-    //       const sqlUpdates = updateKeys.reduce(
-    //         (acc, val, i) => acc +
-    //           `${updateKeys[i]} = ` +
-    //           `$${i + 1}` +
-    //           ((i < updateKeys.length - 1) ? ', ': ' ')
-    //         , '') // of form "name = $1, ingredients = $2, instruction = $3 "
-
-    //       const sqlUpdate = `
-    // UPDATE recipes
-    // SET ${sqlUpdates}
-    // WHERE id = ${id}
-    // RETURNING id, name, ingredients, instructions, author_id
-    // `
-
-    //       try {
-    //         const results = await query(sqlUpdate, inputFields)
     //         const newRecipe = results.rows && results.rows[0]
     //         const authorInfo = await query('SELECT first_name, last_name FROM users WHERE id = $1 LIMIT 1', [newRecipe.author_id || ''])
     //         const newRecipeName = authorInfo.rows && authorInfo.rows[0]

@@ -48,7 +48,7 @@ UPDATE users
 SET access_token=$1
 WHERE email=$2
 RETURNING id, first_name, last_name, email
-`;
+`
 
   const token = rand(160, 36)
   const results = await query(sqlSetToken, [token, email])
