@@ -124,15 +124,21 @@ export const resolvers = {
 
 async function insertRecipe (recipe) {
   try {
-    await query(`
+    const results = await query(`
       INSERT INTO recipes
         (name, instructions, description, author_id)
       VALUES  
         ($1, $2, $3, $4)
+      
+      RETURNING id
       `,
       [recipe.name, recipe.instructions, recipe.description, 1]
     )
-    await insertRecipeIngredients(recipe)
+
+    if (results) {
+      const newId = results.rows[0].id
+      await insertRecipeIngredients({ ...recipe, id: newId })
+    }
   } catch (e) {
     console.warn('COULD NOT INSERT RECIPE', e)
   }
