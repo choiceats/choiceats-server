@@ -3,6 +3,7 @@ import { query } from '../db'
 
 import recipeResolver from '../resolvers/queries/recipe'
 import recipesResolver from '../resolvers/queries/recipes'
+import searchResolver from '../resolvers/queries/search'
 
 const sqlRecipeGetLike = `
 SELECT
@@ -38,7 +39,7 @@ AND
 
 export const resolvers = {
   Query: {
-    recipes: recipesResolver,
+    recipes: searchResolver,
     recipe: recipeResolver,
 
     units: async () => {

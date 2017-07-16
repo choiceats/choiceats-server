@@ -60,7 +60,7 @@ const typeDefs = `
   }
 
   type Query {
-    recipes: [Recipe]
+    recipes(searchText: String): [Recipe]
     recipe(recipeId: Int!): Recipe
     units: [Unit]
     ingredients: [Ingredient]
@@ -77,15 +77,6 @@ const typeDefs = `
     deleteRecipe(recipeId: ID): DeleteRecipeResult!
   }
 `
-//  input RecipePayload {
-//    id: ID
-//    authorId: String
-//    ingredients: String
-//    instructions: String
-//    name: String!
-//  }
-
-//    insertRecipe(payload: RecipePayload!): Recipe!
 
 const schema = makeExecutableSchema({ typeDefs, resolvers })
 export { schema }

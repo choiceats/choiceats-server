@@ -53,6 +53,17 @@ const SQL_RECIPE_SELECT = `
     LEFT JOIN user_recipe_likes AS RL ON RL.recipe_id = R.id
 `
 
+export const sqlRecipesSearch
+:() => string =
+() => {
+  return `
+    ${SQL_RECIPE_SELECT}
+    WHERE 
+      R.name ILIKE $1
+      OR I.name ILIKE $1
+  `
+}
+
 export const sqlRecipesGet
 :(?number) => string =
 (id) => {
