@@ -99,10 +99,11 @@ export const resolvers = {
       }
     },
 
-    saveRecipe: async (object: any, args: any) => {
+    saveRecipe: async (object: any, args: any, context: {user: Object}) => {
       const recipe = args.recipe
+      const userId = context.user.id
       recipe.id === null
-        ? await insertRecipe(recipe)
+        ? await insertRecipe(recipe, userId)
         : await updateRecipe(recipe)
     },
 
@@ -122,7 +123,7 @@ export const resolvers = {
   }
 }
 
-async function insertRecipe (recipe) {
+async function insertRecipe (recipe, userId) {
   try {
     const results = await query(`
       INSERT INTO recipes
@@ -132,7 +133,7 @@ async function insertRecipe (recipe) {
       
       RETURNING id
       `,
-      [recipe.name, recipe.instructions, recipe.description, 1]
+      [recipe.name, recipe.instructions, recipe.description, userId]
     )
 
     if (results) {
