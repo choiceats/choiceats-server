@@ -113,8 +113,10 @@ const addIngredientToRecipe = (recipe, recipeRow: DbRecipe) => {
 }
 
 const addLikeToRecipe = (recipe, row: DbRecipe) => {
-  if (!recipe.likes.find(like => like === row.likes)) {
+  const likeAlreadyCounted = recipe.likes.find(like => like === row.likes)
+  if (!likeAlreadyCounted && (row.likes !== null)) {
     recipe.likes.push(row.likes)
+    console.log(recipe.likes)
   }
   return null
 }
