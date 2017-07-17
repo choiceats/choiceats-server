@@ -16,11 +16,13 @@ type SearchResolver = (void, RecipeSearchParams) => any;
  *
  */
 const search: SearchResolver =
-async (obj, { searchText }) => {
+async (obj, { searchText }, context) => {
+  const { user } = context
+  const userId = user.id
   try {
     const results = await query(sqlRecipesSearch(), [`%${searchText}%`])
     if (results) {
-      const allRecipes = buildRecipeFromResults(results.rows)
+      const allRecipes = buildRecipeFromResults(results.rows, userId)
       return allRecipes.map(recipe => ({...recipe, likes: recipe.likes.length}))
     } else {
       return null

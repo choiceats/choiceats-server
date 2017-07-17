@@ -87,7 +87,8 @@ const buildRecipeFromRow = (recipeRow: DbRecipe) => {
     ingredients: [],
     description: recipeRow.description || '',
     imageUrl: recipeRow.image_url || '',
-    likes: []
+    likes: [],
+    youLike: false
   }
 }
 
@@ -112,16 +113,19 @@ const addIngredientToRecipe = (recipe, recipeRow: DbRecipe) => {
   return recipe
 }
 
-const addLikeToRecipe = (recipe, row: DbRecipe) => {
+const addLikeToRecipe = (recipe, row: DbRecipe, userId) => {
   const likeAlreadyCounted = recipe.likes.find(like => like === row.likes)
   if (!likeAlreadyCounted && (row.likes !== null)) {
     recipe.likes.push(row.likes)
-    console.log(recipe.likes)
+  }
+  const userLikesRecipe = recipe.likes.some(like => like === userId)
+  if (userLikesRecipe) {
+    recipe.youLike = true
   }
   return null
 }
 
-export const buildRecipeFromResults = (recipeRows: DbRecipe[]) => {
+export const buildRecipeFromResults = (recipeRows: DbRecipe[], userId) => {
   return recipeRows.reduce((recipes = [], row, index) => {
     let recipe = recipes.find((recipe) => recipe.id === row.recipe_id)
     if (!recipe) {
@@ -130,7 +134,7 @@ export const buildRecipeFromResults = (recipeRows: DbRecipe[]) => {
     }
 
     addIngredientToRecipe(recipe, row)
-    addLikeToRecipe(recipe, row)
+    addLikeToRecipe(recipe, row, userId)
     return recipes
   }, [])
 }
