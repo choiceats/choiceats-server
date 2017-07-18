@@ -10,8 +10,10 @@ import {
  * Fetches all recipes from the database
  *
  */
-export default async () => {
+export default async (obj, args, context) => {
   try {
+    const { user } = context
+    const userId = user.id
     const results = await query(sqlRecipesGet(), [])
     if (results) {
       const allRecipes = buildRecipeFromResults(results.rows)

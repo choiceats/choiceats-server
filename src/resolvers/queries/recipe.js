@@ -10,13 +10,13 @@ import {
  * Fetches a specific recipe
  *
  */
-export default async (obj: void, { recipeId }: { recipeId: number }, context: {user: Object}) => {
-  console.log('user data passed into resolver:')
-  console.log(context.user)
+export default async (obj: void, { recipeId }: { recipeId: number }, context) => {
   try {
+    const { user } = context
+    const userId = user.id
     const results = await query(sqlRecipesGet(recipeId), [])
     if (results) {
-      const allRecipes = buildRecipeFromResults(results.rows)
+      const allRecipes = buildRecipeFromResults(results.rows, userId)
       return {...allRecipes[0], likes: allRecipes[0].likes.length}
     } else {
       return null

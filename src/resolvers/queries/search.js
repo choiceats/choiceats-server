@@ -22,7 +22,6 @@ type SearchResolver = (void, RecipeSearchParams, Context) => any;
 const search: SearchResolver =
 async (obj, { searchText, searchFilter }, { user }) => {
   try {
-    console.log('USER', user);
     const queryVars = [`%${searchText}%`];
     if (searchFilter !== 'all'){
       queryVars.push(user.id)
@@ -30,7 +29,7 @@ async (obj, { searchText, searchFilter }, { user }) => {
 
     const results = await query(sqlRecipesSearch(searchFilter), queryVars)
     if (results) {
-      const allRecipes = buildRecipeFromResults(results.rows)
+      const allRecipes = buildRecipeFromResults(results.rows, user.id)
       return allRecipes.map(recipe => ({...recipe, likes: recipe.likes.length}))
     } else {
       return null

@@ -71,12 +71,10 @@ export const resolvers = {
 
   Mutation: {
     likeRecipe: async (object: any, args: any, context: {user: Object}) => {
-      console.log(context)
       try {
-        const {
-          recipeId = '',
-          userId = ''
-        } = args
+        const { recipeId = '' } = args
+        const { user } = context
+        const userId = user.id
         if (!recipeId || !userId) return null
         const likeExists = await query(sqlRecipeGetLike, [recipeId, userId])
 
