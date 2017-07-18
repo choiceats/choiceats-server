@@ -54,13 +54,29 @@ const SQL_RECIPE_SELECT = `
 `
 
 export const sqlRecipesSearch
-:() => string =
-() => {
+:(string) => string =
+(filter) => {
+  let dbFilter = '';
+  switch (filter) {
+    case 'my': 
+      dbFilter = ' AND users.id=$2'
+      break;
+    
+    case 'fav':
+      dbFilter = ' AND RL.user_id=$2'
+      break
+    
+    default:
+      break;
+  }
+
   return `
     ${SQL_RECIPE_SELECT}
     WHERE 
-      R.name ILIKE $1
-      OR I.name ILIKE $1
+      ( R.name ILIKE $1
+        OR I.name ILIKE $1
+      )
+      ${dbFilter}
   `
 }
 

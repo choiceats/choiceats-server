@@ -60,7 +60,7 @@ const typeDefs = `
   }
 
   type Query {
-    recipes(searchText: String): [Recipe]
+    recipes(searchText: String, searchFilter: String): [Recipe]
     recipe(recipeId: Int!): Recipe
     units: [Unit]
     ingredients: [Ingredient]
