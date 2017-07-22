@@ -5,7 +5,7 @@ import recipeResolver from '../resolvers/queries/recipe'
 // import recipesResolver from '../resolvers/queries/recipes'
 import searchResolver from '../resolvers/queries/search'
 
-const sqlRecipeGetLike = `
+const sqlRecipeGetUserLike = `
 SELECT
   *
 
@@ -19,11 +19,23 @@ AND
   user_recipe_likes.user_id = $2
 `
 
+const sqlRecipeGetAllLikes = `
+SELECT
+  recipe_id, user_id
+
+FROM 
+  user_recipe_likes
+
+WHERE
+  user_recipe_likes.recipe_id = $1
+`
+
 const sqlRecipeCreateLike = `
 INSERT INTO user_recipe_likes
   (recipe_id, user_id)
 VALUES
   ($1, $2)
+RETURNING recipe_id, user_id
 `
 
 const sqlRecipeDeleteLike = `
@@ -76,19 +88,31 @@ export const resolvers = {
         const { user } = context
         const userId = user.id
         if (!recipeId || !userId) return null
-        const likeExists = await query(sqlRecipeGetLike, [recipeId, userId])
+        const likeExists = await query(sqlRecipeGetUserLike, [recipeId, userId])
 
         if (likeExists && likeExists.rows.length) {
           console.log('deleting like')
           const deleteLike = await query(sqlRecipeDeleteLike, [recipeId, userId])
+          const likeCountAfterDelete = await query(sqlRecipeGetAllLikes, [recipeId]) 
           return deleteLike
-            ? deleteLike.rows[0]
+            ? {
+                id: recipeId,
+                youLike: false,
+                likes: likeCountAfterDelete.rows.length,
+              }
             : {}
         } else {
           console.log('creating like')
           const createLike = await query(sqlRecipeCreateLike, [recipeId, userId])
+          const likeData = createLike.rows[0] || {}
+          const likeCountAfterLike = await query(sqlRecipeGetAllLikes, [recipeId]) 
+
           return createLike
-            ? createLike.rows[0]
+            ? {
+                id: likeData.recipe_id,
+                youLike: true,
+                likes: likeCountAfterLike.rows.length,
+              }
             : {}
         }
       } catch (e) {
