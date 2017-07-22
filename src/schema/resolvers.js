@@ -91,7 +91,6 @@ export const resolvers = {
         const likeExists = await query(sqlRecipeGetUserLike, [recipeId, userId])
 
         if (likeExists && likeExists.rows.length) {
-          console.log('deleting like')
           const deleteLike = await query(sqlRecipeDeleteLike, [recipeId, userId])
           const likeCountAfterDelete = await query(sqlRecipeGetAllLikes, [recipeId]) 
           return deleteLike
@@ -102,7 +101,6 @@ export const resolvers = {
               }
             : {}
         } else {
-          console.log('creating like')
           const createLike = await query(sqlRecipeCreateLike, [recipeId, userId])
           const likeData = createLike.rows[0] || {}
           const likeCountAfterLike = await query(sqlRecipeGetAllLikes, [recipeId]) 
@@ -129,13 +127,25 @@ export const resolvers = {
         : await updateRecipe(recipe)
     },
 
-    deleteRecipe: async (object, args) => {
+    deleteRecipe: async (object, args, context: {user: Object}) => {
+      const userId = context.user.id;
+
       try {
-        const results = await query('DELETE FROM recipes WHERE id = $1', [args.recipeId])
-        console.log(args.recipeId, results.rowCount)
-        return {
-          recipeId: args.recipeId,
-          deleted: !!results.rowCount
+
+        const recipeToDelete = await query('SELECT author_id FROM recipes WHERE id = $1', [args.recipeId])
+        if (recipeToDelete.rows[0] && recipeToDelete.rows[0].author_id === userId) {
+          const results = await query('DELETE FROM recipes WHERE id = $1', [args.recipeId])
+          console.log('recipe id:', args.recipeId,'\nrows deleted:', results.rowCount)
+          return {
+            recipeId: args.recipeId,
+            deleted: !!results.rowCount
+          }
+        }
+        else {
+          return {
+            recipeId: args.recipeId,
+            deleted: false
+          }
         }
       } catch (e) {
         console.error('Db Error:', e)
