@@ -22,6 +22,8 @@ type DbRecipe = {
 //   rows: ?DbRecipe[]
 // }
 
+import { query } from '../../db'
+
 const SQL_RECIPE_SELECT = `
   SELECT
     users.first_name,
@@ -153,4 +155,9 @@ export const buildRecipeFromResults = (recipeRows: DbRecipe[], userId) => {
     addLikeToRecipe(recipe, row, userId)
     return recipes
   }, [])
+}
+
+export async function checkIfRecipeOwner(userId, recipeId) {
+  const recipe = await query('SELECT author_id FROM recipes WHERE id = $1', [recipeId])
+  return recipe.rows[0] && recipe.rows[0].author_id === userId
 }

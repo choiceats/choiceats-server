@@ -5,6 +5,8 @@ import recipeResolver from '../resolvers/queries/recipe'
 // import recipesResolver from '../resolvers/queries/recipes'
 import searchResolver from '../resolvers/queries/search'
 
+import { checkIfRecipeOwner } from '../resolvers/queries/common'
+
 const sqlRecipeGetUserLike = `
 SELECT
   *
@@ -124,26 +126,29 @@ export const resolvers = {
       const userId = context.user.id
       recipe.id === null
         ? await insertRecipe(recipe, userId)
-        : await updateRecipe(recipe)
+        : await updateRecipe(recipe, userId)
     },
 
     deleteRecipe: async (object, args, context: {user: Object}) => {
-      const userId = context.user.id;
+      const userId = context.user.id
+      const recipeId = args.recipeId
 
       try {
 
-        const recipeToDelete = await query('SELECT author_id FROM recipes WHERE id = $1', [args.recipeId])
-        if (recipeToDelete.rows[0] && recipeToDelete.rows[0].author_id === userId) {
-          const results = await query('DELETE FROM recipes WHERE id = $1', [args.recipeId])
-          console.log('recipe id:', args.recipeId,'\nrows deleted:', results.rowCount)
+        //const recipeToDelete = await query('SELECT author_id FROM recipes WHERE id = $1', [args.recipeId])
+        //recipeToDelete.rows[0] && recipeToDelete.rows[0].author_id === userId
+        //
+        if (await checkIfRecipeOwner(userId, recipeId)) {
+          const results = await query('DELETE FROM recipes WHERE id = $1', [recipeId])
+          console.log('recipe id:', recipeId,'\nrows deleted:', results.rowCount)
           return {
-            recipeId: args.recipeId,
+            recipeId,
             deleted: !!results.rowCount
           }
         }
         else {
           return {
-            recipeId: args.recipeId,
+            recipeId,
             deleted: false
           }
         }
@@ -177,7 +182,10 @@ async function insertRecipe (recipe, userId) {
   }
 }
 
-async function updateRecipe (recipe) {
+async function updateRecipe (recipe, userId) {
+  if (!(await checkIfRecipeOwner(userId, recipe.id))) {
+    return null;
+  }
   await query('DELETE FROM recipe_ingredients WHERE recipe_id=$1', [recipe.id])
   await query(`
     UPDATE recipes 
