@@ -4,6 +4,7 @@ import { query } from '../db'
 import recipeResolver from '../resolvers/queries/recipe'
 // import recipesResolver from '../resolvers/queries/recipes'
 import searchResolver from '../resolvers/queries/search'
+import randomResolver from '../resolvers/queries/random-recipe';
 
 import { checkIfRecipeOwner } from '../resolvers/queries/common'
 
@@ -55,6 +56,7 @@ export const resolvers = {
   Query: {
     recipes: searchResolver,
     recipe: recipeResolver,
+    randomRecipe: randomResolver,
 
     units: async () => {
       try {
