@@ -13,7 +13,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel src --out-dir build",
     "build-full": "rm yarn.lock && yarn install && babel src --out-dir build && git clone https://github.com/choiceats/choiceats tmp-fed && cd tmp-fed && rm yarn.lock && yarn install && yarn build && cp -R build/* ../build && cd .. && rm -rf tmp-fed",
-    "build-and-run": "yarn migrate:up && git pull && yarn build-full && yarn start",
+    "build-and-run": "git pull && yarn build-full && yarn migrate:up && yarn start",
     "start": "nodemon build/server.js"
   },
   "keywords": [],
