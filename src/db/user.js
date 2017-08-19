@@ -5,6 +5,7 @@ import rand from 'csprng'
 
 export const findByToken = async (token: string, cb: Function) => {
   let results
+  console.log('entered findByToken method');
   try {
     results = await query('SELECT * FROM users WHERE access_token=$1', [token])
   } catch (e) {
@@ -30,6 +31,7 @@ type ValidateQueryResponse = {
 }
 
 export const validateEmailAndPassword = async (email: string, password: string) => {
+  console.log('entered validateEmailAndPassword method');
   const results: ?ValidateQueryResponse = await query('SELECT email, password, salt FROM users WHERE email=$1', [email])
   console.log('RESULTS', results.rows[0], email)
   if (results && results.rowCount) {
@@ -57,6 +59,7 @@ RETURNING id, first_name, last_name, email
 }
 
 export const createUser = async (email: string, password: string, firstName: string, lastName: string) => {
+  console.log('entered createUser method');
   const results = await query('SELECT email FROM users WHERE email=$1', [email])
   if (results.rowCount) {
     return false // Email taken
