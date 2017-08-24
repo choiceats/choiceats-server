@@ -18,15 +18,16 @@ export default async (
   try {
     const { user } = context
     const userId = user.id
-    const recipeCountResults = await query('SELECT count(*) FROM recipes', []);
-    if (!recipeCountResults){
+    const recipeIds = await query('SELECT id FROM recipes', []);
+    if (!recipeIds){
       return null
     }
 
    
-    const recipeCount = recipeCountResults.rows[0].count;
-    const randomId = Math.floor(Math.random() * (Math.floor(recipeCount) - 1)) + 1
+    const recipeCount = recipeIds.rows.length
+    const randomId = recipeIds.rows[getRandomInt(0, recipeCount - 1)].id
     const results = await query(sqlRecipesGet(randomId), [])
+
     if (results) {
       const allRecipes = buildRecipeFromResults(results.rows, userId)
       return {...allRecipes[0], likes: allRecipes[0].likes.length}
@@ -37,4 +38,10 @@ export default async (
     console.error('Db Error:', e)
     return e
   }
+}
+
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min;
 }
