@@ -3,9 +3,16 @@ import { query } from './'
 import bcrypt from 'bcrypt'
 import rand from 'csprng'
 
+type UserInfoWithToken = {
+  email: string;
+  first_name: string;
+  last_name: string;
+  token: string;
+  id: number;
+}
+
 export const findByToken = async (token: string, cb: Function) => {
   let results
-  console.log('entered findByToken method');
   try {
     results = await query('SELECT * FROM users WHERE access_token=$1', [token])
   } catch (e) {
@@ -31,9 +38,7 @@ type ValidateQueryResponse = {
 }
 
 export const validateEmailAndPassword = async (email: string, password: string) => {
-  console.log('entered validateEmailAndPassword method');
   const results: ?ValidateQueryResponse = await query('SELECT email, password, salt FROM users WHERE email=$1', [email])
-  console.log('RESULTS', results.rows[0], email)
   if (results && results.rowCount) {
     const userPassword: string = results.rows[0].password
     const salt: string = results.rows[0].salt
@@ -44,22 +49,29 @@ export const validateEmailAndPassword = async (email: string, password: string) 
   return false
 }
 
-export const generateAccessToken = async (email: string) => {
-  const sqlSetToken = `
-UPDATE users
-SET access_token=$1
-WHERE email=$2
-RETURNING id, first_name, last_name, email
-`
+export const generateAccessToken:
+  (email: string) => Promise<UserInfoWithToken> =
+  async (email) => {
+    const sqlSetToken = `
+    UPDATE users
+    SET access_token=$1
+    WHERE email=$2
+    RETURNING id, first_name, last_name, email
+    `
 
-  const token = rand(160, 36)
-  const results = await query(sqlSetToken, [token, email])
-  console.log(results.rows)
-  return {...results.rows[0], token}
-}
+    const token = rand(160, 36)
+    const results = await query(sqlSetToken, [token, email])
+    const userRow = results.rows[0]
+
+    return {
+      email: userRow.email,
+      name: userRow.first_name + (userRow.last_name ? ` ${userRow.last_name}` : ''),
+      token,
+      userId: userRow.id
+    }
+  }
 
 export const createUser = async (email: string, password: string, firstName: string, lastName: string) => {
-  console.log('entered createUser method');
   const results = await query('SELECT email FROM users WHERE email=$1', [email])
   if (results.rowCount) {
     return false // Email taken
@@ -82,9 +94,7 @@ export const createUser = async (email: string, password: string, firstName: str
 }
 
 const generateSecrets = async (password: string) => {
-  console.log('pass', password)
   let salt = await bcrypt.genSalt(10)
-  console.log('SALT', salt)
   let token = await bcrypt.hash(password, salt)
 
   return { token, salt }

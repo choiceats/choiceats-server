@@ -62,7 +62,6 @@ type AuthBody = {
 app.post('/auth',
   bodyParser.json(),
   async (req: AuthBody, res) => {
-    console.log('entered auth endpoint with data', req.body)
     const { email, password } = req.body
     const isValid = await user.validateEmailAndPassword(email, password)
     if (isValid) {
@@ -84,7 +83,6 @@ app.post('/auth',
 app.post('/user',
   bodyParser.json(),
   async (req, res) => {
-    console.log('entered user endpoint with data', req.body)
     const { email, password, firstName, lastName } = req.body
     const newUser = await user.createUser(email, password, firstName, lastName)
     if (newUser) {

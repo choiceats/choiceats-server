@@ -1,4 +1,6 @@
 // @flow
+import { query } from '../../db'
+
 type DbRecipe = {
   recipe_id: number;
   name: string;
@@ -21,8 +23,6 @@ type DbRecipe = {
 // type RecipeResults = {
 //   rows: ?DbRecipe[]
 // }
-
-import { query } from '../../db'
 
 const SQL_RECIPE_SELECT = `
   SELECT
@@ -55,60 +55,61 @@ const SQL_RECIPE_SELECT = `
     LEFT JOIN user_recipe_likes AS RL ON RL.recipe_id = R.id
 `
 
-export const sqlRecipesSearch
-:(string) => string =
-(filter) => {
-  let dbFilter = '';
-  switch (filter) {
-    case 'my': 
-      dbFilter = ' AND users.id=$2'
-      break;
-    
-    case 'fav':
-      dbFilter = ' AND RL.user_id=$2'
-      break
-    
-    default:
-      break;
-  }
+export const sqlRecipesSearch:
+  (filter: string) => string =
+  (filter) => {
+    let dbFilter = ''
+    switch (filter) {
+      case 'my':
+        dbFilter = ' AND users.id=$2'
+        break
+      case 'fav':
+        dbFilter = ' AND RL.user_id=$2'
+        break
 
-  return `
-    ${SQL_RECIPE_SELECT}
-    WHERE 
-      ( R.name ILIKE $1
-        OR I.name ILIKE $1
-      )
-      ${dbFilter}
-  `
-}
+      default:
+        break
+    }
 
-export const sqlRecipesGet
-:(?number) => string =
-(id) => {
-  if (id) {
     return `
       ${SQL_RECIPE_SELECT}
-      WHERE R.id = '${id}'
+      WHERE 
+        ( R.name ILIKE $1
+          OR I.name ILIKE $1
+        )
+        ${dbFilter}
     `
   }
 
-  return SQL_RECIPE_SELECT
-}
+export const sqlRecipesGet:
+  (id: ?number) => string =
+  (id) => {
+    if (id) {
+      return `
+        ${SQL_RECIPE_SELECT}
+        WHERE R.id = '${id}'
+      `
+    }
 
-const buildRecipeFromRow = (recipeRow: DbRecipe) => {
-  return {
-    id: recipeRow.recipe_id,
-    name: recipeRow.name,
-    author: `${recipeRow.first_name}  ${recipeRow.last_name ? recipeRow.last_name : ''}`,
-    authorId: recipeRow.author_id,
-    instructions: recipeRow.instructions,
-    ingredients: [],
-    description: recipeRow.description || '',
-    imageUrl: recipeRow.image_url || '',
-    likes: [],
-    youLike: false
+    return SQL_RECIPE_SELECT
   }
-}
+
+const buildRecipeFromRow:
+  (recipeRow: DbRecipe) => any =
+  (recipeRow) => {
+    return {
+      id: recipeRow.recipe_id,
+      name: recipeRow.name,
+      author: `${recipeRow.first_name}  ${recipeRow.last_name ? recipeRow.last_name : ''}`,
+      authorId: recipeRow.author_id,
+      instructions: recipeRow.instructions,
+      ingredients: [],
+      description: recipeRow.description || '',
+      imageUrl: recipeRow.image_url || '',
+      likes: [],
+      youLike: false
+    }
+  }
 
 const buildIngredientFromRow = (row: DbRecipe) => {
   return {
@@ -143,21 +144,25 @@ const addLikeToRecipe = (recipe, row: DbRecipe, userId) => {
   return null
 }
 
-export const buildRecipeFromResults = (recipeRows: DbRecipe[], userId) => {
-  return recipeRows.reduce((recipes = [], row, index) => {
-    let recipe = recipes.find((recipe) => recipe.id === row.recipe_id)
-    if (!recipe) {
-      recipe = buildRecipeFromRow(row)
-      recipes.push(recipe)
-    }
+export const buildRecipeFromResults:
+  (DbRecipe[], ?number) => any =
+  (recipeRows, userId) => {
+    return recipeRows.reduce((recipes = [], row, index) => {
+      let recipe = recipes.find((recipe) => recipe.id === row.recipe_id)
+      if (!recipe) {
+        recipe = buildRecipeFromRow(row)
+        recipes.push(recipe)
+      }
 
-    addIngredientToRecipe(recipe, row)
-    addLikeToRecipe(recipe, row, userId)
-    return recipes
-  }, [])
-}
+      addIngredientToRecipe(recipe, row)
+      addLikeToRecipe(recipe, row, userId)
+      return recipes
+    }, [])
+  }
 
-export async function checkIfRecipeOwner(userId, recipeId) {
-  const recipe = await query('SELECT author_id FROM recipes WHERE id = $1', [recipeId])
-  return recipe.rows[0] && recipe.rows[0].author_id === userId
-}
+export const checkIfRecipeOwner:
+  (userId: number, recipeId: number) => Promise<any> =
+  async (userId, recipeId) => {
+    const recipe = await query('SELECT author_id FROM recipes WHERE id = $1', [recipeId])
+    return recipe.rows[0] && recipe.rows[0].author_id === userId
+  }

@@ -4,7 +4,7 @@ import { query } from '../db'
 import recipeResolver from '../resolvers/queries/recipe'
 // import recipesResolver from '../resolvers/queries/recipes'
 import searchResolver from '../resolvers/queries/search'
-import randomResolver from '../resolvers/queries/random-recipe';
+import randomResolver from '../resolvers/queries/random-recipe'
 
 import { checkIfRecipeOwner } from '../resolvers/queries/common'
 
@@ -96,25 +96,25 @@ export const resolvers = {
 
         if (likeExists && likeExists.rows.length) {
           const deleteLike = await query(sqlRecipeDeleteLike, [recipeId, userId])
-          const likeCountAfterDelete = await query(sqlRecipeGetAllLikes, [recipeId]) 
+          const likeCountAfterDelete = await query(sqlRecipeGetAllLikes, [recipeId])
           return deleteLike
             ? {
-                id: recipeId,
-                youLike: false,
-                likes: likeCountAfterDelete.rows.length,
-              }
+              id: recipeId,
+              youLike: false,
+              likes: likeCountAfterDelete.rows.length
+            }
             : {}
         } else {
           const createLike = await query(sqlRecipeCreateLike, [recipeId, userId])
           const likeData = createLike.rows[0] || {}
-          const likeCountAfterLike = await query(sqlRecipeGetAllLikes, [recipeId]) 
+          const likeCountAfterLike = await query(sqlRecipeGetAllLikes, [recipeId])
 
           return createLike
             ? {
-                id: likeData.recipe_id,
-                youLike: true,
-                likes: likeCountAfterLike.rows.length,
-              }
+              id: likeData.recipe_id,
+              youLike: true,
+              likes: likeCountAfterLike.rows.length
+            }
             : {}
         }
       } catch (e) {
@@ -131,24 +131,18 @@ export const resolvers = {
         : await updateRecipe(recipe, userId)
     },
 
-    deleteRecipe: async (object, args, context: {user: Object}) => {
+    deleteRecipe: async (object: any, args: {recipeId: number}, context: {user: Object}) => {
       const userId = context.user.id
       const recipeId = args.recipeId
 
       try {
-
-        //const recipeToDelete = await query('SELECT author_id FROM recipes WHERE id = $1', [args.recipeId])
-        //recipeToDelete.rows[0] && recipeToDelete.rows[0].author_id === userId
-        //
         if (await checkIfRecipeOwner(userId, recipeId)) {
           const results = await query('DELETE FROM recipes WHERE id = $1', [recipeId])
-          console.log('recipe id:', recipeId,'\nrows deleted:', results.rowCount)
           return {
             recipeId,
             deleted: !!results.rowCount
           }
-        }
-        else {
+        } else {
           return {
             recipeId,
             deleted: false
@@ -186,7 +180,7 @@ async function insertRecipe (recipe, userId) {
 
 async function updateRecipe (recipe, userId) {
   if (!(await checkIfRecipeOwner(userId, recipe.id))) {
-    return null;
+    return null
   }
   await query('DELETE FROM recipe_ingredients WHERE recipe_id=$1', [recipe.id])
   await query(`

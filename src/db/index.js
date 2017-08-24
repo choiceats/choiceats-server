@@ -5,8 +5,6 @@ let connectionPool: ?pg.Pool
 
 const getConfig = () => {
   const { DB_NAME, DB_USER, DB_PASS, DB_HOST } = process.env
-  console.log('process.env is', process.env);
-  console.log('process.env pw is', process.env.DB_PASS);
   return {
     user: DB_USER,
     database: DB_NAME,
@@ -19,14 +17,10 @@ const getConfig = () => {
 }
 
 const getPool = () => {
-  console.log('entered getPool')
   if (connectionPool) {
     return connectionPool
   }
-
-  console.log('connection pool does not already exist, attempting to create')
   connectionPool = new pg.Pool(getConfig())
-  console.log('connectoin pool created', connectionPool)
   connectionPool.on('error', function (err, client) {
     console.error('idle client error', err.message, err.stack)
   })
@@ -34,22 +28,21 @@ const getPool = () => {
   return connectionPool
 }
 
-export const query = function (text: string, values: any[]) {
-  console.log('entered db/query method')
-  const connectionPool = getPool()
-  console.log('connectionPool is', connectionPool)
-  return new Promise((resolve, reject) => {
-    connectionPool.query(text, values, (err, res) => {
-      if (err) {
-        reject(err)
-      }
-      resolve(res)
+export const query:
+  (text: string, values: any[]) => any =
+  (text, values) => {
+    const connectionPool = getPool()
+    return new Promise((resolve, reject) => {
+      connectionPool.query(text, values, (err, res) => {
+        if (err) {
+          reject(err)
+        }
+        resolve(res)
+      })
     })
-  })
-}
+  }
 
 export const connect = function (callback: Function) {
-  console.log('entered db/connect method')
   const connectionPool = getPool()
   return connectionPool.connect(callback)
 }
