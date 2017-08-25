@@ -2,39 +2,51 @@
 import { query } from '../../db'
 
 import {
+  sqlRecipeUserSearch,
   sqlRecipesGet,
   buildRecipeFromResults
 } from './common'
 
-/**
- * Fetches a specific recipe
- *
- */
-export default async (
-  obj: void, 
-  { recipeId }: { recipeId: number }, 
-  context: { user: any }
-) => {
-  try {
-    const { user } = context
-    const userId = user.id
-    const recipeCountResults = await query('SELECT count(*) FROM recipes', []);
-    if (!recipeCountResults){
-      return null
-    }
+type SearchParams = {
+  searchFilter: string;
+}
 
-   
-    const recipeCount = recipeCountResults.rows[0].count;
-    const randomId = Math.floor(Math.random() * (Math.floor(recipeCount) - 1)) + 1
-    const results = await query(sqlRecipesGet(randomId), [])
-    if (results) {
-      const allRecipes = buildRecipeFromResults(results.rows, userId)
-      return {...allRecipes[0], likes: allRecipes[0].likes.length}
-    } else {
-      return null
-    }
-  } catch (e) {
-    console.error('Db Error:', e)
-    return e
+type UserContext = {
+  user: {
+    id: number;
   }
 }
+
+const randomRecipe:
+  (void, SearchParams, UserContext) => any =
+  async (obj, { searchFilter }, { user }) => {
+    try {
+      const useSearchFilter = (searchFilter) || 'all'
+      const userId = user.id
+      const queryVars = (useSearchFilter !== 'all')
+        ? [user.id]
+        : []
+
+      console.log('SEARCH FILTER', useSearchFilter)
+      console.log('SQL', sqlRecipeUserSearch(useSearchFilter))
+      console.log('QUERY FILTER', queryVars)
+
+      const recipeResults = await query(sqlRecipeUserSearch(useSearchFilter), queryVars)
+      if (!recipeResults) {
+        return null
+      }
+
+      const recipeCount = recipeResults.rows.length
+      const randomIndex = Math.floor(Math.random() * (Math.floor(recipeCount) - 1)) + 1
+      const randomRecipe = recipeResults.rows[randomIndex]
+      console.log('RANDOM RECIPE', recipeCount, randomIndex, randomRecipe)
+
+      const allRecipes = buildRecipeFromResults([randomRecipe], userId)
+      return {...allRecipes[0], likes: allRecipes[0].likes.length}
+    } catch (e) {
+      console.error('Db Error:', e)
+      return e
+    }
+  }
+
+export default randomRecipe

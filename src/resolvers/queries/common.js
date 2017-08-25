@@ -55,31 +55,51 @@ const SQL_RECIPE_SELECT = `
     LEFT JOIN user_recipe_likes AS RL ON RL.recipe_id = R.id
 `
 
-export const sqlRecipesSearch:
-  (filter: string) => string =
-  (filter) => {
-    let dbFilter = ''
+export const sqlRecipeUserFilter:
+  (string, number | void) => string =
+  (filter, index = 1) => {
     switch (filter) {
       case 'my':
-        dbFilter = ' AND users.id=$2'
-        break
+        return ` users.id=$${index}`
       case 'fav':
-        dbFilter = ' AND RL.user_id=$2'
-        break
-
+        return ` RL.user_id=$${index}`
       default:
-        break
+        return ''
     }
-
-    return `
-      ${SQL_RECIPE_SELECT}
-      WHERE 
-        ( R.name ILIKE $1
-          OR I.name ILIKE $1
-        )
-        ${dbFilter}
-    `
   }
+
+export const sqlRecipesSearch:
+(filter: string) => string =
+(filter) => {
+  const filters = [`
+    ( R.name ILIKE $1
+      OR I.name ILIKE $1
+    )`
+  ]
+
+  const userFilter = sqlRecipeUserFilter(filter, 2)
+  if (userFilter) {
+    filters.push(userFilter)
+  }
+  return `
+    ${SQL_RECIPE_SELECT}
+    WHERE
+    ${filters.join(' AND ')}`
+}
+
+export const sqlRecipeUserSearch:
+(filter: string) => string =
+(filter) => {
+  const userFilter = sqlRecipeUserFilter(filter)
+  const whereFilter = (userFilter)
+    ? ` WHERE ${userFilter}`
+    : ''
+
+  return `
+    ${SQL_RECIPE_SELECT}
+    ${whereFilter}
+  `
+}
 
 export const sqlRecipesGet:
   (id: ?number) => string =
