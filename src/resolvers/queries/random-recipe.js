@@ -37,7 +37,7 @@ const randomRecipe:
       }
 
       const recipeCount = recipeResults.rows.length
-      const randomIndex = Math.floor(Math.random() * (Math.floor(recipeCount) - 1)) + 1
+      const randomIndex = getRandomInt(0, recipeCount)
       const randomRecipe = recipeResults.rows[randomIndex]
       console.log('RANDOM RECIPE', recipeCount, randomIndex, randomRecipe)
 
@@ -47,6 +47,14 @@ const randomRecipe:
       console.error('Db Error:', e)
       return e
     }
+  }
+
+const getRandomInt:
+  (number, number) => number =
+  (min, max) => {
+    min = Math.ceil(min)
+    max = Math.floor(max)
+    return Math.floor(Math.random() * (max - min)) + min
   }
 
 export default randomRecipe

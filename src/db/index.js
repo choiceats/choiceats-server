@@ -22,7 +22,6 @@ const getPool = () => {
   }
   connectionPool = new pg.Pool(getConfig())
   connectionPool.on('error', function (err, client) {
-    console.error('idle client error', err.message, err.stack)
   })
 
   return connectionPool
