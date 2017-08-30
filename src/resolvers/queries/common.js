@@ -136,6 +136,7 @@ const buildIngredientFromRow = (row: DbRecipe) => {
     id: row.ingredient_id,
     name: row.ingredient,
     quantity: row.quantity,
+    displayQuantity: getDisplayQuantity(row.quantity),
     unit: {
       id: row.unit_id,
       name: row.unit,
@@ -186,3 +187,32 @@ export const checkIfRecipeOwner:
     const recipe = await query('SELECT author_id FROM recipes WHERE id = $1', [recipeId])
     return recipe.rows[0] && recipe.rows[0].author_id === userId
   }
+
+//build recipesFromResults
+//
+
+function getDisplayQuantity(quantity) {
+  const remainder = quantity % 1;
+
+  if (remainder) {
+    const wholeQuantity = Math.floor(quantity)
+    return (wholeQuantity >= 1 ? (wholeQuantity + ' ') : '') + fractionConverter(remainder)
+  }
+  else {
+    return quantity
+  }
+}
+
+function fractionConverter(fraction) {
+  if (fraction === 0) return ''
+  if (fraction === 0.125) return '⅛'
+  if (fraction === 0.25) return '¼'
+  if (fraction - 0.333 < 0.1) return '⅓'
+  if (fraction === 0.375) return '⅜'
+  if (fraction === 0.5) return '½'
+  if (fraction === 0.625) return '⅝'
+  if (fraction - 0.666 < 0.1) return '⅔'
+  if (fraction === 0.75) return '¾'
+  if (fraction === 0.875) return '⅞'
+  return '' + quantity
+}
