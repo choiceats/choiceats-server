@@ -15,9 +15,9 @@ const getRecipeById:
     const recipeResults = await query(sqlRecipesQuery('' + id), [])
     const recipes = buildBaseRecipeFromResults(recipeResults.rows)
 
-    addIngredientsToRecipes(recipes)
-    addLikesToRecipes(recipes)
-    addTagsToRecipes(recipes)
+    await addIngredientsToRecipes(recipes)
+    await addLikesToRecipes(recipes)
+    await addTagsToRecipes(recipes)
 
     return recipes[0]
   }

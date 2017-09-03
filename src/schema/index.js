@@ -18,6 +18,7 @@ const typeDefs = `
     name: String!
     unit: Unit
     quantity: Float!
+    displayQuantity: String!
   }
 
   type Recipe {

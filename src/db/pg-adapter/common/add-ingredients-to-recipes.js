@@ -8,11 +8,11 @@ const addIngredientsToRecipes:
   async (recipes) => {
     const recipeIds = recipes.map(r => r.id)
     const ingredientsResults = await query(sqlIngredientsQuery(recipeIds.join(',')), [])
-
     if (ingredientsResults) {
       ingredientsResults.rows.forEach(ingredientRow => {
         const recipe = recipes.find(r => r.id === ingredientRow.recipe_id)
         if (recipe) {
+          console.log('adding ingredient...')
           recipe.ingredients.push(buildIngredientFromRow(ingredientRow))
         }
       })
@@ -24,12 +24,39 @@ function buildIngredientFromRow (ingredientRow) {
     id: ingredientRow.ingredient_id,
     name: ingredientRow.ingredient,
     quantity: ingredientRow.quantity,
+    displayQuantity: getDisplayQuantity(ingredientRow.quantity),
     unit: {
       id: ingredientRow.unit_id,
       name: ingredientRow.unit,
       abbr: ingredientRow.unit_abbr
     }
   }
+}
+
+// build recipesFromResults
+//
+function getDisplayQuantity (quantity) {
+  const remainder = quantity % 1
+  if (remainder) {
+    const wholeQuantity = Math.floor(quantity)
+    return (wholeQuantity >= 1 ? (wholeQuantity + ' ') : '') + fractionConverter(remainder)
+  } else {
+    return quantity
+  }
+}
+
+function fractionConverter (fraction) {
+  if (fraction === 0) return ''
+  if (fraction === 0.125) return '⅛'
+  if (fraction === 0.25) return '¼'
+  if (fraction - 0.333 < 0.1) return '⅓'
+  if (fraction === 0.375) return '⅜'
+  if (fraction === 0.5) return '½'
+  if (fraction === 0.625) return '⅝'
+  if (fraction - 0.666 < 0.1) return '⅔'
+  if (fraction === 0.75) return '¾'
+  if (fraction === 0.875) return '⅞'
+  return ''
 }
 
 const sqlIngredientsQuery:
