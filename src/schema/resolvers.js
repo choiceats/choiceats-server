@@ -1,12 +1,12 @@
 // @flow
 import { query } from '../db'
 
-import recipeResolver from '../resolvers/queries/recipe'
-// import recipesResolver from '../resolvers/queries/recipes'
-import searchResolver from '../resolvers/queries/search'
-import randomResolver from '../resolvers/queries/random-recipe'
+import recipeResolver from '../resolvers/recipe'
+// import recipesResolver from '../resolvers/recipes'
+import searchResolver from '../resolvers/search'
+import randomResolver from '../resolvers/random-recipe'
 
-import { checkIfRecipeOwner } from '../resolvers/queries/common'
+import { checkIfRecipeOwner } from '../resolvers/common'
 
 const sqlRecipeGetUserLike = `
 SELECT
