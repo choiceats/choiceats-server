@@ -12,7 +12,6 @@ const addIngredientsToRecipes:
       ingredientsResults.rows.forEach(ingredientRow => {
         const recipe = recipes.find(r => r.id === ingredientRow.recipe_id)
         if (recipe) {
-          console.log('adding ingredient...')
           recipe.ingredients.push(buildIngredientFromRow(ingredientRow))
         }
       })

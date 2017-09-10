@@ -54,17 +54,19 @@ type TokenResponse = {
   rows: Token[];
 }
 
-export const getRefreshToken = async (bearerToken: string): Token | boolean => {
-  let results: TokenResponse
-  try {
-    results = await query('SELECT access_token, access_token_expires_on, client_id, refresh_token, refresh_token_expires_on, user_id FROM oauth_tokens WHERE refresh_token = $1', [bearerToken])
-  } catch (e) {
-    console.error('Could not get refresh token info from DB')
-    return false
-  }
+export const getRefreshToken:
+  (bearerToken: string) => Promise<Token | boolean> =
+  async (bearerToken: string) => {
+    let results: TokenResponse
+    try {
+      results = await query('SELECT access_token, access_token_expires_on, client_id, refresh_token, refresh_token_expires_on, user_id FROM oauth_tokens WHERE refresh_token = $1', [bearerToken])
+    } catch (e) {
+      console.error('Could not get refresh token info from DB')
+      return false
+    }
 
-  return results.rowCount ? results.rows[0] : false
-}
+    return results.rowCount ? results.rows[0] : false
+  }
 
 /*
  * Get user.

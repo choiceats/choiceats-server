@@ -21,6 +21,11 @@ const typeDefs = `
     displayQuantity: String!
   }
 
+  type Tag {
+    id: ID
+    name: String!
+  }
+
   type Recipe {
     id: ID
     author: String
@@ -28,6 +33,7 @@ const typeDefs = `
     description: String
     imageUrl: String
     ingredients: [RecipeIngredient]
+    tags: [Tag]
     instructions: String
     name: String
     youLike: Boolean

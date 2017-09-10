@@ -1,6 +1,15 @@
 // @flow
 import pg from 'pg'
 
+declare var process: {
+  env: {
+    DB_USER: string,
+    DB_NAME: string,
+    DB_PASS: string,
+    DB_HOST: string,
+  }
+}
+
 let connectionPool: ?pg.Pool
 
 const getConfig = () => {
@@ -21,9 +30,7 @@ const getPool = () => {
     return connectionPool
   }
   connectionPool = new pg.Pool(getConfig())
-  connectionPool.on('error', function (err, client) {
-  })
-
+  connectionPool.on('error', function (err, client) {})
   return connectionPool
 }
 
@@ -41,7 +48,9 @@ export const query:
     })
   }
 
-export const connect = function (callback: Function) {
-  const connectionPool = getPool()
-  return connectionPool.connect(callback)
-}
+export const connect:
+  (callback: Function) => any = 
+  (callback) => {
+    const connectionPool = getPool()
+    return connectionPool.connect(callback)
+  }

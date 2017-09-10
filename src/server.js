@@ -13,19 +13,27 @@ import { passportConfig } from './auth/config-passport'
 import { schema } from './schema'
 import * as user from './db/user'
 
+import type { $Request, $Response, NextFunction } from 'express'
+
 dotenv.config()
 passportConfig(passport)
 
 const staticPath = path.join(__dirname, '../build')
 const app = express()
+
+const corsMiddleware:
+  (req: $Request, res: $Response, next: NextFunction) => void =
+  (req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*')
+    res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS')
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization, Access-Control-Allow-Credentials')
+    res.header('Access-Control-Allow-Credentials', 'true')
+    next()
+  }
+
+
 app.use(express.static(staticPath))
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*')
-  res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS')
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization, Access-Control-Allow-Credentials')
-  res.header('Access-Control-Allow-Credentials', 'true')
-  next()
-})
+app.use(corsMiddleware)
 
 app.get('/', (req, res) => {
   res.sendFile('index.html', {
@@ -80,7 +88,8 @@ app.post('/auth',
 )
 
 // Request a new user.
-app.post('/user',
+app.post(
+  '/user',
   bodyParser.json(),
   async (req, res) => {
     const { email, password, firstName, lastName } = req.body

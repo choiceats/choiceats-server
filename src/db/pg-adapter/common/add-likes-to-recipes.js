@@ -21,7 +21,7 @@ const addLikesToRecipes:
   }
 
 const sqlRecipeLikesQuery:
-  (string) => string =
+  (ids: string) => string =
   ids => `
     SELECT
       RL.user_id as likes,
