@@ -19,6 +19,7 @@ const getRecipeById:
     await addLikesToRecipes(recipes)
     await addTagsToRecipes(recipes)
 
+    console.log('RECIPE', recipes[0]);
     return recipes[0]
   }
 

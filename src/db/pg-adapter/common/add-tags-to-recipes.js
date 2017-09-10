@@ -24,6 +24,7 @@ const sqlRecipeTagsQuery:
   (string) => string =
   ids => `
     SELECT
+      T.id,
       T.name,
       RT.recipe_id
     FROM recipe_tags AS RT
