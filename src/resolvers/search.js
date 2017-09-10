@@ -5,6 +5,7 @@ import type { UserContext } from '../types'
 type RecipeSearchParams = {
   searchText: string;
   searchFilter: string;
+  searchTags: string[];
 }
 type Context = {
   user: UserContext;
@@ -16,9 +17,9 @@ type Context = {
  */
 const search:
   (obj: void, searchParams: RecipeSearchParams, context: Context) => any =
-  async (obj, { searchText, searchFilter }, { user }) => {
+  async (obj, { searchText, searchFilter, searchTags }, { user }) => {
     try {
-      return getRecipesFromSearch(searchText, searchFilter, user)
+      return getRecipesFromSearch(searchText, searchFilter, searchTags, user)
     } catch (e) {
       console.error('Db Error:', e)
       return e

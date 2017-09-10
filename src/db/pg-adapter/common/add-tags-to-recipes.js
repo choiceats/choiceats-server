@@ -21,7 +21,7 @@ const addTagsToRecipes:
   }
 
 const sqlRecipeTagsQuery:
-  (string) => string =
+  (ids: string) => string =
   ids => `
     SELECT
       T.id,

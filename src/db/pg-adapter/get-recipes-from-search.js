@@ -9,13 +9,13 @@ import { sqlSearchQuery, sqlRecipesQuery } from './queries'
 import type { Recipe, UserContext, DbResults } from '../../types'
 
 const getRecipesFromSearch:
-  (searchText: string, searchFilter: string, user: UserContext) => Promise<Recipe[]> =
-  async (searchText, searchFilter, user) => {
+  (searchText: string, searchFilter: string, searchTags: string[], user: UserContext) => Promise<Recipe[]> =
+  async (searchText, searchFilter, searchTags, user) => {
     const queryParams = (searchFilter !== 'all')
       ? [`%${searchText}%`, user.id]
       : [`%%`]
 
-    const queryStr = sqlSearchQuery(searchText, searchFilter)
+    const queryStr = sqlSearchQuery(searchText, searchFilter, searchTags)
     const searchResults = await query(queryStr, queryParams)
     const ids = getRecipeIdsFromSearch(searchResults)
 

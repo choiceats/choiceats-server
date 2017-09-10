@@ -22,8 +22,8 @@ export const sqlRecipesQuery:
     `
 
 export const sqlSearchQuery:
-  (string, string) => string =
-  (filterString, userFilter) => {
+  (string, string, string[]) => string =
+  (filterString, userFilter, searchTags) => {
     const select = `SELECT
   DISTINCT(R.id)
       
@@ -33,6 +33,7 @@ FROM recipes AS R
   LEFT JOIN ingredients AS I ON I.id = RI.ingredient_id
   LEFT JOIN users ON users.id = R.author_id
   LEFT JOIN user_recipe_likes AS RL ON RL.recipe_id = R.id
+  LEFT JOIN recipe_tags AS RT ON RT.recipe_id = R.id
 `
     const filters = [`
       ( R.name ILIKE $1
@@ -43,6 +44,10 @@ FROM recipes AS R
     const userQueryFilter = sqlRecipeUserFilter(userFilter, 2)
     if (userQueryFilter !== '') {
       filters.push(userQueryFilter)
+    }
+
+    if (searchTags.length) {
+      filters.push(` RT.tag_id IN (${searchTags.join(',')}) `)
     }
 
     return `

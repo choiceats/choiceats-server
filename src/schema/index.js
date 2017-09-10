@@ -67,11 +67,12 @@ const typeDefs = `
   }
 
   type Query {
-    recipes(searchText: String, searchFilter: String): [Recipe]
+    recipes(searchText: String, searchFilter: String, searchTags: [Int]): [Recipe]
     recipe(recipeId: Int!): Recipe
     randomRecipe(searchFilter: String): Recipe
     units: [Unit]
     ingredients: [Ingredient]
+    tags: [Tag]
   }
 
   type DeleteRecipeResult {

@@ -38,6 +38,11 @@ export type Ingredient = {
   }
 }
 
+export type Tag = {
+  id: number,
+  name: string
+}
+
 export type Recipe = {
   id: number,
   name: string,
