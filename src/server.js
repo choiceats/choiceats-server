@@ -74,9 +74,10 @@ app.post('/auth',
     const isValid = await user.validateEmailAndPassword(email, password)
     if (isValid) {
       const tokenResults = await user.generateAccessToken(email)
+      console.log('Results token...', tokenResults);
       res.json({
         email: tokenResults.email,
-        name: tokenResults.first_name + (tokenResults.last_name ? ` ${tokenResults.last_name}` : ''),
+        name: tokenResults.name,
         token: tokenResults.token,
         userId: tokenResults.id
       })

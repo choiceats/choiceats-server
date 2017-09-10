@@ -5,8 +5,7 @@ import rand from 'csprng'
 
 type UserInfoWithToken = {
   email: string;
-  first_name: string;
-  last_name: string;
+  name: string;
   token: string;
   id: number;
 }
@@ -67,7 +66,7 @@ export const generateAccessToken:
       email: userRow.email,
       name: userRow.first_name + (userRow.last_name ? ` ${userRow.last_name}` : ''),
       token,
-      userId: userRow.id
+      id: userRow.id
     }
   }
 
