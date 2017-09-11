@@ -35,7 +35,7 @@ const corsMiddleware:
 app.use(express.static(staticPath))
 app.use(corsMiddleware)
 
-app.get('/', (req, res) => {
+app.get('/', (req: $Request, res: $Response) => {
   res.sendFile('index.html', {
     root: staticPath
   })
@@ -92,7 +92,7 @@ app.post('/auth',
 app.post(
   '/user',
   bodyParser.json(),
-  async (req, res) => {
+  async (req: $Request, res: $Response) => {
     const { email, password, firstName, lastName } = req.body
     const newUser = await user.createUser(email, password, firstName, lastName)
     if (newUser) {

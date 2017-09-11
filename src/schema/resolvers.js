@@ -198,6 +198,7 @@ async function updateRecipe (recipe, userId) {
   )
 
   await insertRecipeIngredients(recipe)
+  await insertRecipeTags(recipe)
 }
 
 function insertRecipeIngredients (recipe) {
@@ -208,6 +209,20 @@ function insertRecipeIngredients (recipe) {
           VALUES ($1, $2, $3, $4)`,
           [recipe.id, i.id, i.unit ? i.unit.id : null, i.quantity]
         )
+  })
+
+  return Promise.all(insertPromises)
+}
+
+function insertRecipeTags (recipe) {
+  const insertPromises = recipe.tags.map(tag => {
+    return query(
+      `INSERT INTO recipe_tags
+        (recipe_id, tag_id)
+      VALUES
+        ($1, $2)`,
+      [recipe.id, tag.id]
+    )
   })
 
   return Promise.all(insertPromises)
