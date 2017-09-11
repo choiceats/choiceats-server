@@ -128,6 +128,8 @@ export const resolvers = {
     saveRecipe: async (object: any, args: any, context: {user: Object}) => {
       const recipe = args.recipe
       const userId = context.user.id
+
+      console.log('RECIPE', recipe)
       recipe.id === null
         ? await insertRecipe(recipe, userId)
         : await updateRecipe(recipe, userId)
@@ -185,6 +187,7 @@ async function updateRecipe (recipe, userId) {
     return null
   }
   await query('DELETE FROM recipe_ingredients WHERE recipe_id=$1', [recipe.id])
+  await query('DELETE FROM recipe_tags WHERE recipe_id=$1', [recipe.id])
   await query(`
     UPDATE recipes 
     SET 
@@ -215,13 +218,14 @@ function insertRecipeIngredients (recipe) {
 }
 
 function insertRecipeTags (recipe) {
-  const insertPromises = recipe.tags.map(tag => {
+  const insertPromises = recipe.tags.map(tagId => {
+    console.log('inserting tag', tagId, recipe.id)
     return query(
       `INSERT INTO recipe_tags
         (recipe_id, tag_id)
       VALUES
         ($1, $2)`,
-      [recipe.id, tag.id]
+      [recipe.id, tagId]
     )
   })
 
