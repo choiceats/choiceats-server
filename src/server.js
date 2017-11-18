@@ -96,7 +96,12 @@ app.post(
     const { email, password, firstName, lastName } = req.body
     const newUser = await user.createUser(email, password, firstName, lastName)
     if (newUser) {
-      res.json({user: newUser})
+      res.json({
+        userId: newUser.id,
+        email: newUser.email,
+        name: newUser.name,
+        token: newUser.token,
+      })
     } else {
       res.json({error: 'something here...'})
     }

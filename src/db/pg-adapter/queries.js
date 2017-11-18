@@ -46,7 +46,7 @@ FROM recipes AS R
       filters.push(userQueryFilter)
     }
 
-    if (searchTags.length) {
+    if (searchTags && searchTags.length > 0) {
       filters.push(` RT.tag_id IN (${searchTags.join(',')}) `)
     }
 

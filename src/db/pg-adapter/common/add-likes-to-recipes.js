@@ -14,6 +14,7 @@ const addLikesToRecipes:
 
     likesResults.rows.forEach(likesRow => {
       const recipe = recipes.find(r => r.id === likesRow.recipe_id)
+
       if (recipe) {
         recipe.likes.push(likesRow.likes)
       }

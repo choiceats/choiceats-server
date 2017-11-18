@@ -15,6 +15,7 @@ type Context = {
  * Fetches all recipes from the database
  *
  */
+
 const search:
   (obj: void, searchParams: RecipeSearchParams, context: Context) => any =
   async (obj, { searchText, searchFilter, searchTags }, { user }) => {

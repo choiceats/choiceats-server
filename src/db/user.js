@@ -86,8 +86,10 @@ export const createUser = async (email: string, password: string, firstName: str
     `,
     [firstName, lastName, email, token, salt])
 
-  if (createResults.rowCount) {
-    return createResults.rows[0].id
+  if (createResults.rowCount > 0) {
+    const tokenResults = await generateAccessToken(email)
+
+    return tokenResults
   }
   return false
 }

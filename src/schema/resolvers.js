@@ -7,8 +7,6 @@ import searchResolver from '../resolvers/search'
 import randomResolver from '../resolvers/random-recipe'
 import tagsResolver from '../resolvers/tags'
 
-import { checkIfRecipeOwner } from '../resolvers/common'
-
 const sqlRecipeGetUserLike = `
 SELECT
   *
@@ -231,3 +229,9 @@ function insertRecipeTags (recipe) {
 
   return Promise.all(insertPromises)
 }
+
+export async function checkIfRecipeOwner(userId, recipeId) {
+  const recipe = await query('SELECT author_id FROM recipes WHERE id = $1', [recipeId])
+  return recipe.rows[0] && recipe.rows[0].author_id === userId
+}
+

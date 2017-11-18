@@ -15,7 +15,7 @@
     "seed:build":      "npm build && babel resources/seed/ --out-dir build/seeder/",
     "seed:run":        "node ./build/seeder/seeder.js",
     "standard":        "standard",
-    "start":           "nodemon build/server.js",
+    "start":           "node build/server.js",
     "test":            "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
