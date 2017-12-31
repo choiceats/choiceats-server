@@ -48,6 +48,11 @@ app.get('/graphiql',
   })
 )
 
+app.post('/fileupload', 
+  passport.authenticate('bearer', { session: false }),
+  
+)
+
 app.post('/graphql',
   passport.authenticate('bearer', { session: false }),
   bodyParser.json(),

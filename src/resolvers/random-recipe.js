@@ -3,7 +3,7 @@ import { getRecipesFromSearch } from '../db/pg-adapter'
 
 type SearchParams = {
   searchFilter: string;
-  searchTags: number[];
+  searchTags: string[] | void;
 }
 
 type UserContext = {
@@ -15,6 +15,8 @@ type UserContext = {
 const randomRecipe:
   (void, SearchParams, UserContext) => any =
   async (obj, { searchFilter, searchTags }, { user }) => {
+
+    console.log('searchTags', searchTags);
     try {
       const useFilter = searchFilter === null
         ? 'all'

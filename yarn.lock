@@ -971,10 +971,6 @@ delegates@^1.0.0:
   version "1.0.0"
   resolved "https://leadpages.jfrog.io/leadpages/api/npm/npm/delegates/-/delegates-1.0.0.tgz#84c6e159b81904fdca59a0ef44cd870d31250f9a"
 
-depd@1.1.0:
-  version "1.1.0"
-  resolved "https://leadpages.jfrog.io/leadpages/api/npm/npm/depd/-/depd-1.1.0.tgz#e1bd82c6aab6ced965b97b88b17ed3e528ca18c3"
-
 depd@1.1.1, depd@~1.1.0, depd@~1.1.1:
   version "1.1.1"
   resolved "https://leadpages.jfrog.io/leadpages/api/npm/npm/depd/-/depd-1.1.1.tgz#5783b4e1c459f06fa5ca27f991f3d06e7a310359"
@@ -1147,6 +1143,12 @@ extsprintf@1.3.0, extsprintf@^1.2.0:
 eyes@0.1.x:
   version "0.1.8"
   resolved "https://leadpages.jfrog.io/leadpages/api/npm/npm/eyes/-/eyes-0.1.8.tgz#62cf120234c683785d902348a800ef3e0cc20bc0"
+
+fd-slicer@~1.0.1:
+  version "1.0.1"
+  resolved "https://leadpages.jfrog.io/leadpages/api/npm/npm/fd-slicer/-/fd-slicer-1.0.1.tgz#8b5bcbd9ec327c5041bf9ab023fd6750f1177e65"
+  dependencies:
+    pend "~1.2.0"
 
 filename-regex@^2.0.0:
   version "2.0.1"
@@ -1383,15 +1385,6 @@ home-or-tmp@^2.0.0:
     os-homedir "^1.0.0"
     os-tmpdir "^1.0.1"
 
-http-errors@1.6.1:
-  version "1.6.1"
-  resolved "https://leadpages.jfrog.io/leadpages/api/npm/npm/http-errors/-/http-errors-1.6.1.tgz#5f8b8ed98aca545656bf572997387f904a722257"
-  dependencies:
-    depd "1.1.0"
-    inherits "2.0.3"
-    setprototypeof "1.0.3"
-    statuses ">= 1.3.1 < 2"
-
 http-errors@^1.3.0, http-errors@~1.6.1, http-errors@~1.6.2:
   version "1.6.2"
   resolved "https://leadpages.jfrog.io/leadpages/api/npm/npm/http-errors/-/http-errors-1.6.2.tgz#0a002cc85707192a7e7946ceedc11155f60ec736"
@@ -1416,10 +1409,6 @@ i@0.3.x:
 iconv-lite@0.4.15:
   version "0.4.15"
   resolved "https://leadpages.jfrog.io/leadpages/api/npm/npm/iconv-lite/-/iconv-lite-0.4.15.tgz#fe265a218ac6a57cfe854927e9d04c19825eddeb"
-
-iconv-lite@0.4.18:
-  version "0.4.18"
-  resolved "https://leadpages.jfrog.io/leadpages/api/npm/npm/iconv-lite/-/iconv-lite-0.4.18.tgz#23d8656b16aae6742ac29732ea8f0336a4789cf2"
 
 ignore-by-default@^1.0.0:
   version "1.0.1"
@@ -1769,17 +1758,13 @@ minimatch@^3.0.0, minimatch@^3.0.2, minimatch@^3.0.4:
   dependencies:
     brace-expansion "^1.1.7"
 
-minimist@0.0.8:
+minimist@0.0.8, minimist@~0.0.1:
   version "0.0.8"
   resolved "https://leadpages.jfrog.io/leadpages/api/npm/npm/minimist/-/minimist-0.0.8.tgz#857fcabfc3397d2625b8228262e86aa7a011b05d"
 
 minimist@^1.2.0:
   version "1.2.0"
   resolved "https://leadpages.jfrog.io/leadpages/api/npm/npm/minimist/-/minimist-1.2.0.tgz#a35008b20f41383eec1fb914f4cd5df79a264284"
-
-minimist@~0.0.1:
-  version "0.0.10"
-  resolved "https://leadpages.jfrog.io/leadpages/api/npm/npm/minimist/-/minimist-0.0.10.tgz#de3f98543dbf96082be48ad1a0c7cda836301dcf"
 
 mkdirp@0.x.x, "mkdirp@>=0.5 0", mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.0:
   version "0.5.1"
@@ -1803,17 +1788,19 @@ ms@2.0.0:
   version "2.0.0"
   resolved "https://leadpages.jfrog.io/leadpages/api/npm/npm/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
 
+multiparty@^4.1.3:
+  version "4.1.3"
+  resolved "https://leadpages.jfrog.io/leadpages/api/npm/npm/multiparty/-/multiparty-4.1.3.tgz#3c43c7fcb1896e17460436a9dd0b6ef1668e4f94"
+  dependencies:
+    fd-slicer "~1.0.1"
+
 mute-stream@~0.0.4:
   version "0.0.7"
   resolved "https://leadpages.jfrog.io/leadpages/api/npm/npm/mute-stream/-/mute-stream-0.0.7.tgz#3075ce93bc21b8fab43e1bc4da7e8115ed1e7bab"
 
-nan@2.6.2:
+nan@2.6.2, nan@^2.3.0:
   version "2.6.2"
   resolved "https://leadpages.jfrog.io/leadpages/api/npm/npm/nan/-/nan-2.6.2.tgz#e4ff34e6c95fdfb5aecc08de6596f43605a7db45"
-
-nan@^2.3.0:
-  version "2.7.0"
-  resolved "https://leadpages.jfrog.io/leadpages/api/npm/npm/nan/-/nan-2.7.0.tgz#d95bf721ec877e08db276ed3fc6eb78f9083ad46"
 
 ncp@1.0.x:
   version "1.0.1"
@@ -2032,6 +2019,10 @@ pause@0.0.1:
   version "0.0.1"
   resolved "https://leadpages.jfrog.io/leadpages/api/npm/npm/pause/-/pause-0.0.1.tgz#1d408b3fdb76923b9543d96fb4c9dfd535d9cb5d"
 
+pend@~1.2.0:
+  version "1.2.0"
+  resolved "https://leadpages.jfrog.io/leadpages/api/npm/npm/pend/-/pend-1.2.0.tgz#7a57eb550a6783f9115331fcf4663d5c8e007a50"
+
 performance-now@^0.2.0:
   version "0.2.0"
   resolved "https://leadpages.jfrog.io/leadpages/api/npm/npm/performance-now/-/performance-now-0.2.0.tgz#33ef30c5c77d4ea21c5a53869d91b56d8f2555e5"
@@ -2194,16 +2185,7 @@ range-parser@~1.2.0:
   version "1.2.0"
   resolved "https://leadpages.jfrog.io/leadpages/api/npm/npm/range-parser/-/range-parser-1.2.0.tgz#f49be6b487894ddc40dcc94a322f611092e00d5e"
 
-raw-body@^2.1.0:
-  version "2.3.0"
-  resolved "https://leadpages.jfrog.io/leadpages/api/npm/npm/raw-body/-/raw-body-2.3.0.tgz#f79ce1acacaba5b6362d33454d785d7129f4bc67"
-  dependencies:
-    bytes "2.5.0"
-    http-errors "1.6.1"
-    iconv-lite "0.4.18"
-    unpipe "1.0.0"
-
-raw-body@~2.2.0:
+raw-body@^2.1.0, raw-body@~2.2.0:
   version "2.2.0"
   resolved "https://leadpages.jfrog.io/leadpages/api/npm/npm/raw-body/-/raw-body-2.2.0.tgz#994976cf6a5096a41162840492f0bdc5d6e7fb96"
   dependencies:
@@ -2381,13 +2363,9 @@ semver-diff@^2.0.0:
   dependencies:
     semver "^5.0.3"
 
-semver@4.3.2:
+semver@4.3.2, semver@^4.1.0:
   version "4.3.2"
   resolved "https://leadpages.jfrog.io/leadpages/api/npm/npm/semver/-/semver-4.3.2.tgz#c7a07158a80bedd052355b770d82d6640f803be7"
-
-semver@^4.1.0:
-  version "4.3.6"
-  resolved "https://leadpages.jfrog.io/leadpages/api/npm/npm/semver/-/semver-4.3.6.tgz#300bc6e0e86374f7ba61068b5b1ecd57fc6532da"
 
 semver@^5.0.3, semver@^5.1.0, semver@^5.3.0:
   version "5.4.1"
