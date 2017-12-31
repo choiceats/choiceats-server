@@ -37,7 +37,7 @@ const typeDefs = `
     instructions: String
     name: String
     youLike: Boolean
-    likes: Int
+    likes: [Int]
   }
 
   input UnitInput {
