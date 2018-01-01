@@ -68,7 +68,7 @@ const typeDefs = `
   }
 
   type Query {
-    recipes(searchText: String, searchFilter: String, searchTags: [Int]): [Recipe]
+    recipes(searchText: String, searchFilter: String, searchTags: [String]): [Recipe]
     recipe(recipeId: Int!): Recipe
     randomRecipe(searchFilter: String): Recipe
     units: [Unit]
