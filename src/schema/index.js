@@ -64,11 +64,11 @@ const typeDefs = `
     name: String
     youLike: Boolean
     likes: Int
-    tags: [Int]
+    tags: [String]
   }
 
   type Query {
-    recipes(searchText: String, searchFilter: String, searchTags: [Int]): [Recipe]
+    recipes(searchText: String, searchFilter: String, searchTags: [String]): [Recipe]
     recipe(recipeId: Int!): Recipe
     randomRecipe(searchFilter: String): Recipe
     units: [Unit]
