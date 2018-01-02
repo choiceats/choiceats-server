@@ -84,7 +84,7 @@ app.post('/auth',
         email: tokenResults.email,
         name: tokenResults.name,
         token: tokenResults.token,
-        userId: tokenResults.id
+        userId: "" + tokenResults.id
       })
     } else {
       res.status(401)
@@ -102,7 +102,7 @@ app.post(
     const newUser = await user.createUser(email, password, firstName, lastName)
     if (newUser) {
       res.json({
-        userId: newUser.id,
+        userId: "" + newUser.id,
         email: newUser.email,
         name: newUser.name,
         token: newUser.token,
