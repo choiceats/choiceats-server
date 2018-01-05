@@ -13,7 +13,7 @@ const getRecipesFromSearch:
   async (searchText, searchFilter, searchTags, user) => {
     const queryParams = (searchFilter !== 'all')
       ? [`%${searchText}%`, user.id]
-      : [`%%`]
+      : [`%${searchText}%`]
 
     const useSearchTags = searchTags === undefined 
       ? []
