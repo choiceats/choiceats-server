@@ -64,7 +64,7 @@ const typeDefs = `
     name: String
     youLike: Boolean
     likes: Int
-    tags: [Int]
+    tags: [String]
   }
 
   type Query {
