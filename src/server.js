@@ -88,7 +88,7 @@ app.post('/auth',
       })
     } else {
       res.status(401)
-      res.json({ error: 'Invalid creditials' })
+      res.json({ error: 'Invalid credentials' })
     }
   }
 )
@@ -99,16 +99,16 @@ app.post(
   bodyParser.json(),
   async (req: $Request, res: $Response) => {
     const { email, password, firstName, lastName } = req.body
-    const newUser = await user.createUser(email, password, firstName, lastName)
-    if (newUser) {
+    const createUserAttempt = await user.createUser(email, password, firstName, lastName)
+    if (createUserAttempt && createUserAttempt.error === undefined) {
       res.json({
-        userId: "" + newUser.id,
-        email: newUser.email,
-        name: newUser.name,
-        token: newUser.token,
+        userId: "" + createUserAttempt.id,
+        email: createUserAttempt.email,
+        name: createUserAttempt.name,
+        token: createUserAttempt.token,
       })
     } else {
-      res.json({error: 'something here...'})
+      res.json(createUserAttempt)
     }
   }
 )

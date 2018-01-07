@@ -73,7 +73,9 @@ export const generateAccessToken:
 export const createUser = async (email: string, password: string, firstName: string, lastName: string) => {
   const results = await query('SELECT email FROM users WHERE email=$1', [email])
   if (results.rowCount) {
-    return false // Email taken
+    return {
+      error: `The email address ${email} is already taken. Please use another address.`,
+    }
   }
 
   const { token, salt } = await generateSecrets(password)
@@ -91,7 +93,10 @@ export const createUser = async (email: string, password: string, firstName: str
 
     return tokenResults
   }
-  return false
+
+  return {
+    error: "The server is currently unable to create your account. Please try again later."
+  }
 }
 
 const generateSecrets = async (password: string) => {
