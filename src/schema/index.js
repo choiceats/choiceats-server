@@ -1,7 +1,8 @@
-import { makeExecutableSchema } from 'graphql-tools'
-import { resolvers } from './resolvers'
+import { makeExecutableSchema } from "graphql-tools"
+import { resolvers } from "./resolvers"
 
-const typeDefs = `
+const typeDefs =
+  `
   type Unit {
     id: ID
     name: String
@@ -42,28 +43,22 @@ const typeDefs = `
 
   input UnitInput {
     id: ID
-    name: String
-    abbr: String
   }
 
   input RecipeIngredientInput {
     id: ID
-    name: String!
-    unit: UnitInput
+    unitId: Int
     quantity: Float!
   }
 
   input RecipeInput {
     id: ID
-    author: String
-    authorId: String
     description: String
     imageUrl: String
-    ingredients: [RecipeIngredientInput]
+    ` +
+  /* ingredients: [RecipeIngredientInput] */ `
     instructions: String
     name: String
-    youLike: Boolean
-    likes: Int
     tags: [String]
   }
 
