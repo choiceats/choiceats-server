@@ -75,17 +75,30 @@ type AuthBody = {
 app.post('/auth',
   bodyParser.json(),
   async (req: AuthBody, res) => {
-    const { email, password } = req.body
+    // React version sends as req.body.email, elm sends as req.body.user.email
+    const { email, password } = (req.body && req.body.user) || req.body;
     const isValid = await user.validateEmailAndPassword(email, password)
     if (isValid) {
       const tokenResults = await user.generateAccessToken(email)
       console.log('Results token...', tokenResults);
-      res.json({
-        email: tokenResults.email,
-        name: tokenResults.name,
-        token: tokenResults.token,
-        userId: "" + tokenResults.id
-      })
+      const response = (req.body && req.body.user)
+      // Elm version is nested in a user field
+        ? {
+          user: {
+            email: tokenResults.email,
+            name: tokenResults.name,
+            token: tokenResults.token,
+            userId: "" + tokenResults.id
+          }
+        }
+      // React version is not nested
+        : {
+          email: tokenResults.email,
+          name: tokenResults.name,
+          token: tokenResults.token,
+          userId: "" + tokenResults.id
+        }
+      res.json(response)
     } else {
       res.status(401)
       res.json({ error: 'Invalid credentials' })
