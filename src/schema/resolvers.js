@@ -1,6 +1,8 @@
 // @flow
 import { query } from "../db"
 
+import { getRecipeById } from "../db/pg-adapter"
+
 import recipeResolver from "../resolvers/recipe"
 // import recipesResolver from '../resolvers/recipes'
 import searchResolver from "../resolvers/search"
@@ -138,7 +140,7 @@ export const resolvers = {
       const userId = context.user.id
 
       console.log("RECIPE", recipe)
-      recipe.id === null
+      return recipe.id === null
         ? await insertRecipe(recipe, userId)
         : await updateRecipe(recipe, userId)
     },
@@ -218,6 +220,8 @@ async function updateRecipe(recipe, userId) {
 
   await insertRecipeIngredients(recipe)
   // await insertRecipeTags(recipe)
+
+  return await getRecipeById(recipe.id)
 }
 
 function insertRecipeIngredients(recipe) {
