@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "babel src --out-dir build",
-    "build-and-run": "git pull && && yarn start",
-    "build-front-end": "git clone https://github.com/choiceats/choiceats tmp-fed && cd tmp-fed && rm yarn.lock && yarn install && yarn build && cp -R build/* ../build && cd .. && rm -rf tmp-fed",
+    "build-and-run": "git pull && yarn start",
+    "build-front-end": "git clone https://github.com/choiceats/choiceats tmp-fed && cd tmp-fed && yarn install && yarn build && cp -R build/* ../build && cd .. && rm -rf tmp-fed",
     "build-full": "rm yarn.lock && yarn install && yarn build && yarn build-front-end && yarn initialize-db",
     "initialize-db": "yarn migrate:up && yarn seed:build && yarn seed:run",
     "migrate:new": "db-migrate create -m resources/db-migrate/migrations --config resources/db-migrate/database.json",
