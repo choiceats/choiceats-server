@@ -8,7 +8,7 @@ type SearchParams = {
 
 type UserContext = {
   user: {
-    id: number;
+    id: string;
   }
 }
 
@@ -16,7 +16,6 @@ const randomRecipe:
   (void, SearchParams, UserContext) => any =
   async (obj, { searchFilter, searchTags }, { user }) => {
 
-    console.log('searchTags', searchTags);
     try {
       const useFilter = searchFilter === null
         ? 'all'

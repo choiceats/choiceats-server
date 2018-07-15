@@ -10,13 +10,13 @@ import { sqlRecipesQuery } from './queries'
 import type { Recipe } from '../../types'
 
 const getRecipeById:
-  (id: number) => Promise<Recipe> =
-  async (id) => {
-    const recipeResults = await query(sqlRecipesQuery('' + id), [])
+  (recipeId: string, userId: string) => Promise<Recipe> =
+  async (recipeId, userId) => {
+    const recipeResults = await query(sqlRecipesQuery('' + recipeId), [])
     const recipes = buildBaseRecipeFromResults(recipeResults.rows)
 
     await addIngredientsToRecipes(recipes)
-    await addLikesToRecipes(recipes)
+    await addLikesToRecipes(recipes, userId)
     await addTagsToRecipes(recipes)
 
     return recipes[0]

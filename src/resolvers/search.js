@@ -19,7 +19,6 @@ type Context = {
 const search:
   (obj: void, searchParams: RecipeSearchParams, context: Context) => any =
   async (obj, { searchText, searchFilter, searchTags }, { user }) => {
-    console.log(searchTags);
     try {
       return getRecipesFromSearch(searchText, searchFilter, searchTags, user)
     } catch (e) {

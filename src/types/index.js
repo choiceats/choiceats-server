@@ -1,25 +1,25 @@
 // @flow
 export type DbRecipe = {
-  recipe_id: number;
+  recipe_id: string;
   name: string;
   first_name: string;
   last_name: string;
-  id: number;
+  id: string;
   description: string;
   image_url: string;
   instructions: string;
-  author_id: number;
+  author_id: string;
   likes: number;
-  ingredient_id: number;
+  ingredient_id: string;
   ingredient: string;
   quantity: number;
   unit: string;
   unit_abbr: string;
-  unit_id: number;
+  unit_id: string;
 }
 
 export type UserContext = {
-  id: number;
+  id: string;
 }
 
 export type DbResults = {
@@ -28,23 +28,23 @@ export type DbResults = {
 }
 
 export type Ingredient = {
-  id: number,
+  id: string,
   name: string,
   quantity: number,
   unit: {
-    id: number,
+    id: string,
     name: string,
     abbr: string
   }
 }
 
 export type Tag = {
-  id: number,
+  id: string,
   name: string
 }
 
 export type Recipe = {
-  id: number,
+  id: string,
   name: string,
   author: string,
   authorId: number,
@@ -54,5 +54,5 @@ export type Recipe = {
   imageUrl: string,
   likes: number[],
   youLike: boolean,
-  tags: Array<{id: number, name: string}>
+  tags: Array<{id: string, name: string}>
 }

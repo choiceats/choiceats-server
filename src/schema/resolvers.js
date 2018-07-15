@@ -92,6 +92,7 @@ export const resolvers = {
       try {
         const { recipeId = "" } = args
         const { user } = context
+
         const userId = user.id
         if (!recipeId || !userId) return null
         const likeExists = await query(sqlRecipeGetUserLike, [recipeId, userId])
@@ -104,13 +105,9 @@ export const resolvers = {
           const likeCountAfterDelete = await query(sqlRecipeGetAllLikes, [
             recipeId
           ])
-          return deleteLike
-            ? {
-                id: recipeId,
-                youLike: false,
-                likes: likeCountAfterDelete.rows.length
-              }
-            : {}
+
+          return await (recipeResolver(undefined, { recipeId }, { user: { id: userId }}))
+
         } else {
           const createLike = await query(sqlRecipeCreateLike, [
             recipeId,
@@ -121,13 +118,7 @@ export const resolvers = {
             recipeId
           ])
 
-          return createLike
-            ? {
-                id: likeData.recipe_id,
-                youLike: true,
-                likes: likeCountAfterLike.rows.length
-              }
-            : {}
+          return await (recipeResolver(undefined, { recipeId }, { user: { id: userId }}))
         }
       } catch (e) {
         console.error("Db Error:", e)
@@ -147,7 +138,7 @@ export const resolvers = {
 
     deleteRecipe: async (
       object: any,
-      args: { recipeId: number },
+      args: { recipeId: string },
       context: { user: Object }
     ) => {
       const userId = context.user.id
@@ -221,7 +212,7 @@ async function updateRecipe(recipe, userId) {
   await insertRecipeIngredients(recipe)
   // await insertRecipeTags(recipe)
 
-  return await getRecipeById(recipe.id)
+  return await getRecipeById(recipe.id, userId)
 }
 
 function insertRecipeIngredients(recipe) {
@@ -257,7 +248,7 @@ function insertRecipeTags(recipe) {
   return Promise.all(insertPromises)
 }
 
-export async function checkIfRecipeOwner(userId, recipeId) {
+export async function checkIfRecipeOwner(userId: string, recipeId: string) {
   const recipe = await query("SELECT author_id FROM recipes WHERE id = $1", [
     recipeId
   ])

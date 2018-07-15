@@ -31,7 +31,7 @@ const getRecipesFromSearch:
     const recipes = buildBaseRecipeFromResults(recipeResults.rows)
 
     await addIngredientsToRecipes(recipes)
-    await addLikesToRecipes(recipes)
+    await addLikesToRecipes(recipes, user.id)
     await addTagsToRecipes(recipes)
 
     return recipes

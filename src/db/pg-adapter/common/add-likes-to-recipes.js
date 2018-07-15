@@ -4,8 +4,8 @@ import { query } from '../../'
 import type { Recipe } from '../../../types'
 
 const addLikesToRecipes:
-  (recipes: Recipe[]) => Promise<void> =
-  async (recipes) => {
+  (recipes: Recipe[], userId: string) => Promise<void> =
+  async (recipes, userId) => {
     const recipeIds = recipes.map(r => r.id)
     const likesResults = await query(sqlRecipeLikesQuery(recipeIds.join(',')), [])
     if (!likesResults) {
@@ -17,6 +17,10 @@ const addLikesToRecipes:
 
       if (recipe) {
         recipe.likes.push(likesRow.likes)
+
+        if (likesRow.likes === userId) {
+          recipe.youLike = true;
+        }
       }
     })
   }

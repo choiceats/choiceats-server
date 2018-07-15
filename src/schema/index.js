@@ -3,18 +3,18 @@ import { resolvers } from "./resolvers"
 
 const typeDefs = `
   type Unit {
-    id: ID
+    id: String
     name: String
     abbr: String
   }
 
   type Ingredient {
-    id: ID
+    id: String
     name: String!
   }
 
   type RecipeIngredient {
-    id: ID
+    id: String
     name: String!
     unit: Unit
     quantity: Float!
@@ -22,12 +22,12 @@ const typeDefs = `
   }
 
   type Tag {
-    id: ID
+    id: String
     name: String!
   }
 
   type Recipe {
-    id: ID
+    id: String
     author: String
     authorId: String
     description: String
@@ -41,7 +41,7 @@ const typeDefs = `
   }
 
   input UnitInput {
-    id: ID
+    id: String
   }
 
   input RecipeIngredientInput {
@@ -62,7 +62,7 @@ const typeDefs = `
 
   type Query {
     recipes(searchText: String, searchFilter: String, searchTags: [String]): [Recipe]
-    recipe(recipeId: Int!): Recipe
+    recipe(recipeId: String!): Recipe
     randomRecipe(searchFilter: String): Recipe
     units: [Unit]
     ingredients: [Ingredient]
@@ -70,14 +70,14 @@ const typeDefs = `
   }
 
   type DeleteRecipeResult {
-    recipeId: ID!
+    recipeId: String!
     deleted: Boolean
   }
 
   type Mutation {
-    likeRecipe(userId: ID!, recipeId: ID!): Recipe
+    likeRecipe(userId: String!, recipeId: String!): Recipe
     saveRecipe(recipe: RecipeInput): Recipe
-    deleteRecipe(recipeId: ID): DeleteRecipeResult!
+    deleteRecipe(recipeId: String): DeleteRecipeResult!
   }
 `
 

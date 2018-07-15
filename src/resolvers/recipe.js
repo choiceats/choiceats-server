@@ -2,12 +2,12 @@
 import { getRecipeById } from '../db/pg-adapter'
 
 type RecipeArgs = {
-  recipeId: number;
+  recipeId: string;
 }
 
 type UserContext = {
   user: {
-    id: number;
+    id: string;
   }
 }
 
@@ -15,7 +15,7 @@ const recipeResolver:
   (obj: void, args: RecipeArgs, context: UserContext) => Promise<any> =
   async (obj, { recipeId }, context) => {
     try {
-      return await getRecipeById(recipeId)
+      return await getRecipeById(recipeId, context.user.id)
     } catch (e) {
       console.error('Db Error:', e)
       return e
