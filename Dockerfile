@@ -10,10 +10,10 @@ ARG DB_PASS
 
 EXPOSE 4000
 
-RUN which npm
-RUN which yarn
-RUN npm install -g yarn
-RUN which yarn
+# RUN which npm
+# RUN which yarn
+# RUN npm install -g yarn
+# RUN which yarn
 RUN yarn global add elm elm-test
 RUN git clone https://github.com/choiceats/choiceats-server
 WORKDIR choiceats-server
