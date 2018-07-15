@@ -42,7 +42,6 @@ node {
     def now = new Date()
     def timestamp = now.format("yyMMdd.HHmm", TimeZone.getTimeZone('UTC'))
     def appImageTag="choiceats/app:${timestamp}"
-    def appContainerName="choiceats-app"
 
     def customImage = docker.build("${appImageTag}", "${appDockerArgs}")
 
