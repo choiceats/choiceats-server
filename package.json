@@ -8,7 +8,7 @@
     "build-and-run": "git pull && yarn start",
     "build-front-end": "git clone https://github.com/choiceats/choiceats tmp-fed && cd tmp-fed && yarn install && yarn build-prod && cp -R dist/* ../build && cd .. && rm -rf tmp-fed",
     "build-full": "rm yarn.lock && yarn install && yarn build && yarn build-front-end && yarn initialize-db",
-    "build-full-and-run": "build-full && node build/server.js",
+    "build-full-and-run": "yarn build-full && node build/server.js",
     "initialize-db": "yarn migrate:up && yarn seed:build && yarn seed:run",
     "migrate:new": "db-migrate create -m resources/db-migrate/migrations --config resources/db-migrate/database.json",
     "migrate:up": "db-migrate up     -m resources/db-migrate/migrations --config=resources/db-migrate/database.json",
