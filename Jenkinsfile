@@ -39,11 +39,13 @@ node {
       --build-arg DB_PASS=${env.CHOICEATS_DB_PASS}
       -f Dockerfile ./""".stripIndent()
 
+    def appDockerArgsOneline = "--build-arg DB_HOST=${env.CHOICEATS_DB_HOST} --build-arg DB_NAME=${env.CHOICEATS_DB_NAME} --build-arg DB_PORT=${env.CHOICEATS_DB_PORT} --build-arg DB_USER=${env.CHOICEATS_DB_USER} --build-arg DB_PASS=${env.CHOICEATS_DB_PASS} -f Dockerfile ./"
+
     def now = new Date()
     def timestamp = now.format("yyMMdd.HHmm", TimeZone.getTimeZone('UTC'))
     def appImageTag="choiceats/app:${timestamp}"
 
-    def customImage = docker.build("${appImageTag}", "${appDockerArgs}")
+    def customImage = docker.build("${appImageTag}", "${appDockerArgsOneline}")
 
     sh "docker run --rm --net ${env.CHOICEATS_NETW} -p 80:4000 -dit --name ${appContainerName} ${appImageTag}"
   }
