@@ -25,4 +25,4 @@ RUN echo "environment variables for connecting to DB are:"
 RUN cat .env
 
 # RUN yarn migrate:up
-ENTRYPOINT ["yarn", "build-full"]
+ENTRYPOINT ["yarn", "build-full-and-run"]
