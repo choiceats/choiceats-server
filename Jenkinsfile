@@ -32,7 +32,9 @@ node {
       done
     /'''.stripIndent()
 
-    sh grepStop
+      
+
+    sh "docker ps --all --filter name=choiceats | grep -o \"choiceats.*\" | while read -r line ; do echo \"Processing \$line\" ; done"
 
     sh "docker stop ${appContainerName} || true"
     sh "docker rm ${appContainerName} || true"
