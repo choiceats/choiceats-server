@@ -19,7 +19,7 @@ RUN git clone https://github.com/choiceats/choiceats-server
 WORKDIR choiceats-server
 
 #place echo statements AFTER changing to choiceats-server directory
-RUN echo $' \n\
+RUN echo ' \n\
 DB_HOST='$DB_HOST'\n\
 DB_NAME='$DB_NAME'\n\
 DB_PORT='$DB_PORT'\n\
