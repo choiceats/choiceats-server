@@ -8,15 +8,10 @@ node {
 
   stage("test_backend") {
     nodejs(nodeJSInstallationName: 'Node for choiceats') {
-      sh 'rm -r choiceats | true'
       sh 'rm -r tmp-test-choiceats | true'
       sh 'git clone https://github.com/choiceats/choiceats.git tmp-test-choiceats'
       dir ('tmp-test-choiceats') {
-        sh 'pwd'
-        sh 'ls ../'
-        sh 'ls'
-        sh 'ls tests'
-        sh 'elm-package install -y'
+        // sh 'elm-package install -y'
         sh 'elm-test'
       }
     }
