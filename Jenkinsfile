@@ -21,7 +21,7 @@ node {
   }
 
   stage("create_docker_network") {
-    sh "[[ ! \$(docker network ls --filter name=${env.CHOICEATS_NETW} | grep ${env.CHOICEATS_NETW}) ]] && docker network create ${env.CHOICEATS_NETW}"
+    sh "test -z \$(docker network ls --filter name=${env.CHOICEATS_NETW} | grep ${env.CHOICEATS_NETW}) && docker network create ${env.CHOICEATS_NETW}"
   }
 
   stage("build_app") {
