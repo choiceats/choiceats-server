@@ -6,12 +6,11 @@ node {
   def appContainerName="choiceats-app-${timestamp}"
   def appImageTag="choiceats/app:${timestamp}"
 
-  stage("test_backend") {
+  stage("test_frontend") {
     nodejs(nodeJSInstallationName: 'Node for choiceats') {
       sh 'rm -r tmp-test-choiceats | true'
       sh 'git clone https://github.com/choiceats/choiceats.git tmp-test-choiceats'
       dir ('tmp-test-choiceats') {
-        // sh 'elm-package install -y'
         sh 'elm-test'
       }
     }
@@ -21,9 +20,9 @@ node {
     sh "echo running database not yet implemented"
   }
 
-  // stage("create_docker_network") {
-  //   sh "[ ! \"$(docker network ls --filter name=${env.CHOICEATS_NETW} | grep ${env.CHOICEATS_NETW})\" ] && docker network create ${env.CHOICEATS_NETW}"
-  // }
+  stage("create_docker_network") {
+    sh "[[ ! $(docker network ls --filter name=${env.CHOICEATS_NETW} | grep ${env.CHOICEATS_NETW}) ]] && docker network create ${env.CHOICEATS_NETW}"
+  }
 
   stage("build_app") {
 
@@ -50,7 +49,4 @@ node {
   stage("run_app") {
     sh "docker run --rm --net ${env.CHOICEATS_NETW} -p 80:4000 -dit --name ${appContainerName} ${appImageTag}"
   }
-
-  // list of all choiceats-app
-  // docker ps --all --filter name=choiceats-app | grep -o "choiceats-app.*"
 }
