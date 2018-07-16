@@ -23,6 +23,17 @@ node {
   // }
 
   stage("remove_old_containers") {
+    def grepStop = """/
+      docker ps --all --filter name=choiceats
+      | grep -o "choiceats.*"
+      | while read -r line ; do
+        echo "Processing $line"
+        # your code goes here
+      done
+    /""".stripIndent()
+
+    sh grepStop
+
     sh "docker stop ${appContainerName} || true"
     sh "docker rm ${appContainerName} || true"
   }
@@ -49,4 +60,7 @@ node {
 
     sh "docker run --rm --net ${env.CHOICEATS_NETW} -p 80:4000 -dit --name ${appContainerName} ${appImageTag}"
   }
+
+  // list of all choiceats-app
+  // docker ps --all --filter name=choiceats-app | grep -o "choiceats-app.*"
 }
