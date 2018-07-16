@@ -12,6 +12,9 @@ node {
       sh 'rm -r tmp-test-choiceats | true'
       sh 'git clone https://github.com/choiceats/choiceats.git tmp-test-choiceats'
       sh 'cd tmp-test-choiceats'
+      sh 'ls ../'
+      sh 'ls'
+      sh 'ls tests'
       sh 'elm-package install -y'
       sh 'elm-test'
     }
