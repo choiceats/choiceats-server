@@ -8,9 +8,9 @@ node {
 
   stage("test_backend") {
     nodejs(nodeJSInstallationName: 'Node for choiceats') {
-      sh 'mkdir fed'
-      sh 'cd fed'
       sh 'git clone https://github.com/choiceats/choiceats.git'
+      sh 'cd choiceats'
+      sh 'elm-package install'
       sh 'elm-test'
     }
   }
