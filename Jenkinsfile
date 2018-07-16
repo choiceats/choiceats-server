@@ -36,7 +36,7 @@ node {
       --build-arg DB_USER=${env.CHOICEATS_DB_USER}
       --build-arg DB_PASS=${env.CHOICEATS_DB_PASS}
       -f Dockerfile ./
-    """.stripIndent()
+    """.stripIndent().trim()
 
     def appDockerArgsOneline = "--build-arg DB_HOST=${env.CHOICEATS_DB_HOST} --build-arg DB_NAME=${env.CHOICEATS_DB_NAME} --build-arg DB_PORT=${env.CHOICEATS_DB_PORT} --build-arg DB_USER=${env.CHOICEATS_DB_USER} --build-arg DB_PASS=${env.CHOICEATS_DB_PASS} -f Dockerfile ./"
 
