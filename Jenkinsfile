@@ -44,7 +44,7 @@ node {
   }
 
   stage("remove_old_containers") {
-    sh "docker ps --all --filter name=choiceats-app | grep -o \"choiceats-app.*\" | while read -r line ; do echo \"Processing \$line\" && (docker stop \$line || true) && (docker rm \$line || true}; done"
+    sh "docker ps --all --filter name=choiceats-app | grep -o \"choiceats-app.*\" | while read -r line ; do echo \"Processing \$line\" && (docker stop \$line || true) && (docker rm \$line || true); done"
   }
 
   stage("run_app") {
