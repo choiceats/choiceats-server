@@ -19,12 +19,12 @@ RUN git clone https://github.com/choiceats/choiceats-server
 WORKDIR choiceats-server
 
 #place echo statements AFTER changing to choiceats-server directory
-RUN echo $'\n\
-DB_HOST='$DB_HOST$'\n\
-DB_NAME='$DB_NAME$'\n\
-DB_PORT='$DB_PORT$'\n\
-DB_USER='$DB_USER$'\n\
-DB_PASS='$DB_PASS$'\n '\
+RUN echo $' \n\
+DB_HOST='$DB_HOST'\n\
+DB_NAME='$DB_NAME'\n\
+DB_PORT='$DB_PORT'\n\
+DB_USER='$DB_USER'\n\
+DB_PASS='$DB_PASS'\n '\
 > .env
 
 RUN echo "environment variables for connecting to DB are:"
