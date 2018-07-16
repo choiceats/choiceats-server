@@ -7,8 +7,9 @@ node {
   def appImageTag="choiceats/app:${timestamp}"
 
   stage("test_backend") {
-    sh "which node"
-    sh "node --version"
+    nodejs(nodeJSInstallationName: 'Node for choiceats', configId: '<config-file-provider-id>') {
+      sh 'npm config ls'
+    }
   }
 
   stage("run_database") {
