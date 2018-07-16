@@ -27,8 +27,5 @@ DB_USER='$DB_USER'\n\
 DB_PASS='$DB_PASS'\n '\
 > .env
 
-RUN echo "environment variables for connecting to DB are:"
-RUN cat .env
-
 # RUN yarn migrate:up
 ENTRYPOINT ["yarn", "build-full-and-run"]
