@@ -7,7 +7,7 @@ node {
   def appImageTag="choiceats/app:${timestamp}"
 
   stage("test_backend") {
-    sh "which_node"
+    sh "which node"
     sh "node --version"
   }
 
