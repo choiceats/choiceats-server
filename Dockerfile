@@ -19,8 +19,7 @@ RUN git clone https://github.com/choiceats/choiceats-server
 WORKDIR choiceats-server
 
 #place echo statements AFTER changing to choiceats-server directory
-RUN echo "DB_HOST=$DB_HOST" > .env
-RUN echo "DB_NAME=$DB_NAME" >> .env
+RUN echo "DB_HOST=$DB_HOST\nDB_NAME=$DB_NAME" > .env
 RUN echo "DB_PORT=$DB_PORT" >> .env
 RUN echo "DB_USER=$DB_USER" >> .env
 RUN echo "DB_PASS=$DB_PASS" >> .env
