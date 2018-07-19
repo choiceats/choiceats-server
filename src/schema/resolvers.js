@@ -191,9 +191,9 @@ async function insertRecipe(recipe, userId) {
 }
 
 async function updateRecipe(recipe, userId) {
-  // if (!(await checkIfRecipeOwner(userId, recipe.id))) {
-  //   return null
-  // }
+  if (!(await checkIfRecipeOwner(userId, recipe.id))) {
+    return null
+  }
   await query("DELETE FROM recipe_ingredients WHERE recipe_id=$1", [recipe.id])
   await query("DELETE FROM recipe_tags WHERE recipe_id=$1", [recipe.id])
   await query(
