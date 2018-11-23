@@ -6,7 +6,7 @@
   "scripts": {
     "build": "babel src --out-dir build",
     "build-and-run": "git pull && yarn start",
-    "build-front-end": "git clone https://github.com/choiceats/choiceats tmp-fed && cd tmp-fed && yarn && ./build.sh && cp -R dist/* ../build && cd .. && rm -rf tmp-fed",
+    "build-front-end": "git clone https://github.com/choiceats/choiceats tmp-fed && cd tmp-fed && yarn && ./build.sh && cp -R dist/* ../build && cd .. && rm -rf tmp-fed && echo removed temp fed directory",
     "build-full": "git pull && rm yarn.lock && yarn && yarn build && yarn build-front-end",
     "build-full-and-run": "yarn build-full && node build/server.js",
     "initialize-db": "yarn migrate:up && yarn seed:build && yarn seed:run",
